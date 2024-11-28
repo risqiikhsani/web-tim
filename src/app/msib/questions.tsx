@@ -32,7 +32,7 @@ const Questions = () => {
   
 
   return (
-    <section className="">
+    <section className="my-10 p-2">
       <div className="container">
         <h1 className="mb-4 text-3xl font-semibold md:mb-11 md:text-5xl">
           Frequently asked questions
@@ -40,10 +40,10 @@ const Questions = () => {
         {faqs.map((faq, index) => (
           <Accordion key={index} type="single" collapsible>
             <AccordionItem value={`item-${index}`}>
-              <AccordionTrigger className="hover:text-foreground/60 hover:no-underline">
+              <AccordionTrigger className="hover:text-orange-400 hover:no-underline text-xl">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent>{faq.answer}</AccordionContent>
+              <AccordionContent className="text-lg pl-4">{faq.answer}</AccordionContent>
             </AccordionItem>
           </Accordion>
         ))}
