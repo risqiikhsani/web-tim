@@ -64,10 +64,10 @@ const feedback = [
 const FeatureImage2 = () => {
   return (
     <Section>
-      <Container>
+      <Container className="flex flex-col justify-center items-center">
         <h2 className="!mt-0 mb-4">Feedback from Customers and Students</h2>
         <p>
-          Here are the list of feedback we received.
+          Here are the list of feedbacks we`ve received.
         </p>
         <Carousel className="mt-6 w-full">
           <CarouselContent className="-ml-1">
@@ -96,19 +96,21 @@ const FeatureImage2 = () => {
                 key={index}
                 className="pl-1 md:basis-1/2 lg:basis-1/3"
               >
-                <div className="p-1">
+                <div className="">
                   <Card className="relative overflow-hidden">
-                    <CardContent className="not-prose flex flex-col aspect-square items-center justify-center">
-                      <h1>{data.name}</h1>
-                      <p>{data.comment}</p>
+                    <CardContent className="not-prose flex flex-col aspect-square items-start justify-start p-2">
+                      <p className="text-muted-foreground"><span className="text-orange-500 font-bold text-2xl">``</span> {data.comment} <span className="text-orange-500 font-bold text-2xl">``</span></p>
+                      <div className="flex-1"></div>
+                      <h1 className="text-primary text-2xl">{data.name}</h1>
+                      <h3 className="text-muted-foreground">{data.type} from {data.university} {data.workplace}</h3>
                     </CardContent>
                   </Card>
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="left-4 top-1/2 "/>
+          <CarouselNext className="right-4 top-1/2"/>
         </Carousel>
       </Container>
     </Section>

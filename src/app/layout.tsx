@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { NavBar } from "@/components/navbar";
+
 import { Toaster } from "@/components/ui/toaster"
+import { NavBar } from "@/components/navbar";
+import Footer from "./_page/footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -37,9 +39,16 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          
+          <div className="bg-gradient-to-r from-sky-50 to-sky-200 dark:bg-gradient-to-r dark:from-black dark:to-slate-900 w-full min-h-screen">
           <NavBar/>
+          <div className="container mx-auto py-32 ">
           {children}
+          </div>
+          <Footer/>
           <Toaster />
+          </div>
+
         </ThemeProvider>
       </body>
     </html>

@@ -72,7 +72,7 @@ const Pricing = () => {
           <Balancer>Select the passion that best suits your needs.</Balancer>
         </p>
 
-        <div className="not-prose mt-4 grid grid-cols-1 gap-6 min-[850px]:grid-cols-3">
+        <div className="not-prose mt-4 grid grid-cols-1 gap-6 md:grid-cols-3">
           {pricingData.map((plan, index) => (
             <PricingCard plan={plan} key={index} />
           ))}

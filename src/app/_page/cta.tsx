@@ -42,11 +42,10 @@ export function CTA() {
   return (
     <Section>
       <Container className="flex flex-col items-center gap-6 text-center">
-        <h2 className="!my-0">Lorem ipsum dolor sit amet!</h2>
+        <h2 className="!my-0">Subscribe to <span className="text-orange-400">TIMCorp</span></h2>
         <p className="text-lg opacity-70 md:text-2xl">
           <Balancer>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Get our up-to-date news and offers.
           </Balancer>
         </p>
         <Form {...form}>

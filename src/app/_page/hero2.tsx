@@ -27,7 +27,7 @@ const Hero2 = () => {
           className="not-prose mb-6 md:mb-8"
         />
         <h1 className="!mb-0">
-          <Balancer>Unlock the Power of the <span className="text-orange-500">AWS Cloud</span></Balancer>
+          <Balancer>Unlock the Power of the <span className="text-orange-500 ">AWS Cloud</span></Balancer>
         </h1>
         <h3 className="text-muted-foreground">
           <Balancer>
@@ -46,14 +46,14 @@ const Hero2 = () => {
           width={200}
           height={200}
           alt="Company Logo"
-          className="not-prose dark:invert rounded-lg"
+          className="not-prose dark:invert rounded-lg animate-in slide-in-from-top duration-1000"
         />
         <Image
           src={Logo3}
           width={300}
           height={200}
           alt="Company Logo"
-          className="not-prose dark:invert rounded-lg"
+          className="not-prose dark:invert rounded-lg animate-in slide-in-from-left duration-1000"
         />
         </div>
         <div className="not-prose mt-6 flex gap-2 md:mt-12">
@@ -64,7 +64,7 @@ const Hero2 = () => {
             </Link>
           </Button> */}
           <Button variant={"outline"} asChild>
-            <Link href="/posts"> Learn more about AWS Partner. -{">"}</Link>
+            <Link href="https://aws.amazon.com/partners/work-with-partners/"> Learn more about AWS Partner. -{">"}</Link>
           </Button>
         </div>
       </Container>

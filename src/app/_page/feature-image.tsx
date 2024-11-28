@@ -61,8 +61,8 @@ const FeatureImage = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="left-4 top-1/2 "/>
+          <CarouselNext className="right-4 top-1/2"/>
         </Carousel>
       </Container>
     </Section>

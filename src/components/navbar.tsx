@@ -45,37 +45,32 @@ export function NavBar() {
             <div className="flex flex-col space-y-3 mt-[1rem] z-[99]">
               <DialogClose asChild>
                 <Link href="/">
-                  <Button variant="outline" className="w-full">
-                    Home
-                  </Button>
+                  Home
+                </Link>
+              </DialogClose>
+              <DialogClose asChild>
+                <Link href="/services">
+                  Services
                 </Link>
               </DialogClose>
               <DialogClose asChild>
                 <Link href="/msib">
-                  <Button variant="outline" className="w-full">
-                    msib
-                  </Button>
+                  MSIB
                 </Link>
               </DialogClose>
               <DialogClose asChild>
                 <Link href="/about">
-                  <Button variant="outline" className="w-full">
-                    about
-                  </Button>
-                </Link>
-              </DialogClose>
-              <DialogClose asChild>
-                <Link href="/vision">
-                  <Button variant="outline" className="w-full">
-                    vision
-                  </Button>
+                  About Us
                 </Link>
               </DialogClose>
               <DialogClose asChild>
                 <Link href="/news">
-                  <Button variant="outline" className="w-full">
-                    news
-                  </Button>
+                  News
+                </Link>
+              </DialogClose>
+              <DialogClose asChild>
+                <Link href="/careers">
+                  Careers
                 </Link>
               </DialogClose>
               <ModeToggle />
@@ -90,18 +85,36 @@ export function NavBar() {
           </NavigationMenuList>
         </NavigationMenu>
         <div className="flex items-center gap-2 max-[825px]:hidden">
-          <Link href="/msib">
-            <Button variant="ghost">msib</Button>
-          </Link>
+        <Button asChild variant="ghost">
           <Link href="/about">
-            <Button variant="ghost">about</Button>
+            About Us
           </Link>
-          <Link href="/vision">
-            <Button variant="ghost">vision</Button>
+          </Button>
+
+          <Button asChild variant="ghost">
+          <Link href="/services">
+            Services
           </Link>
+          </Button>
+          
+          <Button asChild variant="ghost">
+          <Link href="/msib">
+            MSIB
+          </Link>
+          </Button>
+          
+          <Button asChild variant="ghost">
           <Link href="/news">
-            <Button variant="ghost">news</Button>
+            News
           </Link>
+          </Button>
+
+          <Button asChild variant="ghost">
+          <Link href="/careers">
+            Careers
+          </Link>
+          </Button>
+          
           <ModeToggle />
         </div>
       </div>

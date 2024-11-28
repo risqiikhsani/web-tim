@@ -9,13 +9,13 @@ import Balancer from "react-wrap-balancer";
 import { Button } from "@/components/ui/button";
 
 // Icon imports
-import { Github, Twitter, Facebook } from "lucide-react";
+import { Instagram, MailOpenIcon } from "lucide-react";
 
 // Local component imports
 import { Section, Container } from "@/components/craft";
 
 // Asset imports
-import Logo from "@/public/logo.svg";
+import Logo from "@/logo/timcorp.png";
 
 export default function Footer() {
   return (
@@ -24,7 +24,7 @@ export default function Footer() {
         <Container className="grid gap-12 md:grid-cols-[1.5fr_0.5fr_0.5fr]">
           <div className="not-prose flex flex-col gap-6">
             <Link href="/">
-              <h3 className="sr-only">brijr/components</h3>
+              <h3 className="sr-only">TIMCorp</h3>
               <Image
                 src={Logo}
                 alt="Logo"
@@ -35,16 +35,15 @@ export default function Footer() {
             </Link>
             <p>
               <Balancer>
-                brijr/components is a collection of Next.js, React, Typescript
-                components for building landing pages and websites.
+              PT Techno International Mandira.
               </Balancer>
             </p>
           </div>
           <div className="flex flex-col gap-2">
-            <h5>Website</h5>
-            <Link href="/">Blog</Link>
-            <Link href="/">Authors</Link>
-            <Link href="/">Categories</Link>
+            <h5>Socials</h5>
+            <Link href="/">Instagram</Link>
+            <Link href="/">Linkedin</Link>
+            <Link href="/">Email</Link>
           </div>
           <div className="flex flex-col gap-2">
             <h5>Legal</h5>
@@ -55,19 +54,17 @@ export default function Footer() {
         </Container>
         <Container className="not-prose flex flex-col justify-between gap-6 border-t md:flex-row md:items-center md:gap-2">
           <div className="flex gap-2">
+            
             <Button variant="outline" size="icon">
-              <Github />
+              <MailOpenIcon />
             </Button>
             <Button variant="outline" size="icon">
-              <Twitter />
-            </Button>
-            <Button variant="outline" size="icon">
-              <Facebook />
+              <Instagram />
             </Button>
           </div>
           <p className="text-muted-foreground">
             ©{" "}
-            <a href="https://github.com/brijr/components">brijr/components</a>.
+            <Link href="/">TIMCorp</Link>.
             All rights reserved. 2024-present.
           </p>
         </Container>

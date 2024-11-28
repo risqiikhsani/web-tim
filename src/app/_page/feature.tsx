@@ -27,7 +27,7 @@ const Feature = () => {
           <div className="mt-6 grid gap-6 md:mt-12 md:grid-cols-3">
             {featureText.map(({ title, description }, index) => (
               <div
-                className="flex flex-col gap-4 border-solid border border-slate-600 p-4 shadow-2xl rounded-xl bg-white dark:bg-black"
+                className="flex flex-col gap-4 border-solid border-4 border-orange-400 p-4 shadow-2xl rounded-xl bg-white dark:bg-black"
                 key={index}
               >
 

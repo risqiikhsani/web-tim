@@ -11,24 +11,44 @@ import Pricing from "./_page/pricing";
 import Footer from "./_page/footer";
 import FeatureRight2 from "./_page/feature-right2";
 import FeatureImage2 from "./_page/feature-image2";
+import Transition from "@/components/animations/transition";
+import Stat from "./_page/stat";
+import Trusted from "./_page/trusted";
 
 export default function page() {
   return (
-    <Main className="bg-gradient-to-r from-slate-50 to-slate-200 dark:bg-gradient-to-r dark:from-black dark:to-slate-900">
-      <Section>
-        <Container>
+    <Main className="">
+    {/* </Main><Main className="bg-[url('/images/abstract-timekeeper.svg')] dark:bg-[url('/images/abstract-timekeeperdark.svg')]"> */}
+      <Section >
+        {/* <Container > */}
           <Hero2 />
-          <Hero />
+          <Transition direction="right">
+            <Hero />
+          </Transition>
+
           <Feature />
-          <FeatureRight />
-          <FeatureLeft />
-          <FeatureRight2/>
-          <Pricing />
-          <FeatureImage />
+
+          <Transition direction="right">
+            <FeatureRight />
+          </Transition>
+
+          <Transition direction="left">
+            <FeatureLeft />
+          </Transition>
+
+          <Transition direction="right">
+            <FeatureRight2 />
+          </Transition>
+
+          <Transition direction="left">
+            <Pricing />
+          </Transition>
+          <Trusted/>
           <FeatureImage2 />
+          <Stat/>
           <CTA />
-          <Footer />
-        </Container>
+
+        {/* </Container> */}
       </Section>
     </Main>
   );
