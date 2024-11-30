@@ -10,12 +10,9 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "./ui/navigation-menu";
-// import ModeToggle from "../mode-toggle"
 import {
   SheetContent,
-  SheetDescription,
   SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import ModeToggle from "@/components/mode-toggle";
@@ -24,10 +21,22 @@ import Image from "next/image";
 import Logo from "@/logo/timcorp.png";
 import { DialogTitle } from "@radix-ui/react-dialog";
 
+// Navigation items
+const navigationLinks = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "MSIB", href: "/msib" },
+  { label: "About Us", href: "/about" },
+  { label: "News", href: "/news" },
+  { label: "Blogs", href: "/blogs" },
+  { label: "Contact", href: "/contact" },
+  { label: "Careers", href: "/careers" },
+];
+
 export function NavBar() {
   return (
-    <div className="flex items-center min-w-full w-full fixed justify-center p-2 z-[50] mt-[2rem]">
-      <div className="flex justify-between md:w-[720px] w-[95%] border dark:border-zinc-900 dark:bg-black bg-opacity-10 relative backdrop-filter backdrop-blur-lg bg-white border-white border-opacity-20 rounded-xl p-2 shadow-lg">
+    <div className="flex items-center min-w-full w-full fixed justify-center p-4 md:p-6 z-[50]">
+      <div className="flex justify-between w-full border-2 border-white dark:border-primary dark:bg-black bg-opacity-10 relative backdrop-filter backdrop-blur-lg bg-white border-opacity-20 rounded-xl p-2 shadow-2xl">
         <Dialog>
           <SheetTrigger className="min-[825px]:hidden p-2 transition">
             <MenuIcon />
@@ -37,42 +46,13 @@ export function NavBar() {
               <DialogTitle>
                 <Image src={Logo} width={200} height={200} alt="logo" />
               </DialogTitle>
-              {/* <SheetDescription>
-                Scale and launch products with expert developers, on-demand, at
-                a flat monthly fee
-              </SheetDescription> */}
             </SheetHeader>
             <div className="flex flex-col space-y-3 mt-[1rem] z-[99]">
-              <DialogClose asChild>
-                <Link href="/">
-                  Home
-                </Link>
-              </DialogClose>
-              <DialogClose asChild>
-                <Link href="/services">
-                  Services
-                </Link>
-              </DialogClose>
-              <DialogClose asChild>
-                <Link href="/msib">
-                  MSIB
-                </Link>
-              </DialogClose>
-              <DialogClose asChild>
-                <Link href="/about">
-                  About Us
-                </Link>
-              </DialogClose>
-              <DialogClose asChild>
-                <Link href="/news">
-                  News
-                </Link>
-              </DialogClose>
-              <DialogClose asChild>
-                <Link href="/careers">
-                  Careers
-                </Link>
-              </DialogClose>
+              {navigationLinks.map((link) => (
+                <DialogClose asChild key={link.href}>
+                  <Link href={link.href}>{link.label}</Link>
+                </DialogClose>
+              ))}
               <ModeToggle />
             </div>
           </SheetContent>
@@ -85,36 +65,11 @@ export function NavBar() {
           </NavigationMenuList>
         </NavigationMenu>
         <div className="flex items-center gap-2 max-[825px]:hidden">
-        <Button asChild variant="ghost">
-          <Link href="/about">
-            About Us
-          </Link>
-          </Button>
-
-          <Button asChild variant="ghost">
-          <Link href="/services">
-            Services
-          </Link>
-          </Button>
-          
-          <Button asChild variant="ghost">
-          <Link href="/msib">
-            MSIB
-          </Link>
-          </Button>
-          
-          <Button asChild variant="ghost">
-          <Link href="/news">
-            News
-          </Link>
-          </Button>
-
-          <Button asChild variant="ghost">
-          <Link href="/careers">
-            Careers
-          </Link>
-          </Button>
-          
+          {navigationLinks.map((link) => (
+            <Button asChild variant="ghost" key={link.href}>
+              <Link href={link.href}>{link.label}</Link>
+            </Button>
+          ))}
           <ModeToggle />
         </div>
       </div>

@@ -1,32 +1,43 @@
+import { Button } from '@/components/ui/button';
 import { Infinity, MessagesSquare, Zap, ZoomIn } from 'lucide-react';
+import Link from 'next/link';
 
 const feature = [
-  {
-    title: 'Quality',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi necessitatibus, culpa at vitae molestias tenetur explicabo.',
-    icon: <ZoomIn className="size-6" />,
-  },
-  {
-    title: 'Innovation',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi necessitatibus, culpa at vitae molestias tenetur explicabo.',
-    icon: <Zap className="size-6" />,
-  },
-  {
-    title: 'Customer Support',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi necessitatibus, culpa at vitae molestias tenetur explicabo.',
-    icon: <MessagesSquare className="size-6" />,
-  },
-  {
-    title: 'Reliability',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi necessitatibus, culpa at vitae molestias tenetur explicabo.',
-    icon: <Infinity className="size-6" />,
-  },
-];
-
+    {
+      title: 'Cloud Consulting',
+      description:
+        'Leverage our expertise to craft a tailored AWS strategy. We provide in-depth analysis, architectural guidance, and best practices to align your cloud environment with business goals.',
+      icon: <Zap className="size-6" />,
+      button:'Learn more',
+      link:'cloud-consulting'
+    },
+    {
+      title: 'Cloud Solutions',
+      description:
+        'Transform your business with cutting-edge AWS solutions designed to enhance scalability, optimize performance, and reduce costs. From infrastructure setup to advanced integrations, we’ve got you covered.',
+      icon: <Zap className="size-6" />,
+      button:'Learn more',
+      link:'cloud-solutions'
+    },
+    {
+      title: 'Migration / Transformation',
+      description:
+        'Seamlessly migrate and modernize your workloads with our proven AWS migration methodologies. We ensure minimal disruption, improved efficiency, and a smooth transition to the cloud.',
+      icon: <Zap className="size-6" />,
+      button:'Learn more',
+      link:'cloud-migration-transformation'
+    },
+    
+    {
+      title: 'Education / Training',
+      description:
+        'Empower your team with comprehensive AWS training. From foundational concepts to advanced certifications, we provide hands-on learning tailored to your organization’s needs.',
+      icon: <Zap className="size-6" />,
+      button:'Learn more',
+      link:'msib'
+    },
+  ];
+  
 const Page = () => {
   return (
     <section className="">
@@ -39,10 +50,7 @@ const Page = () => {
             </h2>
 
             <p className="text-muted-foreground md:max-w-2xl">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi
-              necessitatibus, culpa at vitae molestias tenetur explicabo.
-              Voluptatum amet architecto suscipit pariatur eligendi repellendus
-              mollitia dolore unde sint?
+            Your Trusted Partner in <span className="text-primary">AWS Cloud Solutions</span> and <span className="text-primary">Education</span>.
             </p>
           </div>
         </div>
@@ -63,6 +71,9 @@ const Page = () => {
                   {feature.description}
                 </p>
               </div>
+              <Button asChild variant="outline" className='rounded-xl mt-4'>
+                <Link href={`${feature.link}`}>{feature.button}</Link>
+              </Button>
             </div>
           ))}
         </div>

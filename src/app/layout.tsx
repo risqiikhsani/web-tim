@@ -40,7 +40,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           
-          <div className="bg-gradient-to-r from-sky-50 to-sky-200 dark:bg-gradient-to-r dark:from-black dark:to-slate-900 w-full min-h-screen">
+          <div className="bg-gradient-to-r from-slate-50 to-slate-200 dark:bg-gradient-to-r dark:from-black dark:to-slate-900 w-full min-h-screen">
           <NavBar/>
           <div className="container mx-auto py-32 ">
           {children}

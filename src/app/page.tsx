@@ -19,8 +19,9 @@ export default function page() {
   return (
     <Main className="">
     {/* </Main><Main className="bg-[url('/images/abstract-timekeeper.svg')] dark:bg-[url('/images/abstract-timekeeperdark.svg')]"> */}
-      <Section >
+      <Section className="" >
         {/* <Container > */}
+        
           <Hero2 />
           <Transition direction="right">
             <Hero />

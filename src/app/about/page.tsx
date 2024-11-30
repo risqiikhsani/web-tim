@@ -6,46 +6,46 @@ import {
   WandSparkles,
   ZoomIn,
 } from "lucide-react";
-import { ArrowDownRight } from 'lucide-react';
+import { ArrowDownRight } from "lucide-react";
 
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 const reasons = [
   {
     title: "Quality",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est aliquid exercitationem, quos explicabo repellat?",
+      "Delivering top-notch AWS solutions with precision and excellence, ensuring each service meets the highest standards to empower your business.",
     icon: <ZoomIn className="size-6" />,
   },
   {
     title: "Experience",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est aliquid exercitationem, quos explicabo repellat?",
+      "Backed by years of expertise, our team offers comprehensive AWS consulting and migration services designed to make your cloud journey seamless.",
     icon: <BarChartHorizontal className="size-6" />,
   },
   {
     title: "Support",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est aliquid exercitationem, quos explicabo repellat?",
+      "Providing 24/7 dedicated support for AWS deployments, ensuring uninterrupted operations and immediate resolution of your cloud concerns.",
     icon: <CircleHelp className="size-6" />,
   },
   {
     title: "Innovation",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est aliquid exercitationem, quos explicabo repellat?",
+      "Driving innovation with cutting-edge AWS solutions tailored to your business needs, enabling scalability, reliability, and competitive advantage.",
     icon: <WandSparkles className="size-6" />,
   },
   {
     title: "Results",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est aliquid exercitationem, quos explicabo repellat?",
+      "Delivering measurable business outcomes through optimized AWS infrastructure, migration strategies, and solutions tailored to achieve your goals.",
     icon: <Layers className="size-6" />,
   },
   {
     title: "Efficiency",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est aliquid exercitationem, quos explicabo repellat?",
+      "Maximizing cost efficiency and performance by leveraging AWS best practices and automation, ensuring your cloud environment runs at its peak.",
     icon: <BatteryCharging className="size-6" />,
   },
 ];
@@ -62,12 +62,13 @@ const Page = () => {
                 <ArrowDownRight className="ml-2 size-4" />
               </Badge>
               <h1 className="my-6 text-pretty text-4xl font-bold lg:text-6xl">
-                Welcome to Our Website
+                Welcome to TIMCorp
               </h1>
               <p className="mb-8 max-w-xl text-muted-foreground lg:text-xl">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-                doloremque mollitia fugiat omnis! Porro facilis quo animi
-                consequatur. Explicabo.
+                As a trusted AWS Partner, we specialize in delivering seamless
+                cloud migration, innovative solutions, expert consulting, and
+                comprehensive education services. Unlock the full potential of
+                AWS and take your business to new heights.
               </p>
               <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
                 <Button className="w-full sm:w-auto">Primary Button</Button>

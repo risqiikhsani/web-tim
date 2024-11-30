@@ -1,9 +1,9 @@
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 
-const webinars = [
+const news = [
   {
-    id: 'webinar-1',
+    id: 'item-1',
     title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
     summary:
       'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
@@ -14,7 +14,7 @@ const webinars = [
     image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
   },
   {
-    id: 'webinar-2',
+    id: 'item-2',
     title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
     summary:
       'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
@@ -25,7 +25,7 @@ const webinars = [
     image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
   },
   {
-    id: 'webinar-3',
+    id: 'item-3',
     title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
     summary:
       'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
@@ -36,7 +36,7 @@ const webinars = [
     image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
   },
   {
-    id: 'webinar-4',
+    id: 'item-4',
     title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
     summary:
       'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
@@ -56,16 +56,16 @@ const Page = () => {
           News
         </h2>
         <div className="grid gap-y-10 sm:grid-cols-12 sm:gap-y-12 md:gap-y-16 lg:gap-y-20">
-          {webinars.map((webinar) => (
+          {news.map((item) => (
             <a
-              key={webinar.id}
-              href={webinar.href}
+              key={item.id}
+              href={item.href}
               className="group order-last grid gap-y-6 sm:order-first sm:col-span-12 sm:grid-cols-10 sm:gap-x-5 sm:gap-y-0 md:items-center md:gap-x-8 lg:col-span-10 lg:col-start-2 lg:gap-x-12"
             >
               <div className="sm:col-span-5">
                 <div className="mb-4 md:mb-6">
                   <div className="flex text-xs uppercase tracking-wider text-muted-foreground">
-                    <span className="mr-3 md:mr-5 lg:mr-6">Webinar</span>
+                    <span className="mr-3 md:mr-5 lg:mr-6">item</span>
                     <span className="mr-3 md:mr-5 lg:mr-6">
                       Employer of record
                     </span>
@@ -85,8 +85,8 @@ const Page = () => {
                   <Image
                     width={1000}
                     height={1000}
-                    src={webinar.image}
-                    alt={webinar.title}
+                    src={item.image}
+                    alt={item.title}
                     className="size-full object-cover transition-transform group-hover:scale-105"
                   />
                 </div>
