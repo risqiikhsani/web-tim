@@ -6,6 +6,7 @@ import { CircleCheck } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import Image from "next/image";
+import { TypographyH1 } from "@/components/typography/TypographyH1";
 
 interface PricingCardProps {
   title: string;
@@ -67,7 +68,7 @@ const Pricing = () => {
   return (
     <Section>
       <Container className="flex flex-col items-center gap-4 text-center">
-        <h2 className="!my-0">Train yourself and get certified</h2>
+        <TypographyH1>Train yourself and get certified</TypographyH1>
         <p className="text-lg opacity-70 md:text-2xl">
           <Balancer>Select the passion that best suits your needs.</Balancer>
         </p>

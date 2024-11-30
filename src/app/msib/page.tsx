@@ -9,6 +9,7 @@ import { Terminal } from "lucide-react"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import Image from "next/image";
 import Flag from '@/images/Flag_of_Indonesia.png'
+import Cta from "./cta";
 
 export default function page() {
   return (
@@ -33,6 +34,7 @@ export default function page() {
           <Chart2 />
         </div>
       </div>
+      <Cta/>
     </div>
   );
 }

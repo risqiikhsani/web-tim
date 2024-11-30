@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import Logo from "@/logo/timcorp.png";
 import Logo2 from "@/logo/awspartner.png";
 import Logo3 from "@/logo/awspartner2.png";
+import { TypographyH1 } from "@/components/typography/TypographyH1";
 
 const Hero2 = () => {
   return (
@@ -26,9 +27,9 @@ const Hero2 = () => {
           alt="Company Logo"
           className="not-prose mb-6 md:mb-8"
         />
-        <h1 className="!mb-0">
+        <TypographyH1>
           <Balancer>Unlock the Power of the <span className="text-orange-500 ">AWS Cloud</span></Balancer>
-        </h1>
+        </TypographyH1>
         <h3 className="text-muted-foreground">
           <Balancer>
             Your Trusted Partner in <span className="text-primary">AWS Cloud Solutions</span> and <span className="text-primary">Education</span>.

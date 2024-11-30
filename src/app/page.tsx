@@ -1,9 +1,10 @@
 import React from "react";
-import { Main, Section, Container, Box } from "@/components/craft";
+import { div, Section, Container, Box } from "@/components/craft";
 import Hero from "./_page/hero";
 import Hero2 from "./_page/hero2";
 import FeatureRight from "./_page/feature-right";
 import FeatureLeft from "./_page/feature-left";
+import FeatureLeft2 from "./_page/feature-left2";
 import Feature from "./_page/feature";
 import FeatureImage from "./_page/feature-image";
 import CTA from "./_page/cta";
@@ -17,7 +18,7 @@ import Trusted from "./_page/trusted";
 
 export default function page() {
   return (
-    <Main className="py-0">
+    <div className="py-0">
 
       {/* <Section className="py-0"> */}
         
@@ -43,6 +44,11 @@ export default function page() {
         </Transition>
 
         <Transition direction="left">
+          <FeatureLeft2 />
+        </Transition>
+
+
+        <Transition direction="left">
           <Pricing />
         </Transition>
         <Trusted />
@@ -52,6 +58,6 @@ export default function page() {
 
         {/* </Container> */}
       {/* </Section> */}
-    </Main>
+    </div>
   );
 }

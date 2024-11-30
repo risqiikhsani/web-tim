@@ -111,7 +111,7 @@ const SideNavbar = () => {
 
 const TopNavbar = () => {
   return (
-    <section className=" fixed w-full flex justify-center items-center p-4 border-b-2 shadow-2xl z-50 border-primary dark:border-primary  bg-opacity-10 backdrop-filter backdrop-blur-lg  border-opacity-20">
+    <section className=" fixed w-full flex justify-center items-center p-4 dark:border-b-2 shadow-2xl z-50 border-primary dark:border-primary  bg-opacity-10 backdrop-filter backdrop-blur-lg  border-opacity-20">
       <div className="container">
         <nav className="hidden md:flex gap-2 items-center justify-center">
           <Link href="/">

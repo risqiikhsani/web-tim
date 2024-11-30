@@ -11,6 +11,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { TypographyH1 } from "@/components/typography/TypographyH1";
 
 const photos = [
   {
@@ -65,7 +66,7 @@ const FeatureImage2 = () => {
   return (
     <Section>
       <Container className="flex flex-col justify-center items-center">
-        <h2 className="!mt-0 mb-4">Feedback from Customers and Students</h2>
+        <TypographyH1>Feedback from Customers and Students</TypographyH1>
         <p>
           Here are the list of feedbacks we`ve received.
         </p>
@@ -94,10 +95,10 @@ const FeatureImage2 = () => {
             {feedback.map((data, index) => (
               <CarouselItem
                 key={index}
-                className="pl-1 md:basis-1/2 lg:basis-1/3"
+                className="pl-1 md:basis-1/2 lg:basis-1/3 md:mx-6"
               >
                 <div className="">
-                  <Card className="relative overflow-hidden">
+                  <Card className="relative overflow-hidden border-2 border-primary">
                     <CardContent className="not-prose flex flex-col aspect-square items-start justify-start p-2">
                       <p className="text-muted-foreground"><span className="text-orange-500 font-bold text-2xl">``</span> {data.comment} <span className="text-orange-500 font-bold text-2xl">``</span></p>
                       <div className="flex-1"></div>
@@ -109,8 +110,8 @@ const FeatureImage2 = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="left-4 top-1/2 "/>
-          <CarouselNext className="right-4 top-1/2"/>
+          <CarouselPrevious className="left-4 top-1/2 text-cyan-500 border-primary"/>
+          <CarouselNext className="right-4 top-1/2 text-cyan-500 border-primary" />
         </Carousel>
       </Container>
     </Section>

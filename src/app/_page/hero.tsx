@@ -11,6 +11,7 @@ import { Section, Container } from "@/components/craft";
 
 // Assets
 import Placeholder from "@/images/aws.webp";
+import { TypographyH1 } from "@/components/typography/TypographyH1";
 
 export default function Hero() {
   return (
@@ -27,11 +28,11 @@ export default function Hero() {
               Lorem ipsum dolor sit amet <ArrowRight className="ml-2 w-4" />
             </Link>
           </Button> */}
-          <h1 className="!mb-0">
+          <TypographyH1>
             <Balancer>
             Empowering Businesses with <span className="text-orange-400">AWS Expertise</span>
             </Balancer>
-          </h1>
+          </TypographyH1>
           <h3 className="text-muted-foreground">
             <Balancer>
             Comprehensive Solutions for Cloud Education, Consulting, Migration, and Management.
