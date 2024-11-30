@@ -44,7 +44,7 @@ export default function RootLayout({
           
           <div className="bg-gradient-to-r bg-white dark:bg-gradient-to-r dark:from-black dark:to-slate-900 w-full min-h-screen">
           <TopNavbar/>
-          <div className="container mx-auto py-32 ">
+          <div className="container mx-auto py-28 p-2">
           {children}
           </div>
           <Footer/>

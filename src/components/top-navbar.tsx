@@ -67,31 +67,31 @@ const services = [
     title: "All services",
     description: "Get all the answers you need right here",
     icon: <Zap className="size-5 shrink-0" />,
-    url: "/blogs",
+    url: "/services",
   },
   {
     title: "Cloud Consulting",
     description: "We are here to help you with any questions you have",
-    icon: <Sunset className="size-5 shrink-0" />,
-    url: "/blogs",
+    icon: <Zap className="size-5 shrink-0" />,
+    url: "/services/cloud-consulting",
   },
   {
     title: "Cloud Solutions",
-    description: "Check the current status of our services and APIs",
-    icon: <Trees className="size-5 shrink-0" />,
-    url: "/blogs",
+    description: "We are here to help you fix your current needs",
+    icon: <Zap className="size-5 shrink-0" />,
+    url: "/services/cloud-solutions",
   },
   {
     title: "Migration / Transformation",
-    description: "Our terms and conditions for using our services",
-    icon: <Book className="size-5 shrink-0" />,
-    url: "/blogs",
+    description: "Migrate or transform your current architecture for the better",
+    icon: <Zap className="size-5 shrink-0" />,
+    url: "/services/cloud-migration-transformation",
   },
   {
     title: "Education / Training",
-    description: "Our terms and conditions for using our services",
-    icon: <Book className="size-5 shrink-0" />,
-    url: "/blogs",
+    description: "We are here to help you te be what you want",
+    icon: <Zap className="size-5 shrink-0" />,
+    url: "/services/education",
   },
 ];
 
@@ -140,7 +140,7 @@ const TopNavbar = () => {
                 <NavigationMenuContent>
                   <div className="w-80 p-3">
                     {services.map((item, idx) => (
-                      <NavigationMenuLink
+                      <Link
                         key={idx}
                         className={cn(
                           "flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
@@ -156,7 +156,7 @@ const TopNavbar = () => {
                             {item.description}
                           </p>
                         </div>
-                      </NavigationMenuLink>
+                      </Link>
                     ))}
                   </div>
                 </NavigationMenuContent>
@@ -168,7 +168,7 @@ const TopNavbar = () => {
                 <NavigationMenuContent>
                   <div className="w-80 p-3">
                     {others.map((item, idx) => (
-                      <NavigationMenuLink
+                      <Link
                         key={idx}
                         className={cn(
                           "flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
@@ -184,7 +184,7 @@ const TopNavbar = () => {
                             {item.description}
                           </p>
                         </div>
-                      </NavigationMenuLink>
+                      </Link>
                     ))}
                   </div>
                 </NavigationMenuContent>

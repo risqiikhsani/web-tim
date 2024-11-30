@@ -7,24 +7,29 @@ import {
 
 const faqs = [
     {
-      question: "What is a FAQ?",
+      question: "Apa itu Kampus Merdeka?",
       answer:
-        "A FAQ is a list of frequently asked questions and answers on a particular topic.",
+        "Kampus Merdeka adalah program resmi dari pemerintah, khusus untuk mahasiswa di Indonesia, untuk melakukan magang dan studi independen pada subjek yang anda inginkan, berguna mempersiapkan mahasiswa pada dunia kerja.",
     },
     {
-      question: "What is the purpose of a FAQ?",
+      question: "Apa yang di ajarkan di program dari TIMCorp ini ?",
       answer:
-        "The purpose of a FAQ is to provide answers to common questions and help users find the information they need quickly and easily.",
+        "Kami mengajarkan anda IT/non IT untuk memahami dunia cloud computing bersama AWS Cloud, yang tentunya akan sangat bermanfaat di banyak bidang dunia kerja.",
     },
     {
-      question: "How do I create a FAQ?",
+      question: "Kenapa saya harus memilih untuk belajar di TIMCorp ?",
       answer:
-        "To create a FAQ, you need to compile a list of common questions and answers on a particular topic and organize them in a clear and easy-to-navigate format.",
+        "Karena kami adalah perusahaan partner resmi dari AWS, yang bisa anda handalkan, dan pastinya anda akan dimentor oleh trainer yang sudah tersertifikasi dan terpercaya.",
     },
     {
-      question: "What are the benefits of a FAQ?",
+      question: "Apakah program ini bayar?",
       answer:
-        "The benefits of a FAQ include providing quick and easy access to information, reducing the number of support requests, and improving the overall user experience.",
+        "100% gratis, bagi mahasiswa yang masuk kriteria untuk ikut Kampus Merdeka.",
+    },
+    {
+      question: "Apakah program ini dikerjakan remote / online ?",
+      answer:
+        "100% remote / online, anda bisa lakukan dimanapun anda berada.",
     },
   ];
 

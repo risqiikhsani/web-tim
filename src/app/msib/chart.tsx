@@ -19,21 +19,21 @@ import {
 } from "@/components/ui/chart";
 
 const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
-];
+  { batch: "Batch1", SolutionArchitect: 46, DataAnalyst: 45 },
+  { batch: "Batch2", SolutionArchitect: 45, DataAnalyst:  42 },
+  { batch: "Batch3", SolutionArchitect: 47, DataAnalyst:  45 },
+  { batch: "Batch4", SolutionArchitect: 43, DataAnalyst:  41 },
+  { batch: "Batch5", SolutionArchitect: 49, DataAnalyst:  43 },
+  { batch: "Batch6", SolutionArchitect: 44, DataAnalyst:  50 },
+]
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
+  SolutionArchitect: {
+    label: "SolutionArchitect",
     color: "#2563eb",
   },
-  mobile: {
-    label: "Mobile",
+  DataAnalyst: {
+    label: "DataAnalyst",
     color: "#60a5fa",
   },
 } satisfies ChartConfig;
@@ -42,9 +42,9 @@ export default function Chart() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Area Chart - Stacked</CardTitle>
+        <CardTitle>Total Students</CardTitle>
         <CardDescription>
-          Showing total visitors for the last 6 months
+          Total students joined our MSIB program.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -52,7 +52,7 @@ export default function Chart() {
           <BarChart accessibilityLayer data={chartData}>
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="month"
+              dataKey="batch"
               tickLine={false}
               tickMargin={10}
               axisLine={false}
@@ -60,8 +60,8 @@ export default function Chart() {
             />
             <ChartTooltip content={<ChartTooltipContent />} />
             <ChartLegend content={<ChartLegendContent />} />
-            <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
-            <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+            <Bar dataKey="SolutionArchitect" fill="var(--color-SolutionArchitect)" radius={4} />
+            <Bar dataKey="DataAnalyst" fill="var(--color-DataAnalyst)" radius={4} />
           </BarChart>
         </ChartContainer>
       </CardContent>

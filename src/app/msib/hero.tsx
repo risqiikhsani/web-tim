@@ -1,8 +1,9 @@
-import { ArrowDownRight } from 'lucide-react';
+import { ArrowDownRight } from "lucide-react";
 
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import Image from 'next/image';
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -15,18 +16,17 @@ const Hero = () => {
               <ArrowDownRight className="ml-2 size-4" />
             </Badge>
             <h1 className="my-6 text-pretty text-4xl font-bold lg:text-6xl">
-              Welcome to Timcorp Academy
+              Welcome to <br/><span className="text-blue-500">Timcorp Academy</span> X <span className="font-bold text-blue-500">MSIB Kampus Merdeka</span>
             </h1>
             <p className="mb-8 max-w-xl text-muted-foreground lg:text-xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-              doloremque mollitia fugiat omnis! Porro facilis quo animi
-              consequatur. Explicabo.
+              Belajar AWS Cloud bersama TIMCorp , Daftar melalui Kampus Merdeka sekarang juga.
             </p>
             <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
-              <Button className="w-full sm:w-auto">Primary Button</Button>
-              <Button variant="outline" className="w-full sm:w-auto">
-                Secondary Button
-                <ArrowDownRight className="ml-2 size-4" />
+              <Button className="w-full sm:w-auto" asChild>
+                <Link href="#readmore">Read more</Link>
+              </Button>
+              <Button className="w-full sm:w-auto" asChild>
+                <Link href="/about">About Us</Link>
               </Button>
             </div>
           </div>

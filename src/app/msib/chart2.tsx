@@ -17,22 +17,23 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
+
 const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
+  { batch: "Batch1", SolutionArchitect: 46, DataAnalyst: 45 },
+  { batch: "Batch2", SolutionArchitect: 45, DataAnalyst:  42 },
+  { batch: "Batch3", SolutionArchitect: 47, DataAnalyst:  45 },
+  { batch: "Batch4", SolutionArchitect: 43, DataAnalyst:  41 },
+  { batch: "Batch5", SolutionArchitect: 49, DataAnalyst:  43 },
+  { batch: "Batch6", SolutionArchitect: 44, DataAnalyst:  50 },
 ]
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
+  SolutionArchitect: {
+    label: "SolutionArchitect",
     color: "hsl(var(--chart-1))",
   },
-  mobile: {
-    label: "Mobile",
+  DataAnalyst: {
+    label: "DataAnalyst",
     color: "hsl(var(--chart-2))",
   },
 } satisfies ChartConfig
@@ -41,9 +42,9 @@ export default function Chart2() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Area Chart - Stacked</CardTitle>
+        <CardTitle>Total Students</CardTitle>
         <CardDescription>
-          Showing total visitors for the last 6 months
+          Total Students joined our MSIB program.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -58,7 +59,7 @@ export default function Chart2() {
           >
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="month"
+              dataKey="batch"
               tickLine={false}
               axisLine={false}
               tickMargin={8}
@@ -69,36 +70,36 @@ export default function Chart2() {
               content={<ChartTooltipContent indicator="dot" />}
             />
             <Area
-              dataKey="mobile"
+              dataKey="DataAnalyst"
               type="natural"
-              fill="var(--color-mobile)"
+              fill="var(--color-DataAnalyst)"
               fillOpacity={0.4}
-              stroke="var(--color-mobile)"
+              stroke="var(--color-DataAnalyst)"
               stackId="a"
             />
             <Area
-              dataKey="desktop"
+              dataKey="SolutionArchitect"
               type="natural"
-              fill="var(--color-desktop)"
+              fill="var(--color-SolutionArchitect)"
               fillOpacity={0.4}
-              stroke="var(--color-desktop)"
+              stroke="var(--color-SolutionArchitect)"
               stackId="a"
             />
           </AreaChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter>
+      {/* <CardFooter>
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">
             <div className="flex items-center gap-2 font-medium leading-none">
-              Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+              Trending up by 5.2% this batch <TrendingUp className="h-4 w-4" />
             </div>
             <div className="flex items-center gap-2 leading-none text-muted-foreground">
               January - June 2024
             </div>
           </div>
-        </div>
-      </CardFooter>
+        </div>  
+      </CardFooter> */}
     </Card>
   )
 }

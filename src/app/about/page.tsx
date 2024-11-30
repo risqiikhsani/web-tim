@@ -10,6 +10,7 @@ import { ArrowDownRight } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const reasons = [
   {
@@ -61,8 +62,8 @@ const Page = () => {
                 New Release
                 <ArrowDownRight className="ml-2 size-4" />
               </Badge>
-              <h1 className="my-6 text-pretty text-4xl font-bold lg:text-6xl">
-                Welcome to TIMCorp
+              <h1 className="my-6 text-4xl font-bold lg:text-6xl">
+                Welcome to <span className="text-primary">TIMCorp</span>
               </h1>
               <p className="mb-8 max-w-xl text-muted-foreground lg:text-xl">
                 As a trusted AWS Partner, we specialize in delivering seamless
@@ -71,11 +72,17 @@ const Page = () => {
                 AWS and take your business to new heights.
               </p>
               <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
-                <Button className="w-full sm:w-auto">Primary Button</Button>
-                <Button variant="outline" className="w-full sm:w-auto">
-                  Secondary Button
-                  <ArrowDownRight className="ml-2 size-4" />
+                <Button className="w-full sm:w-auto" asChild>
+                  <Link href="/services">
+                  Our Services
+                  </Link>
                 </Button>
+                <Button variant="outline" className="w-full sm:w-auto" asChild>
+                  <Link href="/company">
+                  Company
+                  </Link>
+                </Button>
+
               </div>
             </div>
             <img
@@ -96,7 +103,7 @@ const Page = () => {
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
             {reasons.map((reason, i) => (
               <div key={i} className="flex flex-col">
-                <div className="mb-5 flex size-16 items-center justify-center rounded-full bg-accent">
+                <div className="mb-5 flex size-16 items-center justify-center rounded-full bg-accent text-cyan-500">
                   {reason.icon}
                 </div>
                 <h3 className="mb-2 text-xl font-semibold">{reason.title}</h3>

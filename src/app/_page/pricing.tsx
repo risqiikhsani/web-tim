@@ -22,44 +22,44 @@ const pricingData: PricingCardProps[] = [
   {
     title: "Training Program",
     type: "AWS Cloud Practitioner",
-    description: "Perfect for small businesses and individuals.",
+    description: "Perfect for individuals that's new to cloud computing.",
     features: [
       "Real time video training",
       "Mentored by experts",
       "CMS Integration",
       "24/7 Chat Support",
     ],
-    cta: "Choose",
+    cta: "Read more",
     image:"/logo/aws1.png",
-    href: "https://stripe.com/",
+    href: "/services/education",
   },
   {
     title: "Training Program",
-    type: "AWS Cloud Solution Architect",
-    description: "Best for growing businesses with more needs.",
+    type: "AWS Solution Architect",
+    description: "Best for growing businesses to enterprise with more needs.",
     features: [
       "Real time video training",
       "Mentored by experts",
       "CMS Integration",
       "24/7 Chat Support",
     ],
-    cta: "Choose",
+    cta: "Read more",
     image:"/logo/aws2.png",
-    href: "https://stripe.com/",
+    href: "/services/education",
   },
   {
     title: "Training Program",
-    type: "AWS Cloud Data Analyst",
-    description: "Ideal for larger businesses that need scalability.",
+    type: "AWS Data Analytics",
+    description: "Best for growing businesses to enterprise with more needs.",
     features: [
       "Real time video training",
       "Mentored by experts",
       "CMS Integration",
       "24/7 Chat Support",
     ],
-    cta: "Choose",
+    cta: "Read more",
     image:"/logo/aws3.png",
-    href: "https://stripe.com/",
+    href: "/services/education",
   },
 ];
 
@@ -106,7 +106,7 @@ const PricingCard = ({ plan }: { plan: PricingCardProps }) => {
       </div>
 
       <div className="mt-auto pt-6">
-        <Link href={plan.href} target="_blank">
+        <Link href={plan.href}>
           <Button size={"sm"} className="w-full">
             {plan.cta}
           </Button>

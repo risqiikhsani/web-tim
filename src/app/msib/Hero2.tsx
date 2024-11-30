@@ -5,12 +5,12 @@ import Image from 'next/image';
 
 const Hero2 = () => {
   return (
-    <section className="py-32">
+    <section className="py-32" id='readmore'>
       <div className="overflow-hidden border-b border-muted">
         <div className="container">
           <div className="mx-auto flex max-w-5xl flex-col items-center">
             <div className="z-10 items-center text-center">
-              <h1 className="mb-8 text-pretty text-4xl font-medium lg:text-8xl">
+              <h1 className="mb-8 text-pretty text-4xl font-medium lg:text-8xl" >
                 Why students should know AWS?
               </h1>
               <p className="mx-auto max-w-screen-md text-muted-foreground lg:text-xl">
@@ -33,9 +33,9 @@ const Hero2 = () => {
           <Image
             width={1000}
             height={1000}
-            src="/images/awsstats.jpeg"
+            src="https://www.shadcnblocks.com/images/block/placeholder.svg"
             alt="placeholder"
-            className="mx-auto mt-24 max-h-[700px] w-full max-w-7xl rounded-t-lg object-cover shadow-lg border-4 border-primary "
+            className="mx-auto mt-24 max-h-[700px] w-full max-w-7xl rounded-t-lg object-cover shadow-lg"
           />
         </div>
       </div>
