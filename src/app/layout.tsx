@@ -4,8 +4,10 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
 import { Toaster } from "@/components/ui/toaster"
-import { NavBar } from "@/components/navbar";
+
 import Footer from "./_page/footer";
+import NavBar from "@/components/navbar";
+import TopNavbar from "@/components/top-navbar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -40,8 +42,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           
-          <div className="bg-gradient-to-r from-slate-50 to-slate-200 dark:bg-gradient-to-r dark:from-black dark:to-slate-900 w-full min-h-screen">
-          <NavBar/>
+          <div className="bg-gradient-to-r bg-white dark:bg-gradient-to-r dark:from-black dark:to-slate-900 w-full min-h-screen">
+          <TopNavbar/>
           <div className="container mx-auto py-32 ">
           {children}
           </div>

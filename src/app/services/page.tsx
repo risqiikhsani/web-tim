@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
 import { Infinity, MessagesSquare, Zap, ZoomIn } from 'lucide-react';
 import Link from 'next/link';
 
@@ -34,7 +35,7 @@ const feature = [
         'Empower your team with comprehensive AWS training. From foundational concepts to advanced certifications, we provide hands-on learning tailored to your organization’s needs.',
       icon: <Zap className="size-6" />,
       button:'Learn more',
-      link:'msib'
+      link:'education'
     },
   ];
   
@@ -60,11 +61,11 @@ const Page = () => {
               className="flex flex-col justify-between rounded-lg bg-accent p-6 md:min-h-[300px] md:p-8"
               key={idx}
             >
-              <span className="mb-6 flex size-11 items-center justify-center rounded-full bg-background">
+              <span className="mb-6 flex size-11 items-center justify-center rounded-full bg-background text-purple-600">
                 {feature.icon}
               </span>
               <div>
-                <h3 className="text-lg font-medium md:text-2xl">
+                <h3 className="text-lg font-medium md:text-2xl text-primary">
                   {feature.title}
                 </h3>
                 <p className="mt-2 text-muted-foreground">
@@ -72,7 +73,7 @@ const Page = () => {
                 </p>
               </div>
               <Button asChild variant="outline" className='rounded-xl mt-4'>
-                <Link href={`${feature.link}`}>{feature.button}</Link>
+                <Link href={`/services/${feature.link}`}>{feature.button}</Link>
               </Button>
             </div>
           ))}

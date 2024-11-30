@@ -37,7 +37,7 @@ export default function Hero() {
             Comprehensive Solutions for Cloud Education, Consulting, Migration, and Management.
             </Balancer>
           </h3>
-          <div className="my-8 h-96 w-full overflow-hidden rounded-lg border-8 border-orange-400 md:h-[480px] md:rounded-xl">
+          <div className="my-8 h-96 w-full overflow-hidden rounded-lg border-2 border-primary md:h-[480px] md:rounded-xl">
             <Image
               className="not-prose h-full w-full object-cover object-bottom"
               src={Placeholder}

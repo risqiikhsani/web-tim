@@ -17,40 +17,41 @@ import Trusted from "./_page/trusted";
 
 export default function page() {
   return (
-    <Main className="">
-    {/* </Main><Main className="bg-[url('/images/abstract-timekeeper.svg')] dark:bg-[url('/images/abstract-timekeeperdark.svg')]"> */}
-      <Section className="" >
-        {/* <Container > */}
+    <Main className="py-0">
+
+      {/* <Section className="py-0"> */}
         
-          <Hero2 />
-          <Transition direction="right">
-            <Hero />
-          </Transition>
+      
 
-          <Feature />
+        <Hero2 />
+        <Transition direction="right">
+          <Hero />
+        </Transition>
 
-          <Transition direction="right">
-            <FeatureRight />
-          </Transition>
+        <Feature />
 
-          <Transition direction="left">
-            <FeatureLeft />
-          </Transition>
+        <Transition direction="right">
+          <FeatureRight />
+        </Transition>
 
-          <Transition direction="right">
-            <FeatureRight2 />
-          </Transition>
+        <Transition direction="left">
+          <FeatureLeft />
+        </Transition>
 
-          <Transition direction="left">
-            <Pricing />
-          </Transition>
-          <Trusted/>
-          <FeatureImage2 />
-          <Stat/>
-          <CTA />
+        <Transition direction="right">
+          <FeatureRight2 />
+        </Transition>
+
+        <Transition direction="left">
+          <Pricing />
+        </Transition>
+        <Trusted />
+        <FeatureImage2 />
+        <Stat />
+        <CTA />
 
         {/* </Container> */}
-      </Section>
+      {/* </Section> */}
     </Main>
   );
 }

@@ -36,7 +36,7 @@ const navigationLinks = [
 export function NavBar() {
   return (
     <div className="flex items-center min-w-full w-full fixed justify-center p-4 md:p-6 z-[50]">
-      <div className="flex justify-between w-full border-2 border-white dark:border-primary dark:bg-black bg-opacity-10 relative backdrop-filter backdrop-blur-lg bg-white border-opacity-20 rounded-xl p-2 shadow-2xl">
+      <div className="flex justify-between w-full border border-primary dark:border-primary dark:bg-black bg-opacity-10 relative backdrop-filter backdrop-blur-lg bg-white border-opacity-20 rounded-xl p-2 shadow-2xl">
         <Dialog>
           <SheetTrigger className="min-[825px]:hidden p-2 transition">
             <MenuIcon />
@@ -67,7 +67,7 @@ export function NavBar() {
         <div className="flex items-center gap-2 max-[825px]:hidden">
           {navigationLinks.map((link) => (
             <Button asChild variant="ghost" key={link.href}>
-              <Link href={link.href}>{link.label}</Link>
+              <Link href={link.href} className="font-semibold">{link.label}</Link>
             </Button>
           ))}
           <ModeToggle />

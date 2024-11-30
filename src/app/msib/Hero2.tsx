@@ -33,9 +33,9 @@ const Hero2 = () => {
           <Image
             width={1000}
             height={1000}
-            src="https://www.shadcnblocks.com/images/block/placeholder.svg"
+            src="/images/awsstats.jpeg"
             alt="placeholder"
-            className="mx-auto mt-24 max-h-[700px] w-full max-w-7xl rounded-t-lg object-cover shadow-lg"
+            className="mx-auto mt-24 max-h-[700px] w-full max-w-7xl rounded-t-lg object-cover shadow-lg border-4 border-primary "
           />
         </div>
       </div>
