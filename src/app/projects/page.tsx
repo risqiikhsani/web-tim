@@ -10,7 +10,7 @@ const Page = () => {
             Company Projects
           </h2>
           <p className="mb-8 text-muted-foreground lg:text-lg">
-            List of internal projects we're working on.
+            List of internal projects we$apos;re working on.
           </p>
           <a
             href="#"

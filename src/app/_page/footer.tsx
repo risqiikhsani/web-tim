@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaInstagram, FaLinkedin } from "react-icons/fa";
 
-import logo from '@/logo/timcorp.png'
 import { P } from "@/components/typography/Typography";
+import logo from '@/logo/timcorp.png';
 import { Mail } from "lucide-react";
 
 const sections = [

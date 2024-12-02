@@ -3,6 +3,7 @@ import CTA from "./_page/cta";
 import Feature from "./_page/feature";
 import Hero from "./_page/hero";
 import Stat from "./_page/stat";
+import Contact from "./_public_components/contact";
 import CustomerFeedback from "./_public_components/customer-feedback";
 import Education from "./_public_components/educations";
 import HeroAwsPartner from "./_public_components/hero-aws-partner";
@@ -11,9 +12,6 @@ import HeroCloudMigration from "./_public_components/hero-cloud-migration";
 import HeroCloudSolutions from "./_public_components/hero-cloud-solutions";
 import HeroEducation from "./_public_components/hero-education";
 import Trusted from "./_public_components/trusted";
-import BorderCool from "@/components/border-cool";
-import { H1 } from "@/components/typography/Typography";
-import Contact from "./_public_components/contact";
 
 export default function page() {
   return (

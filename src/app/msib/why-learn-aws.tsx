@@ -1,7 +1,5 @@
 import { H1, H2, H4, P } from "@/components/typography/Typography";
-import { Zap } from "lucide-react";
 import Image from "next/image";
-import React from "react";
 
 export default function WhyLearnAws() {
   return (

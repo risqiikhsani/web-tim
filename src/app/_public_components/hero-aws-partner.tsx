@@ -5,7 +5,7 @@ import Link from "next/link";
 // Third-party library imports
 
 // Local component imports
-import { Container, Section } from "@/components/craft";
+import { Container } from "@/components/craft";
 import { Button } from "@/components/ui/button";
 
 // Asset imports
