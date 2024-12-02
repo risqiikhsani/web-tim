@@ -1,6 +1,4 @@
-import * as React from "react";
 
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -50,11 +48,17 @@ export default function Pictures() {
       <CarouselContent className="-ml-1">
         {images.map((a, index) => (
           <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-            <Image src={a.url} width={1000} height={1000} alt="foto" className="h-[600px] w-[600px] object-cover rounded-md" />
+            <Image
+              src={a.url}
+              width={1000}
+              height={1000}
+              alt="foto"
+              className="h-[600px] w-[600px] object-cover rounded-md"
+            />
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="left-4 top-1/2 text-cyan-500 border-primary"/>
+      <CarouselPrevious className="left-4 top-1/2 text-cyan-500 border-primary" />
       <CarouselNext className="right-4 top-1/2 text-cyan-500 border-primary" />
     </Carousel>
   );
