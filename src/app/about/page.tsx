@@ -11,6 +11,9 @@ import { ArrowDownRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
+import HeroAwsPartner from "../_public_components/hero-aws-partner";
+import Services from "../_public_components/services";
 
 const reasons = [
   {
@@ -54,12 +57,12 @@ const reasons = [
 const Page = () => {
   return (
     <div>
-      <section className="py-32">
+      <section className="">
         <div className="container">
           <div className="grid items-center gap-8 lg:grid-cols-2">
             <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
               <Badge variant="outline">
-                New Release
+                About Us
                 <ArrowDownRight className="ml-2 size-4" />
               </Badge>
               <h1 className="my-6 text-4xl font-bold lg:text-6xl">
@@ -85,7 +88,9 @@ const Page = () => {
 
               </div>
             </div>
-            <img
+            <Image
+              width={1000}
+              height={1000}
               src="https://www.shadcnblocks.com/images/block/placeholder-1.svg"
               alt="placeholder hero"
               className="max-h-96 w-full rounded-md object-cover"
@@ -93,7 +98,9 @@ const Page = () => {
           </div>
         </div>
       </section>
-      <section className="">
+      <HeroAwsPartner/>
+      <Services/>
+      <section className="py-10">
         <div className="container">
           <div className="mb-10 md:mb-20">
             <h2 className="mb-2 text-center text-3xl font-semibold lg:text-5xl">

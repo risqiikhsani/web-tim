@@ -16,6 +16,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { H2, P } from "@/components/typography/Typography";
 
 const formSchema = z.object({
   email: z.string().email({
@@ -42,12 +43,12 @@ export function CTA() {
   return (
     <Section>
       <Container className="flex flex-col items-center gap-6 text-center">
-        <h2 className="!my-0">Subscribe to <span className="text-orange-400">TIMCorp</span></h2>
-        <p className="text-lg opacity-70 md:text-2xl">
+        <H2 className="!my-0">Subscribe to <span className="text-orange-400">TIMCorp</span></H2>
+        <P className="text-lg opacity-70 md:text-2xl">
           <Balancer>
             Get our up-to-date news and offers.
           </Balancer>
-        </p>
+        </P>
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}

@@ -1,10 +1,8 @@
 // React and Next.js
-import React from "react";
-import { Coins } from "lucide-react";
 // Layout Components
-import { Section, Container } from "@/components/craft";
-import Balancer from "react-wrap-balancer";
+import { Container, Section } from "@/components/craft";
 import { featureText } from "@/const/const";
+import Balancer from "react-wrap-balancer";
 
 const Feature = () => {
   return (

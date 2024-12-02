@@ -1,14 +1,14 @@
-import Balancer from "react-wrap-balancer";
-import { Article, Container, Section } from "@/components/craft";
-import { ReactNode } from "react";
+import BorderCool from "@/components/border-cool";
+import { Container, Section } from "@/components/craft";
+import { H1 } from "@/components/typography/Typography";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CircleCheck } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import Link from "next/link";
 import Image from "next/image";
-import { TypographyH1 } from "@/components/typography/TypographyH1";
+import Link from "next/link";
+import Balancer from "react-wrap-balancer";
 
-interface PricingCardProps {
+interface EducationProps {
   title: string;
   type: string;
   description?: string;
@@ -18,8 +18,8 @@ interface PricingCardProps {
   href: string;
 }
 
-// Dummy pricing data
-const pricingData: PricingCardProps[] = [
+// Dummy Education data
+const EducationPrograms: EducationProps[] = [
   {
     title: "Training Program",
     type: "AWS Cloud Practitioner",
@@ -64,18 +64,18 @@ const pricingData: PricingCardProps[] = [
   },
 ];
 
-const Pricing = () => {
+const Education = () => {
   return (
     <Section>
       <Container className="flex flex-col items-center gap-4 text-center">
-        <TypographyH1>Train yourself and get certified</TypographyH1>
+        <H1>Train yourself and get certified</H1>
         <p className="text-lg opacity-70 md:text-2xl">
           <Balancer>Select the passion that best suits your needs.</Balancer>
         </p>
 
         <div className="not-prose mt-4 grid grid-cols-1 gap-6 md:grid-cols-3">
-          {pricingData.map((plan, index) => (
-            <PricingCard plan={plan} key={index} />
+          {EducationPrograms.map((plan, index) => (
+            <EducationCard plan={plan} key={index} />
           ))}
         </div>
       </Container>
@@ -83,12 +83,13 @@ const Pricing = () => {
   );
 };
 
-const PricingCard = ({ plan }: { plan: PricingCardProps }) => {
+const EducationCard = ({ plan }: { plan: EducationProps }) => {
   return (
-    <div className="flex flex-col rounded-lg border p-6">
+    <BorderCool>
+    <div className="flex flex-col rounded-lg border p-6 h-[600px]">
       <div className="text-center">
         <Badge>{plan.title}</Badge>
-        <h4 className="mb-2 mt-4 text-2xl text-primary">{plan.type}</h4>
+        <h4 className="mb-2 mt-4 text-2xl text-primary animate-ping-soft">{plan.type}</h4>
         <p className="text-sm opacity-70">{plan.description}</p>
       </div>
 
@@ -102,6 +103,7 @@ const PricingCard = ({ plan }: { plan: PricingCardProps }) => {
           </li>
         ))}
       </ul>
+      <div className="flex-1"></div>
       <div className="mx-auto pt-6">
       <Image src={plan.image} width={100} height={100} alt="logo"/>
       </div>
@@ -114,7 +116,8 @@ const PricingCard = ({ plan }: { plan: PricingCardProps }) => {
         </Link>
       </div>
     </div>
+    </BorderCool>
   );
 };
 
-export default Pricing;
+export default Education;

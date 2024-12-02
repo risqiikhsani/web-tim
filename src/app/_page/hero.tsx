@@ -1,17 +1,14 @@
 import Image from "next/image";
-import Link from "next/link";
 import Balancer from "react-wrap-balancer";
-import { ArrowRight } from "lucide-react";
 
 // UI Components
-import { Button } from "@/components/ui/button";
 
 // Custom Components
-import { Section, Container } from "@/components/craft";
+import { Container, Section } from "@/components/craft";
 
 // Assets
+import { H1 } from "@/components/typography/Typography";
 import Placeholder from "@/images/aws.webp";
-import { TypographyH1 } from "@/components/typography/TypographyH1";
 
 export default function Hero() {
   return (
@@ -28,11 +25,11 @@ export default function Hero() {
               Lorem ipsum dolor sit amet <ArrowRight className="ml-2 w-4" />
             </Link>
           </Button> */}
-          <TypographyH1>
+          <H1>
             <Balancer>
             Empowering Businesses with <span className="text-orange-400">AWS Expertise</span>
             </Balancer>
-          </TypographyH1>
+          </H1>
           <h3 className="text-muted-foreground">
             <Balancer>
             Comprehensive Solutions for Cloud Education, Consulting, Migration, and Management.

@@ -4,18 +4,14 @@ import {
 } from "react"
 
 import {
-  useForm
-} from "react-hook-form"
-import {
-  zodResolver
-} from "@hookform/resolvers/zod"
-import * as z from "zod"
-import {
-  cn
-} from "@/lib/utils"
-import {
   Button
 } from "@/components/ui/button"
+import {
+  FileInput,
+  FileUploader,
+  FileUploaderContent,
+  FileUploaderItem
+} from "@/components/ui/extension/file-upload"
 import {
   Form,
   FormControl,
@@ -29,19 +25,20 @@ import {
   Input
 } from "@/components/ui/input"
 import {
+  Textarea
+} from "@/components/ui/textarea"
+import { useToast } from "@/hooks/use-toast"
+import {
+  zodResolver
+} from "@hookform/resolvers/zod"
+import {
   CloudUpload,
   Paperclip
 } from "lucide-react"
 import {
-  FileInput,
-  FileUploader,
-  FileUploaderContent,
-  FileUploaderItem
-} from "@/components/ui/extension/file-upload"
-import {
-  Textarea
-} from "@/components/ui/textarea"
-import { useToast } from "@/hooks/use-toast"
+  useForm
+} from "react-hook-form"
+import * as z from "zod"
 
 const formSchema = z.object({
   first_name: z.string(),
@@ -51,7 +48,7 @@ const formSchema = z.object({
 });
 
 export default function Page() {
-    const {toast} = useToast()
+  const {toast} = useToast()
 
   const [files, setFiles] = useState < File[] | null > (null);
 
@@ -75,7 +72,11 @@ export default function Page() {
       );
     } catch (error) {
       console.error("Form submission error", error);
-      toast.error("Failed to submit the form. Please try again.");
+      toast({
+        variant:"destructive",
+        title:"Something wrong",
+        description:`${error}`
+      })
     }
   }
 
@@ -134,6 +135,7 @@ export default function Page() {
             <FormField
               control={form.control}
               name="file"
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Select File</FormLabel>

@@ -1,22 +1,22 @@
 "use client";
-import { cn } from "@/lib/utils";
-import { BookOpen, MenuIcon } from "lucide-react";
-import Link from "next/link";
-import * as React from "react";
-import { Dialog, DialogClose } from "./ui/dialog";
-import { Button } from "./ui/button";
-import {
-  NavigationMenu,
-  NavigationMenuLink,
-  NavigationMenuList,
-} from "./ui/navigation-menu";
+import ModeToggle from "@/components/mode-toggle";
 import {
   SheetContent,
   SheetHeader,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import ModeToggle from "@/components/mode-toggle";
+import { cn } from "@/lib/utils";
+import { MenuIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import * as React from "react";
+import { Button } from "./ui/button";
+import { Dialog, DialogClose } from "./ui/dialog";
+import {
+  NavigationMenu,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from "./ui/navigation-menu";
 
 import Logo from "@/logo/timcorp.png";
 import { DialogTitle } from "@radix-ui/react-dialog";

@@ -8,6 +8,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from '@/components/ui/pagination';
+import Image from 'next/image';
 
 const posts = [
   {
@@ -129,7 +130,9 @@ const Page = () => {
             <a key={post.id} href={post.href} className="group flex flex-col">
               <div className="mb-4 flex text-clip rounded-xl md:mb-5">
                 <div className="size-full transition duration-300 group-hover:scale-105">
-                  <img
+                  <Image
+                    width={1000}
+                    height={1000}
                     src={post.image}
                     alt={post.title}
                     className="aspect-[3/2] size-full object-cover object-center"

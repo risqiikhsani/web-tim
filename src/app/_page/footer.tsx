@@ -1,74 +1,117 @@
-// React and Next.js imports
 import Image from "next/image";
 import Link from "next/link";
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
-// Third-party library imports
-import Balancer from "react-wrap-balancer";
+import logo from '@/logo/timcorp.png'
+import { P } from "@/components/typography/Typography";
+import { Mail } from "lucide-react";
 
-// UI component imports
-import { Button } from "@/components/ui/button";
+const sections = [
+  {
+    title: "Product",
+    links: [
+      { name: "Overview", href: "#" },
+      { name: "Pricing", href: "#" },
+      { name: "Marketplace", href: "#" },
+      { name: "Features", href: "#" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { name: "About", href: "#" },
+      { name: "Team", href: "#" },
+      { name: "Blog", href: "#" },
+      { name: "Careers", href: "#" },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      { name: "Help", href: "#" },
+      { name: "Sales", href: "#" },
+      { name: "Advertise", href: "#" },
+      { name: "Privacy", href: "#" },
+    ],
+  },
+];
 
-// Icon imports
-import { Instagram, MailOpenIcon } from "lucide-react";
-
-// Local component imports
-import { Section, Container } from "@/components/craft";
-
-// Asset imports
-import Logo from "@/logo/timcorp.png";
-
-export default function Footer() {
+const Footer = () => {
   return (
-    <footer>
-      <Section>
-        <Container className="grid gap-12 md:grid-cols-[1.5fr_0.5fr_0.5fr]">
-          <div className="not-prose flex flex-col gap-6">
-            <Link href="/">
-              <h3 className="sr-only">TIMCorp</h3>
+    <footer className="p-4 w-full">
+      <div className="container mx-auto flex flex-col items-center justify-between gap-10 text-center lg:flex-row lg:text-left">
+        <div className="flex w-full max-w-96 shrink flex-col items-center justify-between gap-6 lg:items-start">
+          <div>
+            <span className="flex items-center justify-center gap-4 lg:justify-start">
               <Image
-                src={Logo}
-                alt="Logo"
-                width={120}
-                height={27.27}
-                className="transition-all hover:opacity-75 dark:invert"
-              ></Image>
-            </Link>
-            <p>
-              <Balancer>
-              PT Techno International Mandira.
-              </Balancer>
+                width={100}
+                height={100}
+                src={logo}
+                alt="logo"
+                className="h-11"
+              />
+              <P className="font-semibold">PT Techno International Mandira</P>
+            </span>
+            <p className="mt-6 text-sm text-muted-foreground">
+              Cloud consulting and training company.
             </p>
           </div>
-          <div className="flex flex-col gap-2">
-            <h5>Socials</h5>
-            <Link href="/">Instagram</Link>
-            <Link href="/">Linkedin</Link>
-            <Link href="/">Email</Link>
-          </div>
-          <div className="flex flex-col gap-2">
-            <h5>Legal</h5>
-            <Link href="/privacy-policy">Privacy Policy</Link>
-            <Link href="/terms-of-service">Terms of Service</Link>
-            <Link href="/cookie-policy">Cookie Policy</Link>
-          </div>
-        </Container>
-        <Container className="not-prose flex flex-col justify-between gap-6 border-t md:flex-row md:items-center md:gap-2">
-          <div className="flex gap-2">
-            
-            <Button variant="outline" size="icon">
-              <MailOpenIcon />
-            </Button>
-            <Button variant="outline" size="icon">
-              <Instagram />
-            </Button>
-          </div>
-          <p className="text-muted-foreground">
-            ©{" "}
-            <Link href="/">TIMCorp</Link>.
-            All rights reserved. 2024-present.
-          </p>
-        </Container>
-      </Section>
+          <ul className="flex items-center space-x-6 text-muted-foreground">
+            <li className="font-medium hover:text-primary">
+              <Link href="https://www.instagram.com/timcorp.academy/" target="_blank">
+                <FaInstagram className="size-6" />
+              </Link>
+            </li>
+            <li className="font-medium hover:text-primary">
+              <Link href="mailto:hello@mytimcorp.com" target="_blank">
+                <Mail className="size-6" />
+              </Link>
+            </li>
+            {/* <li className="font-medium hover:text-primary">
+              <Link href="#">
+                <FaFacebook className="size-6" />
+              </Link>
+            </li>
+            <li className="font-medium hover:text-primary">
+              <Link href="#">
+                <FaTwitter className="size-6" />
+              </Link>
+            </li> */}
+            <li className="font-medium hover:text-primary">
+              <Link href="https://www.linkedin.com/company/timcorpacademy/" target="_blank">
+                <FaLinkedin className="size-6" />
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className="grid grid-cols-3 gap-6 lg:gap-20">
+          {sections.map((section, sectionIdx) => (
+            <div key={sectionIdx}>
+              <h3 className="mb-6 font-bold">{section.title}</h3>
+              <ul className="space-y-4 text-sm text-muted-foreground">
+                {section.links.map((link, linkIdx) => (
+                  <li key={linkIdx} className="font-medium hover:text-primary">
+                    <Link href={link.href}>{link.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="mt-20 flex flex-col justify-between gap-4 border-t pt-8 text-center text-sm font-medium text-muted-foreground lg:flex-row lg:items-center lg:text-left">
+        <p>© TIMCorp. All rights reserved.</p>
+        <ul className="flex justify-center gap-4 lg:justify-start">
+          <li className="hover:text-primary">
+            <a href="#"> Terms and Conditions</a>
+          </li>
+          <li className="hover:text-primary">
+            <a href="#"> Privacy Policy</a>
+          </li>
+        </ul>
+      </div>
     </footer>
   );
-}
+};
+
+export default Footer;

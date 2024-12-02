@@ -1,28 +1,20 @@
+import { Book, Sunset, Trees, Zap } from "lucide-react";
 import Link from "next/link";
-import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
+  navigationMenuTriggerStyle
 } from "@/components/ui/navigation-menu";
 import {
   Sheet,
   SheetContent,
-  SheetHeader,
   SheetTitle,
-  SheetTrigger,
+  SheetTrigger
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -43,6 +35,12 @@ const others = [
     url: "/blogs",
   },
   {
+    title: "Projects",
+    description: "Projects of ours",
+    icon: <Book className="size-5 shrink-0" />,
+    url: "/projects",
+  },
+  {
     title: "Company",
     description: "Our mission is to innovate and empower the world",
     icon: <Trees className="size-5 shrink-0" />,
@@ -55,10 +53,10 @@ const others = [
     url: "/careers",
   },
   {
-    title: "Support",
+    title: "Contact",
     description: "Get in touch with our support team",
     icon: <Zap className="size-5 shrink-0" />,
-    url: "/support",
+    url: "/contact",
   },
 ];
 

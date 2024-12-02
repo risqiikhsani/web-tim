@@ -1,9 +1,8 @@
-import * as React from "react";
-import Image from "next/image";
 
-import { Section, Container } from "@/components/craft";
+import { Container, Section } from "@/components/craft";
 import { Card, CardContent } from "@/components/ui/card";
 
+import { H1 } from "@/components/typography/Typography";
 import {
   Carousel,
   CarouselContent,
@@ -11,25 +10,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { TypographyH1 } from "@/components/typography/TypographyH1";
 
-const photos = [
-  {
-    src: "https://images.unsplash.com/photo-1721137287642-43b251bd6f00?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1507730690594-f21182eee8b1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1721041879224-ff011603ada5?q=80&w=2232&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1720983627245-ca4a6913016f?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1720887236665-43caad593cdf?q=80&w=1836&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-];
+
 
 const feedback = [
   {
@@ -41,32 +23,32 @@ const feedback = [
   },
   {
     "type":"student",
-    "name":"Risqi Ikhsani",
-    "university":"UTDI",
+    "name":"Wulan Sri Lestari",
+    "university":"Universitas Pendidikan Indonesia",
     "workplace":"",
-    "comment":"Timcorp has given a very good lesson to their MSIB students. We very much enjoyed our moment when we were studying AWS Solution Architect."
+    "comment":"Terima kasih semua! Pak Bintang CEO, Pak Widi, Kak Anisa, para mentor udah sabar banget ngajarin. Gak akan pernah dapet pembelajaran & pengalaman kayak gini di kuliah atau tempat lain. Semangat buat teman2 yang lain"
   },
   {
     "type":"student",
-    "name":"Risqi Ikhsani",
-    "university":"UTDI",
+    "name":"Team PENS",
+    "university":"Politeknik Elektronika Negeri Surabaya",
     "workplace":"",
-    "comment":"Timcorp has given a very good lesson to their MSIB students. We very much enjoyed our moment when we were studying AWS Solution Architect."
+    "comment":"Terima kasih PT TIM sudah mendampingi kami di batch 5! Mentornya keren, ramah, dan ilmunya bermanfaat. Sukses selalu semua!"
   },
   {
     "type":"student",
-    "name":"Risqi Ikhsani",
-    "university":"UTDI",
+    "name":"Mugi Lestari",
+    "university":"Universitas Pamulang",
     "workplace":"",
-    "comment":"Timcorp has given a very good lesson to their MSIB students. We very much enjoyed our moment when we were studying AWS Solution Architect."
+    "comment":"Senang & bersyukur bisa belajar cloud computing, pasti berguna buat masa depan saya. Terima kasih sudah berbagi ilmu buat kami semua. Jangan bosan mencerdaskan anak bangsa ya!"
   }
 ]
 
-const FeatureImage2 = () => {
+const CustomerFeedback = () => {
   return (
     <Section>
       <Container className="flex flex-col justify-center items-center">
-        <TypographyH1>Feedback from Customers and Students</TypographyH1>
+        <H1>Feedback from Customers and Students</H1>
         <p>
           Here are the list of feedbacks we`ve received.
         </p>
@@ -98,7 +80,7 @@ const FeatureImage2 = () => {
                 className="pl-1 md:basis-1/2 lg:basis-1/3 md:mx-6"
               >
                 <div className="">
-                  <Card className="relative overflow-hidden border-2 border-primary">
+                  <Card className="relative overflow-hidden border-2 border-primary shadow-xl">
                     <CardContent className="not-prose flex flex-col aspect-square items-start justify-start p-2">
                       <p className="text-muted-foreground"><span className="text-orange-500 font-bold text-2xl">``</span> {data.comment} <span className="text-orange-500 font-bold text-2xl">``</span></p>
                       <div className="flex-1"></div>
@@ -118,4 +100,4 @@ const FeatureImage2 = () => {
   );
 };
 
-export default FeatureImage2;
+export default CustomerFeedback;
