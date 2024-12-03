@@ -6,6 +6,7 @@ import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import Footer from "./_page/footer";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   title: {
@@ -56,7 +57,7 @@ export default function RootLayout({
             <TopNavbar />
 
             <main className="container mx-auto py-24 px-2">{children}</main>
-
+            <Analytics />
             <Footer />
 
             <Toaster />
