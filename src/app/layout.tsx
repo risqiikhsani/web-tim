@@ -9,11 +9,12 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
-  title: {
-    default: "Your Website",
-    template: "%s | Your Brand",
-  },
-  description: "A beautifully crafted web experience",
+  // title: {
+  //   default: "TIMCorp",
+  //   template: "%s | Your Brand",
+  // },
+  title:"TIMCorp website",
+  description: "The cloud consulting company.",
   icons: {
     icon: "/favicon.ico",
   },
