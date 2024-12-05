@@ -1,8 +1,9 @@
 import {
   DeleteItemCommand,
   GetItemCommand,
+  GetItemCommandInput,
   UpdateItemCommand,
-  type AttributeValue
+  type AttributeValue,
 } from "@aws-sdk/client-dynamodb";
 import { unmarshall } from "@aws-sdk/util-dynamodb";
 import { client } from "@/lib/aws";
@@ -21,7 +22,11 @@ function createErrorResponse(message: string, status: number = 500) {
 // Fetch a single item by ID
 export async function GET(
   request: Request,
-  { params }: { params: { slug: string } }
+  {
+    params,
+  }: {
+    params: Promise<{ slug: string }>;
+  }
 ) {
   const slug = (await params).slug;
 
@@ -30,31 +35,34 @@ export async function GET(
   }
 
   try {
-    const { Item } = await client.send(
-      new GetItemCommand({
-        TableName: TABLE_NAME,
-        Key: {
-          id: { S: slug },
-          type: { S: NEWS_TYPE },
-        },
-      })
-    );
-
-    if (!Item) {
-      return createErrorResponse("Item not found", 404);
-    }
-
-    return Response.json(unmarshall(Item));
+    const result = await GetItemByTypeAndId("news",slug)
+    return Response.json(result)
   } catch (error) {
-    console.error('Fetch Item Error:', error);
+    console.error("Fetch Item Error:", error);
     return createErrorResponse("Failed to fetch item");
   }
+}
+
+async function GetItemByTypeAndId(type: string, id: string) {
+  const queryParams: GetItemCommandInput = {
+    TableName: TABLE_NAME,
+    Key: {
+      type: { S: type },
+      id: { S: id },
+    },
+  };
+
+  const { Item } = await client.send(new GetItemCommand(queryParams));
+  if (!Item) {
+    return null;
+  }
+  return unmarshall(Item);
 }
 
 // Update an existing item
 export async function PUT(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   const slug = (await params).slug;
 
@@ -69,10 +77,10 @@ export async function PUT(
       return createErrorResponse("No update data provided", 400);
     }
 
-    const { 
-      updateExpression, 
-      expressionAttributeNames, 
-      expressionAttributeValues 
+    const {
+      updateExpression,
+      expressionAttributeNames,
+      expressionAttributeValues,
     } = buildUpdateExpression(body);
 
     if (updateExpression.length === 0) {
@@ -85,10 +93,10 @@ export async function PUT(
         id: { S: slug },
         type: { S: NEWS_TYPE },
       },
-      UpdateExpression: `SET ${updateExpression.join(', ')}`,
+      UpdateExpression: `SET ${updateExpression.join(", ")}`,
       ExpressionAttributeNames: expressionAttributeNames,
       ExpressionAttributeValues: expressionAttributeValues,
-      ReturnValues: 'ALL_NEW',
+      ReturnValues: "ALL_NEW",
     });
 
     const { Attributes } = await client.send(updateCommand);
@@ -99,9 +107,9 @@ export async function PUT(
 
     return Response.json(unmarshall(Attributes));
   } catch (error) {
-    console.error('Update Error:', error);
+    console.error("Update Error:", error);
     return createErrorResponse(
-      error instanceof Error ? error.message : 'Failed to update item'
+      error instanceof Error ? error.message : "Failed to update item"
     );
   }
 }
@@ -116,7 +124,7 @@ function buildUpdateExpression(body: Record<string, any>) {
   // Dynamically build update expression
   for (const [key, value] of Object.entries(body)) {
     // Prevent updating key attributes
-    if (key === 'id' || key === 'type') continue;
+    if (key === "id" || key === "type") continue;
 
     updateExpression.push(`#${key} = :${key}`);
     expressionAttributeNames[`#${key}`] = key;
@@ -124,23 +132,23 @@ function buildUpdateExpression(body: Record<string, any>) {
   }
 
   // Add last updated timestamp
-  updateExpression.push('#updatedAt = :updatedAt');
-  expressionAttributeNames['#updatedAt'] = 'updatedAt';
-  expressionAttributeValues[':updatedAt'] = { 
-    S: new Date().toISOString() 
+  updateExpression.push("#updatedAt = :updatedAt");
+  expressionAttributeNames["#updatedAt"] = "updatedAt";
+  expressionAttributeValues[":updatedAt"] = {
+    S: new Date().toISOString(),
   };
 
-  return { 
-    updateExpression, 
-    expressionAttributeNames, 
-    expressionAttributeValues 
+  return {
+    updateExpression,
+    expressionAttributeNames,
+    expressionAttributeValues,
   };
 }
 
 // Delete an item
 export async function DELETE(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   const slug = (await params).slug;
 
@@ -171,33 +179,34 @@ export async function DELETE(
         id: { S: slug },
         type: { S: NEWS_TYPE },
       },
-      ConditionExpression: 'attribute_exists(id)',
+      ConditionExpression: "attribute_exists(id)",
     });
 
     await client.send(deleteCommand);
 
-    return new Response(JSON.stringify({ 
-      message: 'Item deleted successfully',
-      id: slug 
-    }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({
+        message: "Item deleted successfully",
+        id: slug,
+      }),
+      {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   } catch (error) {
-    console.error('Delete Error:', error);
-    
+    console.error("Delete Error:", error);
+
     // Handle specific error cases
     if (error instanceof Error) {
       switch (error.name) {
-        case 'ConditionalCheckFailedException':
-          return createErrorResponse('Item not found or already deleted', 404);
+        case "ConditionalCheckFailedException":
+          return createErrorResponse("Item not found or already deleted", 404);
         default:
-          return createErrorResponse(
-            error.message || 'Failed to delete item'
-          );
+          return createErrorResponse(error.message || "Failed to delete item");
       }
     }
 
-    return createErrorResponse('An unexpected error occurred');
+    return createErrorResponse("An unexpected error occurred");
   }
 }

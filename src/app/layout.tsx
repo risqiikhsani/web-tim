@@ -5,7 +5,7 @@ import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import Footer from "./_page/footer";
-import "./globals.css";
+import "./globals.css"
 import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {

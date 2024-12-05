@@ -1,17 +1,18 @@
 import { client } from "@/lib/aws";
 import {
   PutItemCommand,
-  ScanCommand,
   QueryCommand,
   type QueryCommandInput
 } from "@aws-sdk/client-dynamodb";
 import { unmarshall } from "@aws-sdk/util-dynamodb";
 import { v4 as uuidv4 } from "uuid";
-import { type NextRequest } from "next/server";
 
 const TABLE_NAME = process.env.TABLE_NAME!;
-const INDEX_NAME = process.env.INDEX_NAME!;
+// const INDEX_NAME = process.env.INDEX_NAME!;
 const NEWS_TYPE = "news";
+
+
+
 
 // Common error response handler
 function createErrorResponse(message: string, status: number = 500) {
@@ -26,15 +27,15 @@ function createErrorResponse(message: string, status: number = 500) {
   );
 }
 
-// Fetch all items or search by title
-export async function GET(request: NextRequest) {
-  const title = request.nextUrl.searchParams.get("title");
+// Fetch all items 
+export async function GET() {
+  // const title = request.nextUrl.searchParams.get("title");
 
   try {
-    const result = title 
-      ? await searchNewsByTitle(title)
-      : await fetchAllNews();
-
+    // const result = title 
+    //   ? await searchNewsByTitle(title)
+    //   : await fetchAllNews();
+    const result = await searchByType("news")
     return Response.json(result);
   } catch (error) {
     console.error("Error fetching items:", error);
@@ -42,33 +43,52 @@ export async function GET(request: NextRequest) {
   }
 }
 
-// Fetch all news items
-async function fetchAllNews() {
-  const { Items } = await client.send(
-    new ScanCommand({ TableName: TABLE_NAME })
-  );
-  return Items?.map((item) => unmarshall(item)) || [];
-}
-
 // Search news by title
-export async function searchNewsByTitle(title: string) {
+async function searchByType(type: string) {
   const queryParams: QueryCommandInput = {
     TableName: TABLE_NAME,
-    IndexName: INDEX_NAME,
-    KeyConditionExpression: "#title = :title AND #type = :type",
+    KeyConditionExpression: "#type = :type",
     ExpressionAttributeNames: {
-      "#title": "title",
       "#type": "type"
     },
     ExpressionAttributeValues: {
-      ":title": { S: title },
-      ":type": { S: NEWS_TYPE },
+      ":type": { S: type },
     },
   };
 
   const { Items } = await client.send(new QueryCommand(queryParams));
   return Items?.map((item) => unmarshall(item)) || [];
 }
+
+
+
+// Fetch all news items
+// async function fetchAllNews() {
+//   const { Items } = await client.send(
+//     new ScanCommand({ TableName: TABLE_NAME })
+//   );
+//   return Items?.map((item) => unmarshall(item)) || [];
+// }
+
+// Search news by title
+// async function searchNewsByTitle(title: string) {
+//   const queryParams: QueryCommandInput = {
+//     TableName: TABLE_NAME,
+//     IndexName: INDEX_NAME,
+//     KeyConditionExpression: "#title = :title AND #type = :type",
+//     ExpressionAttributeNames: {
+//       "#title": "title",
+//       "#type": "type"
+//     },
+//     ExpressionAttributeValues: {
+//       ":title": { S: title },
+//       ":type": { S: NEWS_TYPE },
+//     },
+//   };
+
+//   const { Items } = await client.send(new QueryCommand(queryParams));
+//   return Items?.map((item) => unmarshall(item)) || [];
+// }
 
 // Create new item
 export async function POST(request: Request) {
