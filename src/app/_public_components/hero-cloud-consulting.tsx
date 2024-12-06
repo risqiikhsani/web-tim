@@ -8,7 +8,7 @@ import BorderCool from "@/components/border-cool";
 
 import picture from '@/service_images/aws-call.png'
 
-const HeroCloudConsulting = () => {
+const HeroCloudConsulting = ({showReadMore}:{showReadMore:boolean}) => {
   return (
     <section className="py-32">
       <div className="container">
@@ -36,9 +36,9 @@ const HeroCloudConsulting = () => {
               We are here ready to help you build a enterprise ready cloud infrastructure for you.
             </p>
             <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
-              <Button className="w-full sm:w-auto" asChild>
+              {showReadMore && <Button className="w-full sm:w-auto" asChild>
                 <Link href="#readmore">Read more</Link>
-              </Button>
+              </Button>}
             </div>
           </div>
         </div>

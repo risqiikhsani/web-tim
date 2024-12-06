@@ -3,7 +3,7 @@ import React from 'react'
 import HeroAwsPartner from '../_public_components/hero-aws-partner'
 import MapboxLocationViewer from '../_public_components/map'
 import Contact from '../_public_components/contact'
-import CTA from '../_page/cta'
+import CTA from '../_public_components/cta'
 
 export default function page() {
   return (

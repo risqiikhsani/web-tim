@@ -1,5 +1,5 @@
 import Transition from "@/components/animations/transition";
-import CTA from "./_page/cta";
+import CTA from "./_public_components/cta";
 import Feature from "./_page/feature";
 import Hero from "./_page/hero";
 import Stat from "./_page/stat";
@@ -26,23 +26,23 @@ export default function page() {
       <Feature />
 
       <Transition direction="right">
-        <HeroEducation />
+        <HeroEducation showReadMore/>
       </Transition>
 
       <Transition direction="left">
-        <HeroCloudConsulting />
+        <HeroCloudConsulting showReadMore/>
       </Transition>
 
       <Transition direction="right">
-        <HeroCloudSolutions />
+        <HeroCloudSolutions showReadMore/>
       </Transition>
 
       <Transition direction="left">
-        <HeroCloudMigration />
+        <HeroCloudMigration showReadMore/>
       </Transition>
 
       <Transition direction="left">
-        <Education />
+        <Education showReadMore/>
       </Transition>
 
       <Trusted />

@@ -7,7 +7,7 @@ import Link from "next/link";
 import BorderCool from "@/components/border-cool";
 import picture from '@/service_images/aws-solutions.png'
 
-const HeroCloudSolutions = () => {
+const HeroCloudSolutions = ({showReadMore}:{showReadMore:boolean}) => {
   return (
     <section className="py-32">
       <div className="container">
@@ -24,9 +24,9 @@ const HeroCloudSolutions = () => {
               We are ready to help providing solutions to help your business.
             </p>
             <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
-              <Button className="w-full sm:w-auto" asChild>
+              {showReadMore && <Button className="w-full sm:w-auto" asChild>
                 <Link href="/">Read more</Link>
-              </Button>
+              </Button>}
             </div>
           </div>
           <BorderCool>

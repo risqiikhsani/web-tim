@@ -1,20 +1,21 @@
-import { Book, Sunset, Trees, Zap } from "lucide-react";
+import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
 import Link from "next/link";
 
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle
+  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetTitle,
-  SheetTrigger
+  SheetTrigger,
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -23,6 +24,7 @@ import ModeToggle from "./mode-toggle";
 const navigations = [
   { label: "Home", href: "/" },
   { label: "MSIB", href: "/msib" },
+  { label: "MergingHUB", href: "/services/cloud-migration-transformation" },
   { label: "About Us", href: "/about" },
   { label: "News", href: "/news" },
 ];
@@ -69,25 +71,25 @@ const services = [
   },
   {
     title: "Cloud Consulting",
-    description: "We are here to help you with any questions you have",
+    description: "We provide consultations to help your business.",
     icon: <Zap className="size-5 shrink-0" />,
     url: "/services/cloud-consulting",
   },
   {
     title: "Cloud Solutions",
-    description: "We are here to help you fix your current needs",
+    description: "We are ready to give solutions for any problems.",
     icon: <Zap className="size-5 shrink-0" />,
     url: "/services/cloud-solutions",
   },
   {
     title: "Migration / Transformation",
-    description: "Migrate or transform your current architecture for the better",
+    description: "Migrate or transform your current architecture to be better.",
     icon: <Zap className="size-5 shrink-0" />,
     url: "/services/cloud-migration-transformation",
   },
   {
     title: "Education / Training",
-    description: "We are here to help you te be what you want",
+    description: "We are to help new talents to become what they want.",
     icon: <Zap className="size-5 shrink-0" />,
     url: "/services/education",
   },
@@ -96,12 +98,28 @@ const services = [
 const SideNavbar = () => {
   return (
     <Sheet>
-      <SheetTrigger>Menu</SheetTrigger>
-      <SheetContent>
+      <SheetTrigger>
+        <Menu />
+      </SheetTrigger>
+      <SheetContent className="flex flex-col gap-2 justify-start items-start">
         <SheetTitle>Menu</SheetTitle>
-        <Button asChild variant="ghost">
-          <Link href="test">test</Link>
-        </Button>
+        {navigations.map((a, i) => (
+          <SheetClose asChild key={i} className="pl-4">
+            <Link href={a.href}>{a.label}</Link>
+          </SheetClose>
+        ))}
+        <SheetTitle>Services</SheetTitle>
+        {services.map((a, i) => (
+          <SheetClose asChild key={i} className="pl-4">
+            <Link href={a.url}>{a.title}</Link>
+          </SheetClose>
+        ))}
+        <SheetTitle>Others</SheetTitle>
+        {others.map((a, i) => (
+          <SheetClose asChild key={i} className="pl-4">
+            <Link href={a.url}>{a.title}</Link>
+          </SheetClose>
+        ))}
       </SheetContent>
     </Sheet>
   );

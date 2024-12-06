@@ -13,9 +13,10 @@ interface EducationProps {
   type: string;
   description?: string;
   features: string[];
-  cta: string;
   image: string;
-  href: string;
+  read_more_url: string;
+  register_url: string;
+  available: boolean;
 }
 
 // Dummy Education data
@@ -30,9 +31,10 @@ const EducationPrograms: EducationProps[] = [
       "CMS Integration",
       "24/7 Chat Support",
     ],
-    cta: "Read more",
-    image:"/logo/aws1.png",
-    href: "/services/education",
+    image: "/logo/aws1.png",
+    read_more_url: "/services/education",
+    register_url: "",
+    available: false,
   },
   {
     title: "Training Program",
@@ -44,9 +46,10 @@ const EducationPrograms: EducationProps[] = [
       "CMS Integration",
       "24/7 Chat Support",
     ],
-    cta: "Read more",
-    image:"/logo/aws2.png",
-    href: "/services/education",
+    image: "/logo/aws2.png",
+    read_more_url: "/services/education",
+    register_url: "",
+    available: true,
   },
   {
     title: "Training Program",
@@ -58,13 +61,14 @@ const EducationPrograms: EducationProps[] = [
       "CMS Integration",
       "24/7 Chat Support",
     ],
-    cta: "Read more",
-    image:"/logo/aws3.png",
-    href: "/services/education",
+    image: "/logo/aws3.png",
+    read_more_url: "/services/education",
+    register_url: "",
+    available: true,
   },
 ];
 
-const Education = () => {
+const Education = ({ showReadMore }: { showReadMore: boolean }) => {
   return (
     <Section>
       <Container className="flex flex-col items-center gap-4 text-center">
@@ -75,7 +79,7 @@ const Education = () => {
 
         <div className="not-prose mt-4 grid grid-cols-1 gap-6 md:grid-cols-3">
           {EducationPrograms.map((plan, index) => (
-            <EducationCard plan={plan} key={index} />
+            <EducationCard plan={plan} key={index} showReadMore={showReadMore} />
           ))}
         </div>
       </Container>
@@ -83,39 +87,56 @@ const Education = () => {
   );
 };
 
-const EducationCard = ({ plan }: { plan: EducationProps }) => {
+const EducationCard = ({
+  plan,
+  showReadMore,
+}: {
+  plan: EducationProps;
+  showReadMore: boolean;
+}) => {
   return (
     <BorderCool>
-    <div className="flex flex-col rounded-lg border p-6 h-[600px]">
-      <div className="text-center">
-        <Badge>{plan.title}</Badge>
-        <h4 className="mb-2 mt-4 text-2xl text-primary animate-ping-soft">{plan.type}</h4>
-        <p className="text-sm opacity-70">{plan.description}</p>
-      </div>
+      <div className="flex flex-col rounded-lg border p-6 h-[600px]">
+        <div className="text-center">
+          <Badge>{plan.title}</Badge>
+          <h4 className="mb-2 mt-4 text-2xl text-primary animate-ping-soft">
+            {plan.type}
+          </h4>
+          <p className="text-sm opacity-70">{plan.description}</p>
+        </div>
 
-      <div className="my-4 border-t"></div>
+        <div className="my-4 border-t"></div>
 
-      <ul className="space-y-3 text-left">
-        {plan.features.map((feature, i) => (
-          <li key={i} className="flex items-center text-sm opacity-70">
-            <CircleCheck className="mr-2 h-4 w-4" />
-            {feature}
-          </li>
-        ))}
-      </ul>
-      <div className="flex-1"></div>
-      <div className="mx-auto pt-6">
-      <Image src={plan.image} width={100} height={100} alt="logo"/>
-      </div>
+        <ul className="space-y-3 text-left">
+          {plan.features.map((feature, i) => (
+            <li key={i} className="flex items-center text-sm opacity-70">
+              <CircleCheck className="mr-2 h-4 w-4" />
+              {feature}
+            </li>
+          ))}
+        </ul>
+        <div className="flex-1"></div>
+        <div className="mx-auto pt-6">
+          <Image src={plan.image} width={100} height={100} alt="logo" />
+        </div>
 
-      <div className="mt-auto pt-6">
-        <Link href={plan.href}>
-          <Button size={"sm"} className="w-full">
-            {plan.cta}
-          </Button>
-        </Link>
+        <div className="mt-auto pt-6 flex flex-col gap-4">
+          {plan.available ? (
+            <Button size={"sm"} className="w-full" asChild variant="outline">
+              <Link href={plan.register_url}>Register now</Link>
+            </Button>
+          ) : (
+            <Button size={"sm"} className="w-full" variant="outline" disabled>
+              Currently not available
+            </Button>
+          )}
+          {showReadMore && (
+            <Button size={"sm"} className="w-full" asChild variant="link">
+              <Link href={plan.read_more_url}>Read more</Link>
+            </Button>
+          )}
+        </div>
       </div>
-    </div>
     </BorderCool>
   );
 };
