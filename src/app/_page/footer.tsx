@@ -3,35 +3,30 @@ import Link from "next/link";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 
 import { P } from "@/components/typography/Typography";
-import logo from '@/logo/timcorp.png';
+import logo from "@/logo/timcorp.png";
 import { Mail } from "lucide-react";
 
 const sections = [
   {
-    title: "Product",
+    title: "Services",
     links: [
-      { name: "Overview", href: "#" },
-      { name: "Pricing", href: "#" },
-      { name: "Marketplace", href: "#" },
-      { name: "Features", href: "#" },
+      { name: "Cloud Consulting", href: "/services/cloud-consulting" },
+      { name: "Cloud Solutions", href: "/services/cloud-solutions" },
+      {
+        name: "Cloud Migration",
+        href: "/services/cloud-migration-transformation",
+      },
+      { name: "Education", href: "/services/education" },
     ],
   },
   {
     title: "Company",
     links: [
-      { name: "About", href: "#" },
-      { name: "Team", href: "#" },
-      { name: "Blog", href: "#" },
-      { name: "Careers", href: "#" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { name: "Help", href: "#" },
-      { name: "Sales", href: "#" },
-      { name: "Advertise", href: "#" },
-      { name: "Privacy", href: "#" },
+      { name: "About", href: "/about" },
+      { name: "Company", href: "/company" },
+      { name: "News", href: "/news" },
+      { name: "Blogs", href: "/blogs" },
+      { name: "Careers", href: "/careers" },
     ],
   },
 ];
@@ -58,7 +53,10 @@ const Footer = () => {
           </div>
           <ul className="flex items-center space-x-6 text-muted-foreground">
             <li className="font-medium hover:text-primary">
-              <Link href="https://www.instagram.com/timcorp.academy/" target="_blank">
+              <Link
+                href="https://www.instagram.com/timcorp.academy/"
+                target="_blank"
+              >
                 <FaInstagram className="size-6" />
               </Link>
             </li>
@@ -78,7 +76,10 @@ const Footer = () => {
               </Link>
             </li> */}
             <li className="font-medium hover:text-primary">
-              <Link href="https://www.linkedin.com/company/timcorpacademy/" target="_blank">
+              <Link
+                href="https://www.linkedin.com/company/timcorpacademy/"
+                target="_blank"
+              >
                 <FaLinkedin className="size-6" />
               </Link>
             </li>

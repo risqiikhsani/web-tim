@@ -33,7 +33,7 @@ const HeroCloudConsulting = ({showReadMore}:{showReadMore:boolean}) => {
               Cloud Consulting
             </h1>
             <p className="mb-8 max-w-xl text-muted-foreground lg:text-xl">
-              We are here ready to help you build a enterprise ready cloud infrastructure for you.
+              Consult with us about cloud related problems any day any time.
             </p>
             <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
               {showReadMore && <Button className="w-full sm:w-auto" asChild>

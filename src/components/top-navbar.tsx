@@ -20,6 +20,7 @@ import {
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import ModeToggle from "./mode-toggle";
+import UserAvatar from "./user-avatar";
 
 const navigations = [
   { label: "Home", href: "/" },
@@ -33,31 +34,31 @@ const others = [
   {
     title: "Blogs",
     description: "Blogs of ours",
-    icon: <Book className="size-5 shrink-0" />,
+    icon: <Book className="size-5 shrink-0 text-cyan-500" />,
     url: "/blogs",
   },
   {
     title: "Projects",
     description: "Projects of ours",
-    icon: <Book className="size-5 shrink-0" />,
+    icon: <Book className="size-5 shrink-0 text-cyan-500" />,
     url: "/projects",
   },
   {
     title: "Company",
     description: "Our mission is to innovate and empower the world",
-    icon: <Trees className="size-5 shrink-0" />,
+    icon: <Trees className="size-5 shrink-0 text-cyan-500" />,
     url: "/company",
   },
   {
     title: "Careers",
     description: "Browse job listing and discover our workspace",
-    icon: <Sunset className="size-5 shrink-0" />,
+    icon: <Sunset className="size-5 shrink-0 text-cyan-500" />,
     url: "/careers",
   },
   {
     title: "Contact",
     description: "Get in touch with our support team",
-    icon: <Zap className="size-5 shrink-0" />,
+    icon: <Zap className="size-5 shrink-0 text-cyan-500" />,
     url: "/contact",
   },
 ];
@@ -66,31 +67,31 @@ const services = [
   {
     title: "All services",
     description: "Get all the answers you need right here",
-    icon: <Zap className="size-5 shrink-0" />,
+    icon: <Zap className="size-5 shrink-0 text-cyan-500" />,
     url: "/services",
   },
   {
     title: "Cloud Consulting",
     description: "We provide consultations to help your business.",
-    icon: <Zap className="size-5 shrink-0" />,
+    icon: <Zap className="size-5 shrink-0 text-cyan-500" />,
     url: "/services/cloud-consulting",
   },
   {
     title: "Cloud Solutions",
     description: "We are ready to give solutions for any problems.",
-    icon: <Zap className="size-5 shrink-0" />,
+    icon: <Zap className="size-5 shrink-0 text-cyan-500" />,
     url: "/services/cloud-solutions",
   },
   {
     title: "Migration / Transformation",
     description: "Migrate or transform your current architecture to be better.",
-    icon: <Zap className="size-5 shrink-0" />,
+    icon: <Zap className="size-5 shrink-0 text-cyan-500" />,
     url: "/services/cloud-migration-transformation",
   },
   {
     title: "Education / Training",
     description: "We are to help new talents to become what they want.",
-    icon: <Zap className="size-5 shrink-0" />,
+    icon: <Zap className="size-5 shrink-0 text-cyan-500" />,
     url: "/services/education",
   },
 ];
@@ -209,6 +210,7 @@ const TopNavbar = () => {
           </NavigationMenu>
 
           <ModeToggle />
+          <UserAvatar/>
         </nav>
         <div className="flex gap-2 justify-between md:hidden">
           <SideNavbar />

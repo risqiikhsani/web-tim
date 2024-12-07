@@ -32,7 +32,7 @@ const HeroCloudMigration = ({showReadMore}:{showReadMore:boolean}) => {
               Cloud Migration / Transformation
             </h1>
             <p className="mb-8 max-w-xl text-muted-foreground lg:text-xl">
-              We are here ready to help you build a enterprise ready cloud infrastructure for you.
+              We are here ready to help build,migrate,or transform a cloud infrastructure to enterprise ready.
             </p>
             <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
               {showReadMore && <Button className="w-full sm:w-auto" asChild>
