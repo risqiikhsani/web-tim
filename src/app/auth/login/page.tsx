@@ -5,10 +5,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import SignInGoogle from "./sign-in-google";
 import Image from "next/image";
 import Link from "next/link";
-import SignInGithub from "./sign-in-github";
+import SignInGoogle from "./sign-in-google";
 
 export default function page() {
   return (

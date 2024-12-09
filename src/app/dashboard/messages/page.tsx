@@ -1,17 +1,15 @@
+import CopyTextButton from "@/components/copy-text-button";
 import { H1 } from "@/components/typography/Typography";
-import React from "react";
+import { Button } from "@/components/ui/button";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow,
+  TableRow
 } from "@/components/ui/table";
 import { MessagesType } from "@/types/types";
-import { Button } from "@/components/ui/button";
-import CopyTextButton from "@/components/copy-text-button";
 
 const URL = process.env.NEXT_PUBLIC_URL;
 export default async function page() {

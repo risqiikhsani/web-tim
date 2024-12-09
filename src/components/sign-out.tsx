@@ -13,7 +13,7 @@ export async function SignOut() {
         await signOut({redirectTo:"/"});
       }}
     >
-      <Button type="submit" variant="outline" className="w-full">Sign Out</Button>
+      <Button type="submit" variant="outline" className="w-full hover:border-primary">Sign Out</Button>
     </form>
   );
 }

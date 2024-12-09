@@ -1,9 +1,5 @@
-import { client } from "@/lib/aws";
 import { CreateItem, queryByType } from "@/lib/functions";
-import { PutItemCommand } from "@aws-sdk/client-dynamodb";
-import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
-import { v4 as uuidv4 } from "uuid";
-const TABLE_NAME = process.env.TABLE_NAME!;
+
 
 // Common error response handler
 function createErrorResponse(message: string, status: number = 500) {

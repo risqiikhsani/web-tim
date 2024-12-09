@@ -38,7 +38,7 @@ export function SubscribeForm() {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       // Use the Axios instance to send a POST request
-      const response = await instance.post("/api/subscribers", {
+      await instance.post("/api/subscribers", {
         email: values.email,
       });
       // Display a success toast with the response message

@@ -1,6 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
     Dialog,
+    DialogClose,
     DialogContent,
     DialogHeader,
     DialogTitle,
@@ -8,6 +9,7 @@ import {
 } from "@/components/ui/dialog";
 import { auth } from "../auth";
 import { SignOut } from "./sign-out";
+import Link from "next/link";
 
 export default async function UserAvatar() {
   const session = await auth();
@@ -44,7 +46,7 @@ export default async function UserAvatar() {
         <p className="text-muted-foreground text-sm">{session.user.name}</p>
         <p className="text-muted-foreground text-sm">{session.user.email}</p>
         <p className="text-muted-foreground text-sm">role : {session.user.role}</p>
-
+        <DialogClose asChild className="border rounded-md text-center p-2 hover:border-primary"><Link href="/dashboard">Dashboard</Link></DialogClose>
         <SignOut />
       </DialogContent>
     </Dialog>

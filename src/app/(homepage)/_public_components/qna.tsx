@@ -1,11 +1,9 @@
 import { Badge } from '@/components/ui/badge';
+import { FaqsType } from '@/types/types';
 
 
 
-interface FaqsType {
-    question: string;
-    answer: string;
-}
+
 
 const Qna = ({faqs}:{faqs:FaqsType[]}) => {
   return (

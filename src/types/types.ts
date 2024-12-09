@@ -21,3 +21,13 @@ export interface SubscribersType {
   id:string;
   createdAt: string;
 }
+
+export interface FaqsType {
+  question: string;
+  answer: string;
+}
+
+export interface FeatureType {
+  title: string;
+  description: string;
+}

@@ -1,66 +1,70 @@
-import { ArrowRight } from "lucide-react";
+
 import Image from "next/image";
+import Link from "next/link";
+
+const data = [
+  {
+    name: "Tani Pintar",
+    description: "Hello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello there",
+    url: "www.google.com",
+    image: "/images/aws1.jpg",
+  },
+  {
+    name: "Something",
+    description: "Hello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello there",
+    url: "www.google.com",
+    image: "/images/aws1.jpg",
+  },
+  {
+    name: "Something",
+    description: "Hello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello thereHello there",
+    url: "www.google.com",
+    image: "/images/aws1.jpg",
+  },
+];
 
 const Page = () => {
   return (
-    <section className="py-32">
+    <section>
       <div className="container flex flex-col gap-16 lg:px-16">
         <div className="lg:max-w-sm">
           <h2 className="mb-3 text-xl font-semibold md:mb-4 md:text-4xl lg:mb-6">
-            Company Projects
+            Company Projects / Startups
           </h2>
           <p className="mb-8 text-muted-foreground lg:text-lg">
-            List of internal projects we$apos;re working on.
+            List of internal projects we are working on.
           </p>
-          <a
-            href="#"
-            className="group flex items-center text-xs font-medium md:text-base lg:text-lg"
-          >
-            Book a demo{" "}
-            <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
-          </a>
         </div>
-        <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
-          <div className="flex flex-col text-clip rounded-xl border border-border md:col-span-2 md:grid md:grid-cols-2 md:gap-6 lg:gap-8">
-            <div className="md:min-h-96 lg:min-h-[28rem] xl:min-h-[32rem]">
-              <Image
-                width={1000}
-                height={1000}
-                src="https://www.shadcnblocks.com/images/block/placeholder-1.svg"
-                alt="Feature 1"
-                className="aspect-[16/9] size-full object-cover object-center"
-              />
+        <div className="gap-6 lg:gap-10 container mx-auto flex flex-col">
+          {data.map((a, i) => (
+            <div
+              key={i}
+              className={`flex shadow-xl flex-col md:flex-row text-clip rounded-xl border border-border md:gap-6 lg:gap-8 ${
+                i % 2 === 0 ? "md:flex-row-reverse " : ""
+              }`} // Reverses the order for even indices
+            >
+              <div className="">
+                <Image
+                  width={1200}
+                  height={1200}
+                  src={a.image}
+                  alt="Feature 1"
+                  className="aspect-[16/9] size-full object-cover object-center rounded-xl"
+                />
+              </div>
+              <div className="flex flex-col justify-center p-2 md:p-10">
+                <h3 className="mb-3 text-lg font-semibold md:mb-4 md:text-2xl lg:mb-6">
+                  {a.name}
+                </h3>
+                <p className="text-muted-foreground lg:text-lg">
+                  {a.description}
+                </p>
+                <Link href={a.url} target="_blank">
+                  Learn more
+                </Link>
+              </div>
             </div>
-            <div className="flex flex-col justify-center px-6 py-8 md:px-8 md:py-10 lg:px-10 lg:py-12">
-              <h3 className="mb-3 text-lg font-semibold md:mb-4 md:text-2xl lg:mb-6">
-                Feature 1
-              </h3>
-              <p className="text-muted-foreground lg:text-lg">
-                Nam vitae molestie arcu. Quisque eu libero orci. Aliquam
-                imperdiet magna nec massa consectetur, id interdum ante congue.
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-col-reverse text-clip rounded-xl border border-border md:col-span-2 md:grid md:grid-cols-2 md:gap-6 lg:gap-8">
-            <div className="flex flex-col justify-center px-6 py-8 md:px-8 md:py-10 lg:px-10 lg:py-12">
-              <h3 className="mb-3 text-lg font-semibold md:mb-4 md:text-2xl lg:mb-6">
-                Feature 2
-              </h3>
-              <p className="text-muted-foreground lg:text-lg">
-                Nam vitae molestie arcu. Quisque eu libero orci. Aliquam
-                imperdiet magna nec massa consectetur, id interdum ante congue.
-              </p>
-            </div>
-            <div className="md:min-h-96 lg:min-h-[28rem] xl:min-h-[32rem]">
-              <Image
-                width={1000}
-                height={1000}
-                src="https://www.shadcnblocks.com/images/block/placeholder-2.svg"
-                alt="Feature 2"
-                className="aspect-[16/9] size-full object-cover object-center"
-              />
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

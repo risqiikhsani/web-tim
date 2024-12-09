@@ -1,50 +1,57 @@
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const news = [
   {
     id: 'item-1',
-    title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
-    summary:
-      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
+    title: 'MSIB Batch 7 telah dibuka',
+    text:
+      'test',
     label: 'Ut varius dolor turpis',
     author: 'Jane Doe',
-    published: '1 Jan 2024',
-    href: '#',
-    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
+    createdAt: '1 Jan 2024',
+    image: '/images/aws1.jpg',
   },
   {
     id: 'item-2',
-    title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
-    summary:
-      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
+    title: 'TIMCorp MergingHUB new services',
+    text:
+      'test',
     label: 'Ut varius dolor turpis',
     author: 'Jane Doe',
-    published: '1 Jan 2024',
-    href: '#',
-    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
+    createdAt: '1 Jan 2024',
+    image: '/images/aws1.jpg',
   },
   {
     id: 'item-3',
-    title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
-    summary:
-      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
+    title: 'TIMCorp Data Analytics MSIB',
+    text:
+      'test',
     label: 'Ut varius dolor turpis',
     author: 'Jane Doe',
-    published: '1 Jan 2024',
-    href: '#',
-    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
+    createdAt: '1 Jan 2024',
+    image: '/images/aws1.jpg',
   },
   {
     id: 'item-4',
-    title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
-    summary:
-      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
+    title: 'MSIB batch 6 telah berakhir dengan phenomenal',
+    text:
+      'test',
     label: 'Ut varius dolor turpis',
     author: 'Jane Doe',
-    published: '1 Jan 2024',
-    href: '#',
-    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
+    createdAt: '1 Jan 2024',
+    image: '/images/aws1.jpg',
+  },
+  {
+    id: 'item-5',
+    title: 'Pemenang Best Project Capstone MSIB Batch 6',
+    text:
+      'test',
+    label: 'Ut varius dolor turpis',
+    author: 'Jane Doe',
+    createdAt: '1 Jan 2024',
+    image: '/images/aws1.jpg',
   },
 ];
 
@@ -57,23 +64,22 @@ const Page = () => {
         </h2>
         <div className="grid gap-y-10 sm:grid-cols-12 sm:gap-y-12 md:gap-y-16 lg:gap-y-20">
           {news.map((item) => (
-            <a
+            <Link
               key={item.id}
-              href={item.href}
+              href={`/news/${item.id}`}
               className="group order-last grid gap-y-6 sm:order-first sm:col-span-12 sm:grid-cols-10 sm:gap-x-5 sm:gap-y-0 md:items-center md:gap-x-8 lg:col-span-10 lg:col-start-2 lg:gap-x-12"
             >
               <div className="sm:col-span-5">
                 <div className="mb-4 md:mb-6">
                   <div className="flex text-xs uppercase tracking-wider text-muted-foreground">
-                    <span className="mr-3 md:mr-5 lg:mr-6">item</span>
+                    <span className="mr-3 md:mr-5 lg:mr-6">news</span>
                     <span className="mr-3 md:mr-5 lg:mr-6">
-                      Employer of record
+                      {item.createdAt}
                     </span>
                   </div>
                 </div>
-                <h3 className="text-xl font-semibold md:text-2xl lg:text-3xl">
-                  Engaging Talent, Embracing Change: Uncover the Value of an
-                  Employer of Record
+                <h3 className="text-xl font-semibold md:text-2xl lg:text-3xl group-hover:text-primary">
+                  {item.title}
                 </h3>
                 <div className="mt-4 flex items-center space-x-2 md:mt-5">
                   <span className="font-semibold md:text-base">Read more</span>
@@ -91,7 +97,7 @@ const Page = () => {
                   />
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

@@ -37,7 +37,7 @@ export default function MessageForm() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       // Use the Axios instance to send a POST request
-      const response = await instance.post("/api/messages", {
+      await instance.post("/api/messages", {
         email: values.email,
         name: values.name,
         message: values.message,
