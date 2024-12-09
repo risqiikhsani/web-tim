@@ -1,11 +1,12 @@
 import React from 'react'
 import Contact from '../_public_components/contact'
-import SubscribeForm from '../_public_components/subscribe-form'
+import CTA from '../_public_components/cta'
+
 
 export default function page() {
   return (
     <div>
-      <SubscribeForm/>
+      <CTA/>
       <Contact/>
     </div>
   )
