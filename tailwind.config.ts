@@ -119,7 +119,8 @@ export default {
   			'ping-soft': 'ping-soft 1.5s ease-in-out infinite',
   			'pulse-soft': 'pulse-soft 1.5s ease-in-out infinite',
   			'soft-glow': 'soft-glow 2s ease-in-out infinite',
-  			'border-spin': 'border-spin 7s linear infinite'
+  			'border-spin': 'border-spin 7s linear infinite',
+			'spin-slow':'spin 3s linear infinite'
   		}
   	}
   },

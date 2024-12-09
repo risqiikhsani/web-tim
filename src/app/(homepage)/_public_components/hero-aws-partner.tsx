@@ -13,6 +13,7 @@ import { H1, H3 } from "@/components/typography/Typography";
 import Logo2 from "@/logo/awspartner.png";
 import Logo3 from "@/logo/awspartner2.png";
 import Logo from "@/logo/timcorp.png";
+import BorderGradient from "@/components/border-gradient";
 
 const HeroAwsPartner = () => {
   return (
@@ -38,20 +39,28 @@ const HeroAwsPartner = () => {
 
       <Container className="flex flex-col items-center text-center bg-[url('/images/subtle-prism.svg')] dark:invert rounded-md">
         <div className="flex md:flex-row flex-col gap-2 justify-center items-center">
-          <Image
-            src={Logo2}
-            width={200}
-            height={200}
-            alt="Company Logo"
-            className="not-prose dark:invert rounded-lg animate-in slide-in-from-top duration-1000"
-          />
-          <Image
-            src={Logo3}
-            width={300}
-            height={200}
-            alt="Company Logo"
-            className="not-prose dark:invert rounded-lg animate-in slide-in-from-left duration-1000"
-          />
+          <div className="animate-in slide-in-from-top duration-1000">
+            <BorderGradient>
+              <Image
+                src={Logo2}
+                width={600}
+                height={600}
+                alt="Company Logo"
+                className="not-prose dark:invert rounded-lg "
+              />
+            </BorderGradient>
+          </div>
+          <div className="animate-in slide-in-from-left duration-1000">
+            <BorderGradient>
+              <Image
+                src={Logo3}
+                width={600}
+                height={600}
+                alt="Company Logo"
+                className="not-prose dark:invert rounded-lg "
+              />
+            </BorderGradient>
+          </div>
         </div>
         <div className="not-prose mt-6 flex flex-col md:flex-row gap-2 md:mt-12">
           {/* <Button asChild>
@@ -61,13 +70,19 @@ const HeroAwsPartner = () => {
             </Link>
           </Button> */}
           <Button asChild>
-            <Link href="https://aws.amazon.com/partners/work-with-partners/" target="_blank">
+            <Link
+              href="https://aws.amazon.com/partners/work-with-partners/"
+              target="_blank"
+            >
               {" "}
               Learn more about AWS Partner. -{">"}
             </Link>
           </Button>
-          <Button  asChild>
-            <Link href="https://partners.amazonaws.com/partners/0018W00001wu6XoQAI/PT%20TECHNO%20INTERNATIONAL%20MANDIRA%20(TIMCorp)" target="_blank">
+          <Button asChild>
+            <Link
+              href="https://partners.amazonaws.com/partners/0018W00001wu6XoQAI/PT%20TECHNO%20INTERNATIONAL%20MANDIRA%20(TIMCorp)"
+              target="_blank"
+            >
               {" "}
               AWS Partner page. -{">"}
             </Link>
