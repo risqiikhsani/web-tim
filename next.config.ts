@@ -12,9 +12,22 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'www.shadcnblocks.com',
       },
+      {
+        protocol:"https",
+        hostname:"lh3.googleusercontent.com"
+      },
+      {
+        protocol:"https",
+        hostname:"avatars.githubusercontent.com"
+      }
 
     ],
-  }
+  },
+  experimental: {
+    serverActions: {
+      bodySizeLimit: '4mb',
+    },
+  },
 };
 
 export default nextConfig;

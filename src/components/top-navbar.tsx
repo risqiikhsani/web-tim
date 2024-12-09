@@ -1,28 +1,31 @@
-import { Book, Sunset, Trees, Zap } from "lucide-react";
+import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
 import Link from "next/link";
 
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle
+  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetTitle,
-  SheetTrigger
+  SheetTrigger,
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import ModeToggle from "./mode-toggle";
+import UserAvatar from "./user-avatar";
 
 const navigations = [
   { label: "Home", href: "/" },
   { label: "MSIB", href: "/msib" },
+  { label: "MergingHUB", href: "/services/cloud-migration-transformation" },
   { label: "About Us", href: "/about" },
   { label: "News", href: "/news" },
 ];
@@ -31,31 +34,31 @@ const others = [
   {
     title: "Blogs",
     description: "Blogs of ours",
-    icon: <Book className="size-5 shrink-0" />,
+    icon: <Book className="size-5 shrink-0 text-cyan-500" />,
     url: "/blogs",
   },
   {
     title: "Projects",
     description: "Projects of ours",
-    icon: <Book className="size-5 shrink-0" />,
+    icon: <Book className="size-5 shrink-0 text-cyan-500" />,
     url: "/projects",
   },
   {
     title: "Company",
     description: "Our mission is to innovate and empower the world",
-    icon: <Trees className="size-5 shrink-0" />,
+    icon: <Trees className="size-5 shrink-0 text-cyan-500" />,
     url: "/company",
   },
   {
     title: "Careers",
     description: "Browse job listing and discover our workspace",
-    icon: <Sunset className="size-5 shrink-0" />,
+    icon: <Sunset className="size-5 shrink-0 text-cyan-500" />,
     url: "/careers",
   },
   {
     title: "Contact",
     description: "Get in touch with our support team",
-    icon: <Zap className="size-5 shrink-0" />,
+    icon: <Zap className="size-5 shrink-0 text-cyan-500" />,
     url: "/contact",
   },
 ];
@@ -64,31 +67,31 @@ const services = [
   {
     title: "All services",
     description: "Get all the answers you need right here",
-    icon: <Zap className="size-5 shrink-0" />,
+    icon: <Zap className="size-5 shrink-0 text-cyan-500" />,
     url: "/services",
   },
   {
     title: "Cloud Consulting",
-    description: "We are here to help you with any questions you have",
-    icon: <Zap className="size-5 shrink-0" />,
+    description: "We provide consultations to help your business.",
+    icon: <Zap className="size-5 shrink-0 text-cyan-500" />,
     url: "/services/cloud-consulting",
   },
   {
     title: "Cloud Solutions",
-    description: "We are here to help you fix your current needs",
-    icon: <Zap className="size-5 shrink-0" />,
+    description: "We are ready to give solutions for any problems.",
+    icon: <Zap className="size-5 shrink-0 text-cyan-500" />,
     url: "/services/cloud-solutions",
   },
   {
     title: "Migration / Transformation",
-    description: "Migrate or transform your current architecture for the better",
-    icon: <Zap className="size-5 shrink-0" />,
+    description: "Migrate or transform your current architecture to be better.",
+    icon: <Zap className="size-5 shrink-0 text-cyan-500" />,
     url: "/services/cloud-migration-transformation",
   },
   {
     title: "Education / Training",
-    description: "We are here to help you te be what you want",
-    icon: <Zap className="size-5 shrink-0" />,
+    description: "We are to help new talents to become what they want.",
+    icon: <Zap className="size-5 shrink-0 text-cyan-500" />,
     url: "/services/education",
   },
 ];
@@ -96,12 +99,28 @@ const services = [
 const SideNavbar = () => {
   return (
     <Sheet>
-      <SheetTrigger>Menu</SheetTrigger>
-      <SheetContent>
+      <SheetTrigger>
+        <Menu />
+      </SheetTrigger>
+      <SheetContent className="flex flex-col gap-2 justify-start items-start">
         <SheetTitle>Menu</SheetTitle>
-        <Button asChild variant="ghost">
-          <Link href="test">test</Link>
-        </Button>
+        {navigations.map((a, i) => (
+          <SheetClose asChild key={i} className="pl-4">
+            <Link href={a.href}>{a.label}</Link>
+          </SheetClose>
+        ))}
+        <SheetTitle>Services</SheetTitle>
+        {services.map((a, i) => (
+          <SheetClose asChild key={i} className="pl-4">
+            <Link href={a.url}>{a.title}</Link>
+          </SheetClose>
+        ))}
+        <SheetTitle>Others</SheetTitle>
+        {others.map((a, i) => (
+          <SheetClose asChild key={i} className="pl-4">
+            <Link href={a.url}>{a.title}</Link>
+          </SheetClose>
+        ))}
       </SheetContent>
     </Sheet>
   );
@@ -191,6 +210,7 @@ const TopNavbar = () => {
           </NavigationMenu>
 
           <ModeToggle />
+          <UserAvatar/>
         </nav>
         <div className="flex gap-2 justify-between md:hidden">
           <SideNavbar />
