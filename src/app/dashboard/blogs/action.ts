@@ -1,17 +1,8 @@
 "use server";
-import { client } from "@/lib/aws";
-import {
-  PutItemCommand,
-  DeleteItemCommand,
-  GetItemCommand,
-  UpdateItemCommand,
-  type AttributeValue
-} from "@aws-sdk/client-dynamodb";
+import { CreateItem, DeleteItem, UpdateItem, UploadFileToS3 } from "@/lib/functions";
 import { revalidatePath } from "next/cache";
 import { v4 as uuidv4 } from "uuid";
-import { unmarshall } from "@aws-sdk/util-dynamodb";
 
-const TABLE_NAME = process.env.TABLE_NAME!;
 // const INDEX_NAME = process.env.INDEX_NAME!;
 
 
@@ -20,50 +11,46 @@ export async function CreateData(formData: FormData) {
   const title = formData.get("title");
   const text = formData.get("text");
   const type = formData.get("type");
-  //   const files = formData.getAll("files") as File[];
 
   // Input validation
   if (!title || !text || !type) {
     return { success: false, message: "Input not filled." };
   }
 
+  // files handler
+  const files = formData.getAll("files") as File[];
+  const uploadedFiles = [];
+  for (const file of files) {
+    const bytes = await file.arrayBuffer();
+    const buffer = Buffer.from(bytes);
+    const filename = file.name;
+    const data = {
+      key: filename,
+      buffer: buffer
+    }
+    const result = await UploadFileToS3(data);
+    uploadedFiles.push(result);
+  }
+
   try {
-    // File handling (optional)
-    // let fileUrls: string[] = [];
-    // if (files && files.length > 0) {
-    //   // Implement file upload logic here (e.g., to S3)
-    //   // Example:
-    //   // fileUrls = await uploadFilesToS3(files);
-    // }
 
-    // Prepare item for DynamoDB
-    const item = {
-      id: { S: uuidv4() },
-      type: { S: type.toString() },
-      title: { S: title.toString() },
-      text: { S: text.toString() },
-      createdAt: { S: new Date().toISOString() },
-      // Optional: Add file URLs if uploaded
-      //   ...(fileUrls.length > 0 && { files: { L: fileUrls.map(url => ({ S: url })) } }),
-    };
+    const data = {
+      id: uuidv4(),
+      type: type,
+      title: title,
+      text: text,
+      createdAt: new Date().toISOString(),
+      files: uploadedFiles
+    }
 
-    // Send item to DynamoDB
-    const command = new PutItemCommand({
-      TableName: TABLE_NAME,
-      Item: item,
-      ConditionExpression: "attribute_not_exists(id)",
-    });
-
-    await client.send(command);
+    const response = await CreateItem(data)
     revalidatePath("/dashboard/blogs"); // Update cached posts
     return {
-      success:true
+      success:true,
+      data:response
     }
   } catch (error) {
-    // Comprehensive error handling
-    // console.error("Error in CreateData:", error);
-    // Throw a new error with a more informative message
-    // return { message: "Failed to create news/blogs" };
+    console.error("Error in CreateData:", error);
     return {
       success: false,
       message: "Failed to create news/blogs",
@@ -73,133 +60,90 @@ export async function CreateData(formData: FormData) {
 
   // redirect function in server action will throw error NEXT_REDIRECT
   
-  // revalidatePath("/dashboard/blogs"); // Update cached posts
+  // revalidatePath("/dashboard/news"); // Update cached posts
   // redirect(`/dashboard`); // Navigate to the new post page
 
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function buildUpdateExpression(body: Record<string, any>) {
-  const updateExpression: string[] = [];
-  const expressionAttributeNames: Record<string, string> = {};
-  const expressionAttributeValues: Record<string, AttributeValue> = {};
-
-  // Dynamically build update expression
-  for (const [key, value] of Object.entries(body)) {
-    // Prevent updating key attributes
-    if (key === 'id' || key === 'type') continue;
-
-    updateExpression.push(`#${key} = :${key}`);
-    expressionAttributeNames[`#${key}`] = key;
-    expressionAttributeValues[`:${key}`] = { S: value as string };
-  }
-
-  // Add last updated timestamp
-  updateExpression.push('#updatedAt = :updatedAt');
-  expressionAttributeNames['#updatedAt'] = 'updatedAt';
-  expressionAttributeValues[':updatedAt'] = { 
-    S: new Date().toISOString() 
-  };
-
-  return { 
-    updateExpression, 
-    expressionAttributeNames, 
-    expressionAttributeValues 
-  };
-}
 
 export async function UpdateData(slug:string,formData:FormData){
   const title = formData.get("title");
   const text = formData.get("text");
   const type = formData.get("type");
-  //   const files = formData.getAll("files") as File[];
 
   // Input validation
   if (!title || !text || !type) {
     return { success: false, message: "Input not filled." };
   }
 
-  const data = {
-    title,text,type
+  // files handler
+  const files = formData.getAll("files") as File[];
+  const uploadedFiles = [];
+  // Handle new files upload
+  for (const file of files) {
+    const bytes = await file.arrayBuffer();
+    const buffer = Buffer.from(bytes);
+    const filename = file.name;
+
+    try {
+      const result = await UploadFileToS3({ key: filename, buffer });
+      uploadedFiles.push(result); // Assuming `result` is the S3 key or URL
+    } catch (error) {
+      console.error(`Failed to upload file ${filename}:`, error);
+      throw new Error(`File upload failed for ${filename}`);
+    }
   }
 
+  // Handle existing files that user didn't delete or replace in the form
+  const existing_string_files = formData.getAll("existing_string_files") as string[];
+  uploadedFiles.push(...existing_string_files); // Append existing files
+  console.log(uploadedFiles)
+
   try {
-
-    const { 
-      updateExpression, 
-      expressionAttributeNames, 
-      expressionAttributeValues 
-    } = buildUpdateExpression(data);
-
-    if (updateExpression.length === 0) {
-      return {success:false, message:"No valid field to update"}
+    const key = {
+      type:type.toString(),
+      id:slug
+    }
+  
+    const data = {
+      title: title,
+      text: text,
+      files: uploadedFiles
     }
 
-    const updateCommand = new UpdateItemCommand({
-      TableName: TABLE_NAME,
-      Key: {
-        id: { S: slug },
-        type: { S: type.toString() },
-      },
-      UpdateExpression: `SET ${updateExpression.join(', ')}`,
-      ExpressionAttributeNames: expressionAttributeNames,
-      ExpressionAttributeValues: expressionAttributeValues,
-      ReturnValues: 'ALL_NEW',
-    });
-
-    const { Attributes } = await client.send(updateCommand);
-
-    if (!Attributes) {
-      return {success:false,message:"Item not found or no changes made"}
-    }
-    revalidatePath("/dashboard/blogs");
-    return {success:true,data:unmarshall(Attributes)}
+   const response = await UpdateItem(key,data)
+    revalidatePath("/dashboard/news");
+    return {success:true,data:response}
   } catch (error) {
     console.error('Update Error:', error);
     return {
       success: false,
       message: "Failed to update news/blogs",
-      error: error instanceof Error ? error.message : String(error),
+      error: error,
     };
   }
 }
 
-export async function DeleteData(slug:string,type:string){
+interface KeyType {
+  id : string;
+  type : string;
+}
+
+export async function DeleteData(key:KeyType){
 
   // Input validation
-  if (!slug || !type) {
+  if (!key.id || !key.type) {
     return { success: false, message: "Input not filled." };
   }
 
   try {
-    // First, verify item exists
-    const { Item } = await client.send(
-      new GetItemCommand({
-        TableName: TABLE_NAME,
-        Key: {
-          id: { S: slug },
-          type: { S: type },
-        },
-      })
-    );
-
-    if (!Item) {
-      return {success:false,message:"Item not found"}
+    const key_data = {
+      type:key.type,
+      id:key.id
     }
-
-    // Delete the item
-    const deleteCommand = new DeleteItemCommand({
-      TableName: TABLE_NAME,
-      Key: {
-        id: { S: slug },
-        type: { S: type.toString() },
-      },
-      ConditionExpression: 'attribute_exists(id)',
-    });
-
-    await client.send(deleteCommand);
+    const response = await DeleteItem(key_data)
     revalidatePath("/dashboard/blogs");
-    return {success:true,message:"Deleted successfully"}
+    return {success:true,message:"Deleted successfully",data:response}
   } catch (error) {
     console.error('Delete Error:', error);
     return {

@@ -58,7 +58,7 @@ const Trusted = () => {
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-pretty max-w-2xl">
-            Trusted by these companies
+            Partners
           </h1>
         </div>
         <div className="mt-8 sm:mt-12 md:mt-16">

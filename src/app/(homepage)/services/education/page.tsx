@@ -1,9 +1,9 @@
-import HeroEducation from "@/app/_public_components/hero-education";
+import HeroEducation from "@/app/(homepage)/_public_components/hero-education";
 import React from "react";
 import Feature from "./feature";
 
-import Quote from "@/app/_public_components/quote";
-import CtaOffer from "@/app/_public_components/cta-offer";
+import Quote from "@/app/(homepage)/_public_components/quote";
+import CtaOffer from "@/app/(homepage)/_public_components/cta-offer";
 import Classes from "./classes";
 import Gallery from "./gallery";
 

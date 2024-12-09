@@ -1,5 +1,4 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import {
   FileInput,
   FileUploader,
@@ -25,14 +24,15 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 
+import FormSubmitButton from "@/components/form-submit-button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CloudUpload, Paperclip } from "lucide-react";
+import { redirect } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import * as z from "zod";
 import { CreateData } from "../action";
-import { redirect } from "next/navigation";
-import { toast } from "sonner";
 
 
 const formSchema = z.object({
@@ -200,7 +200,7 @@ export default function CreateForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <FormSubmitButton loading={form.formState.isSubmitting}/>
       </form>
     </Form>
   );

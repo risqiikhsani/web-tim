@@ -7,3 +7,17 @@ export interface NewsBlogsType {
   createdAt: string; // ISO date string
   updatedAt?: string; // Optional ISO date string
 }
+
+export interface MessagesType {
+  type:string;
+  id:string;
+  name?:string;
+  message:string;
+  createdAt: string
+}
+
+export interface SubscribersType {
+  type:string;
+  id:string;
+  createdAt: string;
+}

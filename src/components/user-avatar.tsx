@@ -18,14 +18,24 @@ export default async function UserAvatar() {
     console.log(session);
   }
 
+  const imageUrl = session.user.image || ""
+
   return (
+    
     <Dialog>
       <DialogTrigger asChild>
-        <Avatar>
-          <AvatarImage src={session.user.image || `/logo/timcorp.png`} />
-          <AvatarFallback>CN</AvatarFallback>
+        <Avatar className="hover:border-2 hover:border-primary hover:cursor-pointer">
+          {imageUrl ? (
+            <AvatarImage 
+              src={imageUrl} 
+              alt={session.user.name || 'User Avatar'}
+              referrerPolicy="no-referrer" // Add this to handle cross-origin images
+            />
+          ) : null}
+          <AvatarFallback>{session.user.name?.[0] || 'AB'}</AvatarFallback>
         </Avatar>
       </DialogTrigger>
+      {/* Rest of your component */}
       <DialogContent className="sm:max-w-[425px] flex flex-col gap-2">
         <DialogHeader>
           <DialogTitle>Profile</DialogTitle>
@@ -33,6 +43,7 @@ export default async function UserAvatar() {
 
         <p className="text-muted-foreground text-sm">{session.user.name}</p>
         <p className="text-muted-foreground text-sm">{session.user.email}</p>
+        <p className="text-muted-foreground text-sm">role : {session.user.role}</p>
 
         <SignOut />
       </DialogContent>

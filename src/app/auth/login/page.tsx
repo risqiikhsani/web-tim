@@ -8,6 +8,7 @@ import {
 import SignInGoogle from "./sign-in-google";
 import Image from "next/image";
 import Link from "next/link";
+import SignInGithub from "./sign-in-github";
 
 export default function page() {
   return (
@@ -25,6 +26,7 @@ export default function page() {
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         <SignInGoogle />
+        {/* <SignInGithub/> */}
         <CardDescription>
           Dont have an account? <Link href="/auth/signup">Sign Up</Link>
         </CardDescription>

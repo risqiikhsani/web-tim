@@ -14,7 +14,7 @@ import Link from "next/link";
 import Image from "next/image";
 import HeroAwsPartner from "../_public_components/hero-aws-partner";
 import Services from "../_public_components/services";
-
+import office from '@/images/office.png'
 const reasons = [
   {
     title: "Quality",
@@ -91,8 +91,8 @@ const Page = () => {
             <Image
               width={1000}
               height={1000}
-              src="https://www.shadcnblocks.com/images/block/placeholder-1.svg"
-              alt="placeholder hero"
+              src={office}
+              alt="office"
               className="max-h-96 w-full rounded-md object-cover"
             />
           </div>

@@ -1,5 +1,4 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import {
   FileInput,
   FileUploader,
@@ -25,15 +24,15 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 
+import FormSubmitButton from "@/components/form-submit-button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CloudUpload, Paperclip } from "lucide-react";
+import { redirect } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import * as z from "zod";
 import { CreateData } from "../action";
-import { redirect } from "next/navigation";
-import { toast } from "sonner";
-
 
 const formSchema = z.object({
   title: z.string(),
@@ -43,7 +42,6 @@ const formSchema = z.object({
 });
 
 export default function CreateForm() {
-
   const [files, setFiles] = useState<File[] | null>(null);
 
   const dropZoneConfig = {
@@ -75,10 +73,11 @@ export default function CreateForm() {
 
     const res = await CreateData(data);
     if (!res?.success) {
-      toast.info("Error")
+      toast.info("Error");
     } else {
-      toast.info("Created successfully")
-      redirect("/dashboard/news")
+      toast.info("Created successfully");
+      setFiles(null)
+      redirect("/dashboard/news");
     }
   }
 
@@ -182,7 +181,11 @@ export default function CreateForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Type</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value} disabled>
+              <Select
+                onValueChange={field.onChange}
+                defaultValue={field.value}
+                disabled
+              >
                 <FormControl>
                   <SelectTrigger>
                     <SelectValue placeholder="Select the type" />
@@ -200,7 +203,7 @@ export default function CreateForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <FormSubmitButton loading={form.formState.isSubmitting}/>
       </form>
     </Form>
   );

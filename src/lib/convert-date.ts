@@ -6,7 +6,7 @@ export const ConvertDate = (isoString: string): string => {
     const parsedDate = parseISO(isoString);
     return format(parsedDate, 'MMMM do, yyyy');
   } catch (error) {
-    // console.error('Error parsing date:', error);
+    console.error('Error parsing date:', error);
     return 'Invalid Date';
   }
 };

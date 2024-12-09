@@ -1,9 +1,5 @@
-import { client } from "@/lib/aws";
-import { GetItemCommand, GetItemCommandInput } from "@aws-sdk/client-dynamodb";
-import { unmarshall } from "@aws-sdk/util-dynamodb";
+import { GetItemByKeys } from "@/lib/functions";
 
-const TABLE_NAME = process.env.TABLE_NAME!;
-// const NEWS_TYPE = "blogs";
 
 // Utility function for creating error responses
 function createErrorResponse(message: string, status: number = 500) {
@@ -29,26 +25,17 @@ export async function GET(
   }
 
   try {
-    const result = await GetItemByTypeAndId("blogs", slug);
-    return Response.json(result);
+    const key = {
+      type:"blogs",
+      id:slug
+    }
+    const result = await GetItemByKeys(key)
+    return Response.json(result)
   } catch (error) {
     console.error("Fetch Item Error:", error);
     return createErrorResponse("Failed to fetch item");
   }
 }
 
-async function GetItemByTypeAndId(type: string, id: string) {
-  const queryParams: GetItemCommandInput = {
-    TableName: TABLE_NAME,
-    Key: {
-      type: { S: type },
-      id: { S: id },
-    },
-  };
 
-  const { Item } = await client.send(new GetItemCommand(queryParams));
-  if (!Item) {
-    return null;
-  }
-  return unmarshall(Item);
-}
+

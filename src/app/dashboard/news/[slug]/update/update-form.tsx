@@ -1,5 +1,4 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import {
   FileInput,
   FileUploader,
@@ -31,11 +30,12 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
+import FormSubmitButton from "@/components/form-submit-button";
+import { NewsBlogsType } from "@/types/types";
 import { redirect } from "next/navigation";
 import { toast } from "sonner";
-import { NewsBlogsType } from "@/types/types";
 import { UpdateData } from "../../action";
-
+import { P } from "@/components/typography/Typography";
 
 const formSchema = z.object({
   title: z.string(),
@@ -44,9 +44,13 @@ const formSchema = z.object({
   type: z.string(),
 });
 
-export default function UpdateForm({initial_data}:{initial_data:NewsBlogsType}) {
-
+export default function UpdateForm({
+  initial_data,
+}: {
+  initial_data: NewsBlogsType;
+}) {
   const [files, setFiles] = useState<File[] | null>(null);
+  const [existingFiles, setExistingFiles] = useState<File[] | null>(initial_data.files || null);
 
   const dropZoneConfig = {
     maxFiles: 5,
@@ -69,18 +73,30 @@ export default function UpdateForm({initial_data}:{initial_data:NewsBlogsType}) 
     data.append("title", values.title);
     data.append("type", values.type);
 
+    if (existingFiles && existingFiles.length > 0) {
+      existingFiles.forEach((fileOrUrl) => {
+        if (typeof fileOrUrl === "string") {
+          // Existing file URL
+          data.append("existing_string_files", fileOrUrl);
+        } else {
+          // New File object
+          data.append("files", fileOrUrl);
+        }
+      });
+    }    
+
     if (files && files.length > 0) {
       files.forEach((file) => {
         data.append("files", file);
       });
     }
 
-    const res = await UpdateData(initial_data.id,data);
+    const res = await UpdateData(initial_data.id, data);
     if (!res?.success) {
-      toast.info("Error")
+      toast.info("Error");
     } else {
-      toast.info("Created successfully")
-      redirect("/dashboard/news")
+      toast.info("Updated successfully");
+      redirect("/dashboard/news");
     }
   }
 
@@ -129,7 +145,24 @@ export default function UpdateForm({initial_data}:{initial_data:NewsBlogsType}) 
             </FormItem>
           )}
         />
-
+        <FileUploader
+          value={existingFiles}
+          onValueChange={setExistingFiles}
+          dropzoneOptions={dropZoneConfig}
+          className="relative bg-background rounded-lg p-2"
+        >
+          <FileUploaderContent>
+            <P>Existing Files</P>
+            {existingFiles &&
+              existingFiles.length > 0 &&
+              existingFiles.map((file, i) => (
+                <FileUploaderItem key={i} index={i}>
+                  <Paperclip className="h-4 w-4 stroke-current" />
+                  <span>{typeof file === "string" ? file : file.name}</span>
+                </FileUploaderItem>
+              ))}
+          </FileUploaderContent>
+        </FileUploader>
         <FormField
           control={form.control}
           name="files"
@@ -159,6 +192,7 @@ export default function UpdateForm({initial_data}:{initial_data:NewsBlogsType}) 
                     </div>
                   </FileInput>
                   <FileUploaderContent>
+                    <P>Uploaded new files</P>
                     {files &&
                       files.length > 0 &&
                       files.map((file, i) => (
@@ -184,7 +218,11 @@ export default function UpdateForm({initial_data}:{initial_data:NewsBlogsType}) 
           render={({ field }) => (
             <FormItem>
               <FormLabel>Type</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value} disabled>
+              <Select
+                onValueChange={field.onChange}
+                defaultValue={field.value}
+                disabled
+              >
                 <FormControl>
                   <SelectTrigger>
                     <SelectValue placeholder="Select the type" />
@@ -202,7 +240,7 @@ export default function UpdateForm({initial_data}:{initial_data:NewsBlogsType}) 
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <FormSubmitButton loading={form.formState.isSubmitting} />
       </form>
     </Form>
   );

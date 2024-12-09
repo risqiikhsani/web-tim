@@ -1,20 +1,18 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
-  DialogClose,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
+  DialogTrigger
 } from "@/components/ui/dialog";
-import { useState } from "react";
-import { toast } from "sonner";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import {
+  FileInput,
+  FileUploader,
+  FileUploaderContent,
+  FileUploaderItem,
+} from "@/components/ui/file-upload";
 import {
   Form,
   FormControl,
@@ -24,15 +22,15 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { CloudUpload, Paperclip } from "lucide-react";
-import {
-  FileInput,
-  FileUploader,
-  FileUploaderContent,
-  FileUploaderItem,
-} from "@/components/ui/file-upload";
-import { UploadFile } from "./action";
+import { useState } from "react";
 import { Accept } from "react-dropzone";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import * as z from "zod";
+import { UploadFile } from "./action";
+import FormSubmitButton from "@/components/form-submit-button";
 
 // Define acceptable file types
 const ACCEPTED_FILE_TYPES = [
@@ -93,7 +91,7 @@ export default function CreateForm() {
     },
   });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit() {
     try {
       // Validate files before upload
       if (files) {
@@ -127,7 +125,7 @@ export default function CreateForm() {
   }
 
   return (
-    <Dialog>
+    <Dialog >
       <DialogTrigger asChild>
         <Button>Upload Files</Button>
       </DialogTrigger>
@@ -143,7 +141,7 @@ export default function CreateForm() {
             <FormField
               control={form.control}
               name="files"
-              render={({ field }) => (
+              render={() => (
                 <FormItem>
                   <FormLabel>Select File</FormLabel>
                   <FormControl>
@@ -190,9 +188,7 @@ export default function CreateForm() {
                 </FormItem>
               )}
             />
-            <DialogClose asChild>
-            <Button type="submit">Submit</Button>
-            </DialogClose>       
+            <FormSubmitButton loading={form.formState.isSubmitting}/>
           </form>
         </Form>
       </DialogContent>

@@ -1,9 +1,9 @@
-import HeroCloudSolutions from '@/app/_public_components/hero-cloud-solutions'
+import HeroCloudSolutions from '@/app/(homepage)/_public_components/hero-cloud-solutions'
 import React from 'react'
 import Feature from './feature'
-import Quote from '@/app/_public_components/quote'
-import CtaOffer from '@/app/_public_components/cta-offer'
-import Waf from '@/app/_public_components/waf'
+import Quote from '@/app/(homepage)/_public_components/quote'
+import CtaOffer from '@/app/(homepage)/_public_components/cta-offer'
+import Waf from '@/app/(homepage)/_public_components/waf'
 
 export default function page() {
   return (

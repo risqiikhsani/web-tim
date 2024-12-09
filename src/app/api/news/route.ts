@@ -1,18 +1,8 @@
-import { client } from "@/lib/aws";
-import {
-  PutItemCommand,
-  QueryCommand,
-  type QueryCommandInput
-} from "@aws-sdk/client-dynamodb";
-import { unmarshall } from "@aws-sdk/util-dynamodb";
+import { CreateItem, queryByType } from "@/lib/functions";
 import { v4 as uuidv4 } from "uuid";
 
-const TABLE_NAME = process.env.TABLE_NAME!;
+// const TABLE_NAME = process.env.TABLE_NAME!;
 // const INDEX_NAME = process.env.INDEX_NAME!;
-const NEWS_TYPE = "news";
-
-
-
 
 // Common error response handler
 function createErrorResponse(message: string, status: number = 500) {
@@ -27,68 +17,18 @@ function createErrorResponse(message: string, status: number = 500) {
   );
 }
 
-// Fetch all items 
+// Fetch all items
 export async function GET() {
   // const title = request.nextUrl.searchParams.get("title");
 
   try {
-    // const result = title 
-    //   ? await searchNewsByTitle(title)
-    //   : await fetchAllNews();
-    const result = await searchByType("news")
+    const result = await queryByType("news");
     return Response.json(result);
   } catch (error) {
     console.error("Error fetching items:", error);
     return createErrorResponse("Failed to fetch items");
   }
 }
-
-// Search news by title
-async function searchByType(type: string) {
-  const queryParams: QueryCommandInput = {
-    TableName: TABLE_NAME,
-    KeyConditionExpression: "#type = :type",
-    ExpressionAttributeNames: {
-      "#type": "type"
-    },
-    ExpressionAttributeValues: {
-      ":type": { S: type },
-    },
-  };
-
-  const { Items } = await client.send(new QueryCommand(queryParams));
-  return Items?.map((item) => unmarshall(item)) || [];
-}
-
-
-
-// Fetch all news items
-// async function fetchAllNews() {
-//   const { Items } = await client.send(
-//     new ScanCommand({ TableName: TABLE_NAME })
-//   );
-//   return Items?.map((item) => unmarshall(item)) || [];
-// }
-
-// Search news by title
-// async function searchNewsByTitle(title: string) {
-//   const queryParams: QueryCommandInput = {
-//     TableName: TABLE_NAME,
-//     IndexName: INDEX_NAME,
-//     KeyConditionExpression: "#title = :title AND #type = :type",
-//     ExpressionAttributeNames: {
-//       "#title": "title",
-//       "#type": "type"
-//     },
-//     ExpressionAttributeValues: {
-//       ":title": { S: title },
-//       ":type": { S: NEWS_TYPE },
-//     },
-//   };
-
-//   const { Items } = await client.send(new QueryCommand(queryParams));
-//   return Items?.map((item) => unmarshall(item)) || [];
-// }
 
 // Create new item
 export async function POST(request: Request) {
@@ -101,43 +41,26 @@ export async function POST(request: Request) {
     }
 
     // Prepare item for DynamoDB
-    const item = {
-      id: { S: uuidv4() },
-      type: { S: NEWS_TYPE },
-      title: { S: body.title },
-      text: { S: body.text },
-      createdAt: { S: new Date().toISOString() },
+    const data = {
+      id: uuidv4(),
+      type: "news",
+      title: body.title,
+      text: body.text,
+      createdAt: new Date().toISOString(),
     };
 
-    // Send item to DynamoDB
-    const command = new PutItemCommand({
-      TableName: TABLE_NAME,
-      Item: item,
-      ConditionExpression: "attribute_not_exists(id)",
-    });
-
-    await client.send(command);
+    const response = await CreateItem(data);
 
     // Return the created item
     return Response.json(
       {
         message: "Item created successfully",
-        item: unmarshall(item),
+        data: response,
       },
       { status: 201 }
     );
   } catch (error) {
-    // Handle specific error cases
-    if (error instanceof Error) {
-      switch (error.name) {
-        case "ConditionalCheckFailedException":
-          return createErrorResponse("An item with this ID already exists", 409);
-        default:
-          console.error("Error creating item:", error);
-          return createErrorResponse("Failed to create item");
-      }
-    }
-
+    console.error(error);
     return createErrorResponse("An unexpected error occurred");
   }
 }

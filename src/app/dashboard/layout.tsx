@@ -1,13 +1,18 @@
+import { auth } from "@/auth";
 import AppSidebar from "@/components/app-sidebar";
 import { Separator } from "@/components/ui/separator";
 import {
-    SidebarInset,
-    SidebarProvider,
-    SidebarTrigger,
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
 } from "@/components/ui/sidebar";
+import { redirect } from "next/navigation";
 import { ReactNode } from "react";
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default async function Layout({ children }: { children: ReactNode }) {
+  const session = await auth()
+  if (!session) redirect("/auth/login")
+  
   return (
     <SidebarProvider>
       <AppSidebar />

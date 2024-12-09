@@ -33,6 +33,14 @@ const data = {
           title: "Files",
           url: "/dashboard/files",
         },
+        {
+          title: "Subscribers",
+          url: "/dashboard/subscribers",
+        },
+        {
+          title: "Messages",
+          url: "/dashboard/messages",
+        },
       ],
     },
     {

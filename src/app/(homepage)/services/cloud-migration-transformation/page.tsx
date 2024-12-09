@@ -1,10 +1,10 @@
-import HeroCloudMigration from '@/app/_public_components/hero-cloud-migration'
+import HeroCloudMigration from '@/app/(homepage)/_public_components/hero-cloud-migration'
 import React from 'react'
 import Feature from './feature'
-import Quote from '@/app/_public_components/quote'
-import CtaOffer from '@/app/_public_components/cta-offer'
-import Waf from '@/app/_public_components/waf'
-import CoolHero from '@/app/_public_components/cool-hero'
+import Quote from '@/app/(homepage)/_public_components/quote'
+import CtaOffer from '@/app/(homepage)/_public_components/cta-offer'
+import Waf from '@/app/(homepage)/_public_components/waf'
+import CoolHero from '@/app/(homepage)/_public_components/cool-hero'
 
 export default function page() {
   return (

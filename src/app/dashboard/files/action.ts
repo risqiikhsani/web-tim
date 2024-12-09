@@ -1,7 +1,6 @@
 "use server";
 import { DeleteFileS3, UploadFileToS3 } from "@/lib/functions";
 import { revalidatePath } from "next/cache";
-import { v4 as uuidv4 } from "uuid";
 
 export async function UploadFile(formData: FormData) {
   try {
@@ -13,7 +12,11 @@ export async function UploadFile(formData: FormData) {
       const bytes = await file.arrayBuffer();
       const buffer = Buffer.from(bytes);
       const filename = file.name;
-      const result = await UploadFileToS3(filename, buffer);
+      const data = {
+        key:filename,
+        buffer:buffer
+      }
+      const result = await UploadFileToS3(data);
       uploadedFiles.push(result);
     }
 

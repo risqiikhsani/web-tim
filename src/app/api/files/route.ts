@@ -18,6 +18,7 @@ export async function GET(){
         const response = await ListFilesS3()
         return Response.json(response)        
     } catch (error) {
+        console.error(error)
         return createErrorResponse("Failed to fetch items");
     }
 }

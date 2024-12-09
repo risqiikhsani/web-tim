@@ -1,17 +1,16 @@
 "use client";
+import { P } from "@/components/typography/Typography";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogClose,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
+  DialogTrigger
 } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { DeleteFile } from "./action";
-import { P } from "@/components/typography/Typography";
 
 export default function DeleteForm({ file_key }: { file_key: string }) {
   const deleteButton = async () => {

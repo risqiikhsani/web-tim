@@ -14,6 +14,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { ConvertDate } from "@/lib/convert-date";
 import { H1 } from "@/components/typography/Typography";
+import DeleteForm from "./delete-form";
 
 const URL = process.env.NEXT_PUBLIC_URL;
 
@@ -64,9 +65,7 @@ export default async function page() {
                 <Button asChild variant="outline" className="mr-2">
                   <Link href={`/dashboard/blogs/${a.id}/update`}>Update</Link>
                 </Button>
-                <Button asChild variant="outline">
-                  <Link href={`/dashboard/blogs/${a.id}/delete`}>Delete</Link>
-                </Button>
+                <DeleteForm initial_data={a}/>
               </TableCell>
             </TableRow>
           ))}
