@@ -1,4 +1,5 @@
 import BorderCool from '@/components/border-cool';
+import { P } from '@/components/typography/Typography';
 import { Button } from '@/components/ui/button';
 import { Zap } from 'lucide-react';
 import Link from 'next/link';
@@ -50,9 +51,9 @@ const Services = () => {
               Bringing the best to you by the best in the industry
             </h2>
 
-            <p className="text-muted-foreground md:max-w-2xl">
+            <P className="text-muted-foreground md:max-w-2xl">
             Your Trusted Partner in <span className="text-primary">AWS Cloud Solutions</span> and <span className="text-primary">Education</span>.
-            </p>
+            </P>
           </div>
         </div>
         <div className="mx-auto mt-20 grid max-w-5xl gap-6 md:grid-cols-2">
