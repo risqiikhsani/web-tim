@@ -41,6 +41,34 @@ const feedback = [
     "university":"Universitas Pamulang",
     "workplace":"",
     "comment":"Senang & bersyukur bisa belajar cloud computing, pasti berguna buat masa depan saya. Terima kasih sudah berbagi ilmu buat kami semua. Jangan bosan mencerdaskan anak bangsa ya!"
+  },
+  {
+    "type":"student",
+    "name":"Zaki",
+    "university":"UTDI",
+    "workplace":"",
+    "comment":"Took a solution architect course and it went fluently, Thank you."
+  },
+  {
+    "type":"student",
+    "name":"Wulan Sri Lestari",
+    "university":"Universitas Pendidikan Indonesia",
+    "workplace":"",
+    "comment":"Terima kasih semua! Pak Bintang CEO, Pak Widi, Kak Anisa, para mentor udah sabar banget ngajarin. Gak akan pernah dapet pembelajaran & pengalaman kayak gini di kuliah atau tempat lain. Semangat buat teman2 yang lain"
+  },
+  {
+    "type":"student",
+    "name":"Team PENS",
+    "university":"Politeknik Elektronika Negeri Surabaya",
+    "workplace":"",
+    "comment":"Terima kasih PT TIM sudah mendampingi kami di batch 5! Mentornya keren, ramah, dan ilmunya bermanfaat. Sukses selalu semua!"
+  },
+  {
+    "type":"student",
+    "name":"Mugi Lestari",
+    "university":"Universitas Pamulang",
+    "workplace":"",
+    "comment":"Senang & bersyukur bisa belajar cloud computing, pasti berguna buat masa depan saya. Terima kasih sudah berbagi ilmu buat kami semua. Jangan bosan mencerdaskan anak bangsa ya!"
   }
 ]
 
@@ -49,9 +77,6 @@ const CustomerFeedback = () => {
 
       <div className="flex flex-col justify-center items-center">
         <H1>Feedback from Customers and Students</H1>
-        <p>
-          Here are the list of feedbacks we`ve received.
-        </p>
         <Carousel className="mt-6 w-full">
           <CarouselContent className="-ml-1">
             {/* {photos.map((photo, index) => (
@@ -77,7 +102,7 @@ const CustomerFeedback = () => {
             {feedback.map((data, index) => (
               <CarouselItem
                 key={index}
-                className="pl-1 md:basis-1/3 lg:basis-1/4 md:mx-6"
+                className="pl-1 md:basis-1/3 lg:basis-1/4"
               >
 
                   <Card className="relative overflow-hidden shadow-xl p-4">
@@ -93,8 +118,8 @@ const CustomerFeedback = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="left-4 top-1/2 text-cyan-500 border-primary"/>
-          <CarouselNext className="right-4 top-1/2 text-cyan-500 border-primary" />
+          <CarouselPrevious className="left-4 top-1/2 text-cyan-500 border-blue-400 border-4"/>
+          <CarouselNext className="right-4 top-1/2 text-cyan-500 border-blue-400 border-4" />
         </Carousel>
       </div>
     

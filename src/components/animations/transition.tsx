@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
 
-type Direction = 'left' | 'right' | 'up' | 'down';
+type Direction = 'right' | 'up' | 'down';
 
 export default function Transition({
   children,
@@ -23,7 +23,7 @@ export default function Transition({
   // Define initial and animate states based on direction
   const getMotionProps = (dir: Direction) => {
     const directionMap = {
-      left: { x: 40, y: 0 },
+      // left: { x: 40, y: 0 },
       right: { x: -40, y: 0 },
       up: { x: 0, y: 40 },
       down: { x: 0, y: -40 }

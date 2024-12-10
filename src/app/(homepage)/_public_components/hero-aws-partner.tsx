@@ -5,20 +5,19 @@ import Link from "next/link";
 // Third-party library imports
 
 // Local component imports
-import { Container } from "@/components/craft";
 import { Button } from "@/components/ui/button";
 
 // Asset imports
+import BorderGradient from "@/components/border-gradient";
 import { H1, H3 } from "@/components/typography/Typography";
 import Logo2 from "@/logo/awspartner.png";
 import Logo3 from "@/logo/awspartner2.png";
 import Logo from "@/logo/timcorp.png";
-import BorderGradient from "@/components/border-gradient";
 
 const HeroAwsPartner = () => {
   return (
-    <div>
-      <Container className="flex flex-col items-center text-center">
+    <div className="flex flex-col gap-10">
+      <div className="flex flex-col items-center text-center gap-6">
         <Image
           src={Logo}
           width={172}
@@ -30,14 +29,14 @@ const HeroAwsPartner = () => {
           Unlock the Power of the{" "}
           <span className="text-orange-500 ">AWS Cloud</span>
         </H1>
-        <H3 className="text-muted-foreground mt-2">
+        <H3 className="text-muted-foreground">
           Your Trusted Partner in{" "}
           <span className="text-primary">AWS Cloud Solutions</span> and{" "}
           <span className="text-primary">Education</span>.
         </H3>
-      </Container>
+      </div>
 
-      <Container className="flex flex-col items-center text-center bg-[url('/images/subtle-prism.svg')] dark:invert rounded-md">
+      <div className="flex flex-col items-center text-center bg-[url('/images/subtle-prism.svg')] dark:invert rounded-md p-10">
         <div className="flex md:flex-row flex-col gap-2 justify-center items-center">
           <div className="animate-in slide-in-from-top duration-1000">
             <BorderGradient>
@@ -88,7 +87,7 @@ const HeroAwsPartner = () => {
             </Link>
           </Button>
         </div>
-      </Container>
+      </div>
     </div>
   );
 };

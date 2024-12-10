@@ -1,5 +1,4 @@
 import BorderCool from "@/components/border-cool";
-import { Container, Section } from "@/components/craft";
 import { H1 } from "@/components/typography/Typography";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -70,8 +69,8 @@ const EducationPrograms: EducationProps[] = [
 
 const Education = ({ showReadMore }: { showReadMore: boolean }) => {
   return (
-    <Section>
-      <Container className="flex flex-col items-center gap-4 text-center">
+
+      <div className="flex flex-col items-center gap-4 text-center">
         <H1>Train yourself and get certified</H1>
         <p className="text-lg opacity-70 md:text-2xl">
           <Balancer>Select the passion that best suits your needs.</Balancer>
@@ -82,8 +81,8 @@ const Education = ({ showReadMore }: { showReadMore: boolean }) => {
             <EducationCard plan={plan} key={index} showReadMore={showReadMore} />
           ))}
         </div>
-      </Container>
-    </Section>
+      </div>
+
   );
 };
 
@@ -96,7 +95,7 @@ const EducationCard = ({
 }) => {
   return (
     <BorderCool>
-      <div className="flex flex-col rounded-lg border p-6 h-[600px]">
+      <div className="flex flex-col rounded-lg p-6 h-[600px]">
         <div className="text-center">
           <Badge>{plan.title}</Badge>
           <h4 className="mb-2 mt-4 text-2xl text-primary animate-ping-soft">
