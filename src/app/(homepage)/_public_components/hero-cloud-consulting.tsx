@@ -10,7 +10,7 @@ import picture from '@/service_images/aws-call.png'
 
 const HeroCloudConsulting = ({showReadMore}:{showReadMore:boolean}) => {
   return (
-    <section className="py-32">
+    <section className="py-32 border-b">
       <div className="container">
         <div className="grid items-center gap-8 lg:grid-cols-2">
           {/* Move the Image to the first column */}

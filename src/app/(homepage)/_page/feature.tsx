@@ -1,31 +1,32 @@
 // React and Next.js
 // Layout Components
-import { Container, Section } from "@/components/craft";
+
+import { H3, H4 } from "@/components/typography/Typography";
 import { featureText } from "@/const/const";
 import Balancer from "react-wrap-balancer";
 
 const Feature = () => {
   return (
-    <Section className="border-b">
-      <Container className="not-prose bg-[url('/images/w1.svg')]">
-        <div className="flex flex-col gap-6">
-          <h3 className="text-4xl">
+    <div className="border-b flex flex-col gap-2 justify-center items-center py-10">
+      <div className="not-prose bg-[url('/images/w1.svg')]">
+        <div className="flex flex-col gap-6 justify-center items-center">
+          <H3>
             <Balancer>
               Grow together with{" "}
               <span className="text-orange-600">TIMCorp</span>
             </Balancer>
-          </h3>
-          <h4 className="text-2xl font-light ">
+          </H3>
+          <H4 className="">
             <Balancer>
               From Cloud Education to Enterprise Solutions: We’ve Got You
               Covered.
             </Balancer>
-          </h4>
+          </H4>
 
-          <div className="mt-6 grid gap-6 md:mt-12 md:grid-cols-3">
+          <div className="mt-6 grid gap-6 md:mt-12 md:grid-cols-2 md:p-20">
             {featureText.map(({ title, description }, index) => (
               <div
-                className="flex flex-col gap-4 border-solid border-2 border-primary p-4 shadow-2xl rounded-xl bg-white dark:bg-black"
+                className="flex flex-col gap-4 border-solid border border-blue-400 p-4 shadow-2xl rounded-xl bg-white dark:bg-black"
                 key={index}
               >
 
@@ -43,8 +44,8 @@ const Feature = () => {
             ))}
           </div>
         </div>
-      </Container>
-    </Section>
+      </div>
+    </div>
   );
 };
 

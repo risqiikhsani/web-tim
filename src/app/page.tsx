@@ -15,7 +15,7 @@ import CTA from "./(homepage)/_public_components/cta";
 
 export default function page() {
   return (
-    <div className="py-0">
+    <div className="flex flex-col gap-10">
       {/* <Section className="py-0"> */}
 
       <HeroAwsPartner />
@@ -29,7 +29,7 @@ export default function page() {
         <HeroEducation showReadMore/>
       </Transition>
 
-      <Transition direction="left">
+      <Transition direction="up">
         <HeroCloudConsulting showReadMore/>
       </Transition>
 
@@ -37,11 +37,11 @@ export default function page() {
         <HeroCloudSolutions showReadMore/>
       </Transition>
 
-      <Transition direction="left">
+      <Transition direction="up">
         <HeroCloudMigration showReadMore/>
       </Transition>
 
-      <Transition direction="left">
+      <Transition direction="up">
         <Education showReadMore/>
       </Transition>
 

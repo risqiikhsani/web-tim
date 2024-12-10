@@ -9,7 +9,7 @@ import picture from '@/service_images/aws-migration.png'
 
 const HeroCloudMigration = ({showReadMore}:{showReadMore:boolean}) => {
   return (
-    <section className="py-32">
+    <section className="py-32 border-b">
       <div className="container">
         <div className="grid items-center gap-8 lg:grid-cols-2">
           {/* Move the Image to the first column */}
@@ -18,7 +18,7 @@ const HeroCloudMigration = ({showReadMore}:{showReadMore:boolean}) => {
             height={1000}
             width={1000}
             src={picture}
-            alt="placeholder FeatureLeft"
+            alt="image"
             className="w-full rounded-md object-cover"
           />
           </BorderCool>
@@ -32,7 +32,7 @@ const HeroCloudMigration = ({showReadMore}:{showReadMore:boolean}) => {
               Cloud Migration / Transformation
             </h1>
             <p className="mb-8 max-w-xl text-muted-foreground lg:text-xl">
-              We are here ready to help build,migrate,or transform a cloud infrastructure to enterprise ready.
+              Build,migrate,or transform a cloud infrastructure to enterprise ready.
             </p>
             <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
               {showReadMore && <Button className="w-full sm:w-auto" asChild>

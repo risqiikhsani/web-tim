@@ -9,7 +9,7 @@ import picture from '@/service_images/aws-solutions.png'
 
 const HeroCloudSolutions = ({showReadMore}:{showReadMore:boolean}) => {
   return (
-    <section className="py-32">
+    <section className="py-32 border-b">
       <div className="container">
         <div className="grid items-center gap-8 lg:grid-cols-2">
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
