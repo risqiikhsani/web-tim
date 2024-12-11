@@ -31,3 +31,13 @@ export interface FeatureType {
   title: string;
   description: string;
 }
+
+export interface UserType {
+  id:string;
+  name:string;
+  type:string;
+  role:string;
+  picture?:string;
+  createdAt?:string;
+  updatedAt?:string;
+}
