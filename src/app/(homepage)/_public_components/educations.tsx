@@ -95,7 +95,7 @@ const EducationCard = ({
 }) => {
   return (
     <BorderCool>
-      <div className="flex flex-col rounded-lg p-6 h-[600px]">
+      <div className="flex flex-col rounded-lg p-6 h-min-[600px]">
         <div className="text-center">
           <Badge>{plan.title}</Badge>
           <h4 className="mb-2 mt-4 text-2xl text-primary animate-ping-soft">
@@ -109,14 +109,14 @@ const EducationCard = ({
         <ul className="space-y-3 text-left">
           {plan.features.map((feature, i) => (
             <li key={i} className="flex items-center text-sm opacity-70">
-              <CircleCheck className="mr-2 h-4 w-4" />
+              <CircleCheck className="mr-2 h-4 w-4 text-cyan-400" />
               {feature}
             </li>
           ))}
         </ul>
         <div className="flex-1"></div>
         <div className="mx-auto pt-6">
-          <Image src={plan.image} width={100} height={100} alt="logo" />
+          <Image src={plan.image} width={200} height={200} alt="logo" className="" />
         </div>
 
         <div className="mt-auto pt-6 flex flex-col gap-4">
