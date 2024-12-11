@@ -7,12 +7,13 @@ import Link from "next/link";
 import BorderCool from "@/components/border-cool";
 
 import picture from '@/service_images/aws-call.png'
+import Balancer from "react-wrap-balancer";
 
 const HeroCloudConsulting = ({showReadMore}:{showReadMore:boolean}) => {
   return (
     <section className="py-32 border-b">
       <div className="container">
-        <div className="grid items-center gap-8 lg:grid-cols-2">
+        <div className="grid items-center gap-10 lg:grid-cols-2">
           {/* Move the Image to the first column */}
           <BorderCool>
           <Image
@@ -24,7 +25,7 @@ const HeroCloudConsulting = ({showReadMore}:{showReadMore:boolean}) => {
           />
           </BorderCool>
           {/* Text content remains in the second column */}
-          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+          <div className="flex flex-col items-center text-center lg:items-end lg:text-right">
             <Badge variant="outline">
               Service
               <ArrowDownRight className="ml-2 size-4" />
@@ -33,9 +34,11 @@ const HeroCloudConsulting = ({showReadMore}:{showReadMore:boolean}) => {
               Cloud Consulting
             </h1>
             <p className="mb-8 max-w-xl text-muted-foreground lg:text-xl">
+              <Balancer>
               Consult with us about cloud related problems any day any time.
+              </Balancer>
             </p>
-            <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
+            <div className="">
               {showReadMore && <Button className="w-full sm:w-auto" asChild>
                 <Link href="#readmore">Read more</Link>
               </Button>}

@@ -16,7 +16,7 @@ import Logo from "@/logo/timcorp.png";
 
 const HeroAwsPartner = () => {
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-10 py-10">
       <div className="flex flex-col items-center text-center gap-6">
         <Image
           src={Logo}

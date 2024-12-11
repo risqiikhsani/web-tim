@@ -1,5 +1,5 @@
 import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
-import Link from "next/link";
+
 
 import { buttonVariants } from "@/components/ui/button";
 import {
@@ -21,6 +21,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import ModeToggle from "./mode-toggle";
 import UserAvatar from "./user-avatar";
+import CustomLink from "./custom-link";
 
 const navigations = [
   { label: "Home", href: "/" },
@@ -106,19 +107,19 @@ const SideNavbar = () => {
         <SheetTitle>Menu</SheetTitle>
         {navigations.map((a, i) => (
           <SheetClose asChild key={i} className="pl-4">
-            <Link href={a.href}>{a.label}</Link>
+            <CustomLink href={a.href}>{a.label}</CustomLink>
           </SheetClose>
         ))}
         <SheetTitle>Services</SheetTitle>
         {services.map((a, i) => (
           <SheetClose asChild key={i} className="pl-4">
-            <Link href={a.url}>{a.title}</Link>
+            <CustomLink href={a.url}>{a.title}</CustomLink>
           </SheetClose>
         ))}
         <SheetTitle>Others</SheetTitle>
         {others.map((a, i) => (
           <SheetClose asChild key={i} className="pl-4">
-            <Link href={a.url}>{a.title}</Link>
+            <CustomLink href={a.url}>{a.title}</CustomLink>
           </SheetClose>
         ))}
       </SheetContent>
@@ -131,12 +132,12 @@ const TopNavbar = () => {
     <section className=" fixed w-full flex justify-center items-center p-4 dark:border-b-2 shadow-2xl z-50 border-primary dark:border-primary  bg-opacity-10 backdrop-filter backdrop-blur-lg  border-opacity-20">
       <div className="container">
         <nav className="hidden md:flex gap-2 items-center justify-center">
-          <Link href="/">
+          <CustomLink href="/">
             <Image src="/logo/timcorp.png" width={50} height={50} alt="logo" />
-          </Link>
+          </CustomLink>
 
           {navigations.map((a, i) => (
-            <Link
+            <CustomLink
               key={i}
               className={cn(
                 "text-muted-foreground",
@@ -148,7 +149,7 @@ const TopNavbar = () => {
               href={a.href}
             >
               {a.label}
-            </Link>
+            </CustomLink>
           ))}
           <NavigationMenu>
             <NavigationMenuList>
@@ -157,7 +158,7 @@ const TopNavbar = () => {
                 <NavigationMenuContent>
                   <div className="w-80 p-3">
                     {services.map((item, idx) => (
-                      <Link
+                      <CustomLink
                         key={idx}
                         className={cn(
                           "flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
@@ -173,7 +174,7 @@ const TopNavbar = () => {
                             {item.description}
                           </p>
                         </div>
-                      </Link>
+                      </CustomLink>
                     ))}
                   </div>
                 </NavigationMenuContent>
@@ -185,7 +186,7 @@ const TopNavbar = () => {
                 <NavigationMenuContent>
                   <div className="w-80 p-3">
                     {others.map((item, idx) => (
-                      <Link
+                      <CustomLink
                         key={idx}
                         className={cn(
                           "flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
@@ -201,7 +202,7 @@ const TopNavbar = () => {
                             {item.description}
                           </p>
                         </div>
-                      </Link>
+                      </CustomLink>
                     ))}
                   </div>
                 </NavigationMenuContent>

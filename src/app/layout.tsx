@@ -29,11 +29,11 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${GeistSans.variable} ${GeistMono.variable}`}
+      className={`${GeistSans.variable} ${GeistMono.variable} scroll-smooth`}
     >
       <body
         className={`
-          antialiased 
+          subpixel-antialiased 
           min-h-screen 
           bg-gradient-to-br 
           from-white 
