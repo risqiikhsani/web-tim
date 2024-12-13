@@ -14,7 +14,7 @@ export default function Hero() {
         <div className="flex flex-col items-center text-center md:container mx-auto gap-6">
           <H1>
             <Balancer>
-            Empowering Businesses with <span className="text-orange-400">AWS Expertise</span>
+            Empowering Businesses with <span className="text-primary">AWS Expertise</span>
             </Balancer>
           </H1>
           <H3 className="text-muted-foreground">

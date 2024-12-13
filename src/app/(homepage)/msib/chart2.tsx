@@ -1,13 +1,15 @@
 "use client"
 
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
+import { TrendingUp } from "lucide-react"
+import { Bar, BarChart, CartesianGrid, LabelList, XAxis } from "recharts"
 
 import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
-  CardTitle
+  CardTitle,
 } from "@/components/ui/card"
 import {
   ChartConfig,
@@ -15,24 +17,19 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-
 const chartData = [
-  { batch: "Batch1", SolutionArchitect: 46, DataAnalyst: 45 },
-  { batch: "Batch2", SolutionArchitect: 45, DataAnalyst:  42 },
-  { batch: "Batch3", SolutionArchitect: 47, DataAnalyst:  45 },
-  { batch: "Batch4", SolutionArchitect: 43, DataAnalyst:  41 },
-  { batch: "Batch5", SolutionArchitect: 49, DataAnalyst:  43 },
-  { batch: "Batch6", SolutionArchitect: 44, DataAnalyst:  50 },
+  { month: "January", desktop: 186 },
+  { month: "February", desktop: 305 },
+  { month: "March", desktop: 237 },
+  { month: "April", desktop: 73 },
+  { month: "May", desktop: 209 },
+  { month: "June", desktop: 214 },
 ]
 
 const chartConfig = {
-  SolutionArchitect: {
-    label: "SolutionArchitect",
+  desktop: {
+    label: "Desktop",
     color: "hsl(var(--chart-1))",
-  },
-  DataAnalyst: {
-    label: "DataAnalyst",
-    color: "hsl(var(--chart-2))",
   },
 } satisfies ChartConfig
 
@@ -40,64 +37,49 @@ export default function Chart2() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Total Students</CardTitle>
-        <CardDescription>
-          Total Students joined our MSIB program.
-        </CardDescription>
+        <CardTitle>Bar Chart - Label</CardTitle>
+        <CardDescription>January - June 2024</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
-          <AreaChart
+          <BarChart
             accessibilityLayer
             data={chartData}
             margin={{
-              left: 12,
-              right: 12,
+              top: 20,
             }}
           >
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="batch"
+              dataKey="month"
               tickLine={false}
+              tickMargin={10}
               axisLine={false}
-              tickMargin={8}
               tickFormatter={(value) => value.slice(0, 3)}
             />
             <ChartTooltip
               cursor={false}
-              content={<ChartTooltipContent indicator="dot" />}
+              content={<ChartTooltipContent hideLabel />}
             />
-            <Area
-              dataKey="DataAnalyst"
-              type="natural"
-              fill="var(--color-DataAnalyst)"
-              fillOpacity={0.4}
-              stroke="var(--color-DataAnalyst)"
-              stackId="a"
-            />
-            <Area
-              dataKey="SolutionArchitect"
-              type="natural"
-              fill="var(--color-SolutionArchitect)"
-              fillOpacity={0.4}
-              stroke="var(--color-SolutionArchitect)"
-              stackId="a"
-            />
-          </AreaChart>
+            <Bar dataKey="desktop" fill="var(--color-desktop)" radius={8}>
+              <LabelList
+                position="top"
+                offset={12}
+                className="fill-foreground"
+                fontSize={12}
+              />
+            </Bar>
+          </BarChart>
         </ChartContainer>
       </CardContent>
-      {/* <CardFooter>
-        <div className="flex w-full items-start gap-2 text-sm">
-          <div className="grid gap-2">
-            <div className="flex items-center gap-2 font-medium leading-none">
-              Trending up by 5.2% this batch <TrendingUp className="h-4 w-4" />
-            </div>
-            <div className="flex items-center gap-2 leading-none text-muted-foreground">
-              January - June 2024
-            </div>
-          </div>
-        </div>  
-      </CardFooter> */}
+      <CardFooter className="flex-col items-start gap-2 text-sm">
+        <div className="flex gap-2 font-medium leading-none">
+          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+        </div>
+        <div className="leading-none text-muted-foreground">
+          Showing total visitors for the last 6 months
+        </div>
+      </CardFooter>
     </Card>
   )
 }

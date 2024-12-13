@@ -15,6 +15,20 @@ import { FaQuoteLeft } from "react-icons/fa";
 
 const feedback = [
   {
+    "type":"Partnership Manager",
+    "name":"Jihad Wafda",
+    "university":"",
+    "workplace":"MSIB Kampus Merdeka",
+    "comment":"The partnership of Ministry of Education with TIMCorp-Academy using AWS Skill Builders has been a pivotal part of the Merdeka Belajar Kampus Merdeka: Studi Independen program. AWS Skill Builders’ modules offered structured, hands-on learning in cloud computing technology, ensuring that students develop the relevant skills needed in today’s evolving tech landscape. The Cloud Computing curriculum, designed by TIMCorp-Academy fostered a strong understanding of AWS tools and best practices, setting up participants for success in cloud and IT careers."
+  },
+  {
+    "type":"Head of Public Relation",
+    "name":"Dodi Wahyugi",
+    "university":"",
+    "workplace":"Ombudsman of Republic of Indonesia",
+    "comment":"The migration to AWS Cloud using Kubernetes for our microservices-based IT services application, have produce a remarkable improvements in performance, resilience, scalability and operational efficiency.The microservices architecture allows us to innovate faster and manage our workloads with ease, a capability we lacked on-premises.AWS provides a reliable, secure, and cost-effective environment that has empowered our team to focus on innovation over maintenance."
+  },
+  {
     "type":"student",
     "name":"Risqi Ikhsani",
     "university":"UTDI",

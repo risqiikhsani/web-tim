@@ -1,6 +1,5 @@
 import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
 
-
 import { buttonVariants } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -27,16 +26,16 @@ const navigations = [
   { label: "Home", href: "/" },
   { label: "MSIB", href: "/msib" },
   { label: "MergingHUB", href: "/services/cloud-migration-transformation" },
-  { label: "About Us", href: "/about" },
   { label: "News", href: "/news" },
+  { label: "Blogs", href: "/blogs" },
 ];
 
 const others = [
   {
-    title: "Blogs",
-    description: "Blogs of ours",
+    title: "About Us",
+    description: "Who we are",
     icon: <Book className="size-5 shrink-0 text-cyan-500" />,
-    url: "/blogs",
+    url: "/about",
   },
   {
     title: "Projects",
@@ -66,25 +65,13 @@ const others = [
 
 const services = [
   {
-    title: "All services",
-    description: "Get all the answers you need right here",
-    icon: <Zap className="size-5 shrink-0 text-cyan-500" />,
-    url: "/services",
-  },
-  {
-    title: "Cloud Consulting",
+    title: "Cloud Consulting and Solutions",
     description: "We provide consultations to help your business.",
     icon: <Zap className="size-5 shrink-0 text-cyan-500" />,
     url: "/services/cloud-consulting",
   },
   {
-    title: "Cloud Solutions",
-    description: "We are ready to give solutions for any problems.",
-    icon: <Zap className="size-5 shrink-0 text-cyan-500" />,
-    url: "/services/cloud-solutions",
-  },
-  {
-    title: "Migration / Transformation",
+    title: "Cloud Migration and Transformation",
     description: "Migrate or transform your current architecture to be better.",
     icon: <Zap className="size-5 shrink-0 text-cyan-500" />,
     url: "/services/cloud-migration-transformation",
@@ -129,7 +116,8 @@ const SideNavbar = () => {
 
 const TopNavbar = () => {
   return (
-    <section className=" fixed w-full flex justify-center items-center p-4 dark:border-b-2 shadow-2xl z-50 border-primary dark:border-primary  bg-opacity-10 backdrop-filter backdrop-blur-lg  border-opacity-20">
+
+    <section className="w-full fixed top-0 left-1/2 transform -translate-x-1/2 lg:top-5 lg:w-[80%] lg:rounded-full lg:border flex justify-center items-center p-4 shadow-2xl z-50 border-primary dark:border-primary bg-opacity-10 backdrop-filter backdrop-blur-lg border-opacity-20">
       <div className="container">
         <nav className="hidden md:flex gap-2 items-center justify-center">
           <CustomLink href="/">
@@ -211,7 +199,7 @@ const TopNavbar = () => {
           </NavigationMenu>
 
           <ModeToggle />
-          <UserAvatar/>
+          <UserAvatar />
         </nav>
         <div className="flex gap-2 justify-between md:hidden">
           <SideNavbar />

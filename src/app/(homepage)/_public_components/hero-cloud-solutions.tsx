@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import BorderCool from "@/components/border-cool";
+// import BorderCool from "@/components/border-cool";
 import picture from '@/service_images/aws-solutions.png'
 import Balancer from "react-wrap-balancer";
 
@@ -32,7 +32,7 @@ const HeroCloudSolutions = ({showReadMore}:{showReadMore:boolean}) => {
               </Button>}
             </div>
           </div>
-          <BorderCool>
+          {/* <BorderCool> */}
           <Image
             height={1000}
             width={1000}
@@ -40,7 +40,7 @@ const HeroCloudSolutions = ({showReadMore}:{showReadMore:boolean}) => {
             alt="placeholder HeroCloudSolutions"
             className="w-full rounded-md object-cover"
           />
-          </BorderCool>
+          {/* </BorderCool> */}
         </div>
       </div>
     </section>

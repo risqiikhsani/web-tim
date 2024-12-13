@@ -25,7 +25,7 @@ export default function page() {
         </AlertDescription>
       </Alert>
       <Hero />
-      <HeroAwsPartner/>
+      <HeroAwsPartner showMasterLogo={false}/>
       <Pictures/>
       {/* <Hero2 /> */}
       <Questions />

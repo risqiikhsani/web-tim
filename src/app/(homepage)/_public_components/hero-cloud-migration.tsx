@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import BorderCool from "@/components/border-cool";
+// import BorderCool from "@/components/border-cool";
 import picture from '@/service_images/aws-migration.png'
 import Balancer from "react-wrap-balancer";
 
@@ -14,7 +14,7 @@ const HeroCloudMigration = ({showReadMore}:{showReadMore:boolean}) => {
       <div className="container">
         <div className="grid items-center lg:grid-cols-2 gap-10">
           {/* Move the Image to the first column */}
-          <BorderCool>
+          {/* <BorderCool> */}
           <Image
             height={1000}
             width={1000}
@@ -22,7 +22,7 @@ const HeroCloudMigration = ({showReadMore}:{showReadMore:boolean}) => {
             alt="image"
             className="w-full rounded-md object-cover"
           />
-          </BorderCool>
+          {/* </BorderCool> */}
           {/* Text content remains in the second column */}
           <div className="flex flex-col items-center text-center lg:items-end lg:text-right">
             <Badge variant="outline">
@@ -30,7 +30,7 @@ const HeroCloudMigration = ({showReadMore}:{showReadMore:boolean}) => {
               <ArrowDownRight className="ml-2 size-4" />
             </Badge>
             <h1 className="my-6 text-pretty text-4xl font-bold lg:text-6xl">
-              Cloud Migration / Transformation
+              Cloud Migration and Transformation
             </h1>
             <p className="mb-8 max-w-xl text-muted-foreground lg:text-xl">
               <Balancer>
@@ -39,7 +39,7 @@ const HeroCloudMigration = ({showReadMore}:{showReadMore:boolean}) => {
             </p>
             <div className="">
               {showReadMore && <Button className="w-full sm:w-auto" asChild>
-                <Link href="#readmore">Read more</Link>
+                <Link href="/services/cloud-migration-transformation">Read more</Link>
               </Button>}
             </div>
           </div>

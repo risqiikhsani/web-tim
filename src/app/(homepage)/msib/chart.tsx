@@ -1,69 +1,91 @@
-"use client";
+"use client"
+
+import { TrendingUp } from "lucide-react"
+import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 
 import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
-  CardTitle
-} from "@/components/ui/card";
+  CardTitle,
+} from "@/components/ui/card"
 import {
   ChartConfig,
   ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart";
-import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
-
+} from "@/components/ui/chart"
 const chartData = [
-  { batch: "Batch1", SolutionArchitect: 46, DataAnalyst: 45 },
-  { batch: "Batch2", SolutionArchitect: 45, DataAnalyst:  42 },
-  { batch: "Batch3", SolutionArchitect: 47, DataAnalyst:  45 },
-  { batch: "Batch4", SolutionArchitect: 43, DataAnalyst:  41 },
-  { batch: "Batch5", SolutionArchitect: 49, DataAnalyst:  43 },
-  { batch: "Batch6", SolutionArchitect: 44, DataAnalyst:  50 },
+  { month: "January", desktop: 186 },
+  { month: "February", desktop: 305 },
+  { month: "March", desktop: 237 },
+  { month: "April", desktop: 73 },
+  { month: "May", desktop: 209 },
+  { month: "June", desktop: 214 },
 ]
 
 const chartConfig = {
-  SolutionArchitect: {
-    label: "SolutionArchitect",
-    color: "#2563eb",
+  desktop: {
+    label: "Desktop",
+    color: "hsl(var(--chart-1))",
   },
-  DataAnalyst: {
-    label: "DataAnalyst",
-    color: "#60a5fa",
-  },
-} satisfies ChartConfig;
+} satisfies ChartConfig
 
 export default function Chart() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Total Students</CardTitle>
+        <CardTitle>Area Chart</CardTitle>
         <CardDescription>
-          Total students joined our MSIB program.
+          Showing total visitors for the last 6 months
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="min-h-[100px] w-full">
-          <BarChart accessibilityLayer data={chartData}>
+        <ChartContainer config={chartConfig}>
+          <AreaChart
+            accessibilityLayer
+            data={chartData}
+            margin={{
+              left: 12,
+              right: 12,
+            }}
+          >
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="batch"
+              dataKey="month"
               tickLine={false}
-              tickMargin={10}
               axisLine={false}
+              tickMargin={8}
               tickFormatter={(value) => value.slice(0, 3)}
             />
-            <ChartTooltip content={<ChartTooltipContent />} />
-            <ChartLegend content={<ChartLegendContent />} />
-            <Bar dataKey="SolutionArchitect" fill="var(--color-SolutionArchitect)" radius={4} />
-            <Bar dataKey="DataAnalyst" fill="var(--color-DataAnalyst)" radius={4} />
-          </BarChart>
+            <ChartTooltip
+              cursor={false}
+              content={<ChartTooltipContent indicator="line" />}
+            />
+            <Area
+              dataKey="desktop"
+              type="natural"
+              fill="var(--color-desktop)"
+              fillOpacity={0.4}
+              stroke="var(--color-desktop)"
+            />
+          </AreaChart>
         </ChartContainer>
       </CardContent>
+      <CardFooter>
+        <div className="flex w-full items-start gap-2 text-sm">
+          <div className="grid gap-2">
+            <div className="flex items-center gap-2 font-medium leading-none">
+              Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+            </div>
+            <div className="flex items-center gap-2 leading-none text-muted-foreground">
+              January - June 2024
+            </div>
+          </div>
+        </div>
+      </CardFooter>
     </Card>
-  );
+  )
 }

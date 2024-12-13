@@ -7,19 +7,15 @@ type FeatureText = {
 
 export const featureText: FeatureText[] = [
   {
-    title: "Cloud Consulting",
+    title: "Consulting and Solutions",
     description:"AWS Cloud Consulting, Education, and Management Made Easy.",
   },
   {
-    title: "Cloud Solution",
-    description:"Complete AWS Solutions: From Training to Cloud Optimization.",
-  },
-  {
-    title: "Migrations",
+    title: "Migrations and Transformation",
     description:"We help customers migrating to fully AWS faster.",
   },
   {
-    title: "Education",
+    title: "Education / Training",
     description:"Master the Cloud with AWS Experts: Training and Certifications Tailored for You.",
   },
 ];

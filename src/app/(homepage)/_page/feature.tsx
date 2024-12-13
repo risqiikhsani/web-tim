@@ -13,7 +13,7 @@ const Feature = () => {
           <H3>
             <Balancer>
               Grow together with{" "}
-              <span className="text-orange-600">TIMCorp</span>
+              <span className="text-primary">TIMCorp</span>
             </Balancer>
           </H3>
           <H4 className="">
@@ -23,10 +23,10 @@ const Feature = () => {
             </Balancer>
           </H4>
 
-          <div className="mt-6 grid gap-6 md:mt-12 md:grid-cols-2 md:p-20">
+          <div className="mt-6 grid gap-6 md:mt-12 md:grid-cols-3 md:p-20">
             {featureText.map(({ title, description }, index) => (
               <div
-                className="flex flex-col gap-4 border-solid border border-blue-400 p-4 shadow-2xl rounded-xl bg-white dark:bg-black"
+                className="flex flex-col gap-4 p-4 shadow-2xl rounded-xl bg-white dark:bg-black"
                 key={index}
               >
 

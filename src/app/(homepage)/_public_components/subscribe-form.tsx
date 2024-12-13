@@ -64,7 +64,7 @@ export function SubscribeForm() {
 
       <div className="flex flex-col items-center gap-6">
         <H2 className="!my-0">
-          Subscribe to <span className="text-orange-400">TIMCorp</span>
+          Subscribe to <span className="text-primary">TIMCorp</span>
         </H2>
         <P className="text-lg opacity-70 md:text-2xl">
           <Balancer>Get our up-to-date news and offers.</Balancer>
