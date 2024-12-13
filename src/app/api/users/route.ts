@@ -1,3 +1,6 @@
+import { queryByType } from "@/lib/functions";
+
 export async function GET(){
-    return Response.json("User")
+    const response = await queryByType("user")
+    return Response.json(response)
 }

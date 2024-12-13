@@ -10,24 +10,32 @@ import { Button } from "@/components/ui/button";
 // Asset imports
 import BorderGradient from "@/components/border-gradient";
 import { H1, H3 } from "@/components/typography/Typography";
-import Logo2 from "@/logo/awspartner.png";
-import Logo3 from "@/logo/awspartner2.png";
 import Logo from "@/logo/timcorp.png";
 
-const HeroAwsPartner = () => {
+import partner1 from "@/logo/partner1.png";
+import partner2 from "@/logo/partner2.png";
+import partner3 from "@/logo/partner3.png";
+
+const HeroAwsPartner = ({
+  showMasterLogo = true,
+}: {
+  showMasterLogo: boolean;
+}) => {
   return (
     <div className="flex flex-col gap-10 py-10">
       <div className="flex flex-col items-center text-center gap-6">
-        <Image
-          src={Logo}
-          width={172}
-          height={72}
-          alt="Company Logo"
-          className="not-prose mb-6 md:mb-8"
-        />
-        <H1 className="animate-ping-soft">
+        {showMasterLogo && (
+          <Image
+            src={Logo}
+            width={172}
+            height={72}
+            alt="Company Logo"
+            className="not-prose mb-6 md:mb-8"
+          />
+        )}
+        <H1 className="">
           Unlock the Power of the{" "}
-          <span className="text-orange-500 ">AWS Cloud</span>
+          <span className="text-primary">AWS Cloud</span>
         </H1>
         <H3 className="text-muted-foreground">
           Your Trusted Partner in{" "}
@@ -36,12 +44,12 @@ const HeroAwsPartner = () => {
         </H3>
       </div>
 
-      <div className="flex flex-col items-center text-center bg-[url('/images/subtle-prism.svg')] dark:invert rounded-md p-10">
+      <div className="flex flex-col items-center text-center bg-[url('/backgrounds/subtle-prism-cyan.svg')] rounded-md p-10">
         <div className="flex md:flex-row flex-col gap-2 justify-center items-center">
           <div className="animate-in slide-in-from-top duration-1000">
             <BorderGradient>
               <Image
-                src={Logo2}
+                src={partner1}
                 width={600}
                 height={600}
                 alt="Company Logo"
@@ -52,7 +60,18 @@ const HeroAwsPartner = () => {
           <div className="animate-in slide-in-from-left duration-1000">
             <BorderGradient>
               <Image
-                src={Logo3}
+                src={partner2}
+                width={600}
+                height={600}
+                alt="Company Logo"
+                className="not-prose dark:invert rounded-lg "
+              />
+            </BorderGradient>
+          </div>
+          <div className="animate-in slide-in-from-left duration-1000">
+            <BorderGradient>
+              <Image
+                src={partner3}
                 width={600}
                 height={600}
                 alt="Company Logo"

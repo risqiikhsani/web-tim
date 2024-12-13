@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import BorderCool from "@/components/border-cool";
+// import BorderCool from "@/components/border-cool";
 import picture from '@/service_images/aws-training.png'
 import Balancer from "react-wrap-balancer";
 
@@ -28,11 +28,11 @@ const HeroEducation = ({showReadMore}:{showReadMore:boolean}) => {
             </p>
             <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
               {showReadMore && <Button className="w-full sm:w-auto" asChild>
-                <Link href="/msib#readmore">Read more</Link>
+                <Link href="/services/education">Read more</Link>
               </Button>}
             </div>
           </div>
-          <BorderCool>
+          {/* <BorderCool> */}
           <Image
             height={1000}
             width={1000}
@@ -40,7 +40,7 @@ const HeroEducation = ({showReadMore}:{showReadMore:boolean}) => {
             alt="placeholder HeroEducation"
             className="w-full rounded-md object-cover"
           />
-          </BorderCool>
+          {/* </BorderCool> */}
         </div>
       </div>
     </section>

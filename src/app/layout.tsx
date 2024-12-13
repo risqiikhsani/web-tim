@@ -5,15 +5,15 @@ import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import Footer from "./(homepage)/_page/footer";
-import "./globals.css"
-import { Analytics } from "@vercel/analytics/react"
+import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   // title: {
   //   default: "TIMCorp",
   //   template: "%s | Your Brand",
   // },
-  title:"TIMCorp website",
+  title: "TIMCorp website",
   description: "The cloud consulting company.",
   icons: {
     icon: "/favicon.ico",
@@ -49,7 +49,7 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           // defaultTheme="system"
           // enableSystem
           disableTransitionOnChange
@@ -57,7 +57,7 @@ export default function RootLayout({
           <div className="flex flex-col">
             <TopNavbar />
 
-            <main className="container mx-auto py-24 px-2">{children}</main>
+            <main className="container mx-auto py-28 px-2">{children}</main>
             <Analytics />
             <Footer />
 

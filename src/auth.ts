@@ -140,7 +140,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
               id: userEmail,
               name: user.name,
               picture: user.image,
-              role:user.role
+              role:user.role,
+              createdAt: new Date().toISOString()
             }
             
             await CreateItem(data)

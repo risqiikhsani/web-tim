@@ -3,26 +3,19 @@ import { P } from '@/components/typography/Typography';
 import { Button } from '@/components/ui/button';
 import { Zap } from 'lucide-react';
 import Link from 'next/link';
+import Balancer from 'react-wrap-balancer';
 
 const feature = [
     {
-      title: 'Cloud Consulting',
+      title: 'Consulting and Solutions',
       description:
-        'Leverage our expertise to craft a tailored AWS strategy. We provide in-depth analysis, architectural guidance, and best practices to align your cloud environment with business goals.',
+        'We provide in-depth analysis, architectural guidance, and best practices to align your cloud environment with business goals to enhance scalability, optimize performance, and reduce costs..',
       icon: <Zap className="size-6" />,
       button:'Learn more',
       link:'cloud-consulting'
     },
     {
-      title: 'Cloud Solutions',
-      description:
-        'Transform your business with cutting-edge AWS solutions designed to enhance scalability, optimize performance, and reduce costs. From infrastructure setup to advanced integrations, we’ve got you covered.',
-      icon: <Zap className="size-6" />,
-      button:'Learn more',
-      link:'cloud-solutions'
-    },
-    {
-      title: 'Migration / Transformation',
+      title: 'Migration and Transformation',
       description:
         'Seamlessly migrate and modernize your workloads with our proven AWS migration methodologies. We ensure minimal disruption, improved efficiency, and a smooth transition to the cloud.',
       icon: <Zap className="size-6" />,
@@ -56,22 +49,26 @@ const Services = () => {
             </P>
           </div>
         </div>
-        <div className="mx-auto mt-20 grid max-w-5xl gap-6 md:grid-cols-2">
+        <div className="mx-auto mt-20 grid max-w-5xl gap-6 md:grid-cols-3">
           {feature.map((feature, idx) => (
             <BorderCool key={idx}>
             <div
-              className="flex flex-col justify-between rounded-lg bg-accent p-6 md:min-h-[300px] md:p-8"
+              className="flex flex-col justify-between rounded-lg bg-accent p-6 md:min-h-[400px] md:p-8 text-center"
             >
-              <span className="mb-6 flex size-11 items-center justify-center rounded-full bg-background text-purple-600">
+
+              <div>
+                <div className='flex gap-2'>
+                <span className="mb-6 flex size-11 items-center justify-center rounded-full bg-background text-purple-600">
                 {feature.icon}
               </span>
-              <div>
-                <h3 className="text-lg font-medium md:text-2xl text-primary">
+              <h3 className="text-lg font-medium md:text-2xl text-primary">
                   {feature.title}
                 </h3>
-                <p className="mt-2 text-muted-foreground">
+                </div>
+ 
+                <Balancer className="mt-2 text-muted-foreground">
                   {feature.description}
-                </p>
+                </Balancer>
               </div>
               <Button asChild variant="outline" className='rounded-xl mt-4'>
                 <Link href={`/services/${feature.link}`}>{feature.button}</Link>

@@ -12,13 +12,23 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
-import Link from "next/link";
+import CustomLink from "./custom-link";
 
 // This is sample data.
 const data = {
   navMain: [
     {
-      title: "Publishable",
+      title:"Public",
+      url:"#",
+      items:[
+        {
+          title: "Users",
+          url: "/dashboard/users",
+        },
+      ]
+    },
+    {
+      title: "Admin Only",
       url: "#",
       items: [
         {
@@ -49,20 +59,19 @@ const data = {
       items: [
         {
           title: "Careers",
-          url: "#",
+          url: "/dashboard/careers",
         },
-
         {
           title: "Projects",
-          url: "#",
+          url: "/dashboard/projects",
         },
         {
           title: "Partners",
-          url: "#",
+          url: "/dashboard/partners",
         },
         {
           title: "Consumers",
-          url: "#",
+          url: "/dashboard/consumers",
         },
       ],
     },
@@ -72,15 +81,15 @@ const data = {
       items: [
         {
           title: "TIMCorp LMS",
-          url: "#",
+          url: "https://www.google.com/",
         },
         {
           title: "TIMCorp AI",
-          url: "#",
+          url: "https://www.google.com/",
         },
         {
           title: "TIMCorp Analytics",
-          url: "#",
+          url: "https://www.google.com/",
         },
       ],
     },
@@ -105,7 +114,7 @@ export default function AppSidebar({
                 {item.items.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild>
-                      <Link href={item.url}>{item.title}</Link>
+                      <CustomLink href={item.url}>{item.title}</CustomLink>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}

@@ -15,6 +15,7 @@ import Image from "next/image";
 import HeroAwsPartner from "../_public_components/hero-aws-partner";
 import Services from "../_public_components/services";
 import office from '@/images/office.png'
+import HeroAwsPartner2 from "../_public_components/hero-aws-partner-2";
 const reasons = [
   {
     title: "Quality",
@@ -98,7 +99,8 @@ const Page = () => {
           </div>
         </div>
       </section>
-      <HeroAwsPartner/>
+      <HeroAwsPartner showMasterLogo={false}/>
+      <HeroAwsPartner2/>
       <Services/>
       <section className="py-10">
         <div className="container">

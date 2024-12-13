@@ -1,14 +1,18 @@
 import HeroCloudMigration from "@/app/(homepage)/_public_components/hero-cloud-migration";
 
 import CoolHero from "@/app/(homepage)/_public_components/cool-hero";
-import CtaOffer from "@/app/(homepage)/_public_components/cta-offer";
 import Quote from "@/app/(homepage)/_public_components/quote";
 import Waf from "@/app/(homepage)/_public_components/waf";
 import BorderGradient from "@/components/border-gradient";
 import { H1, H4 } from "@/components/typography/Typography";
 import { FaqsType, FeatureType } from "@/types/types";
+import Contact from "../../_public_components/contact";
+import CtaUniqueStrength from "../../_public_components/cta-unique-strength";
 import Feature from "../../_public_components/feature";
+import HeroAwsPartner from "../../_public_components/hero-aws-partner";
 import Qna from "../../_public_components/qna";
+import HeroAwsPartner2 from "../../_public_components/hero-aws-partner-2";
+import CTA from "../../_public_components/cta";
 
 const faqs: FaqsType[] = [
   {
@@ -45,9 +49,9 @@ const features: FeatureType[] = [
       "Leverage serverless technologies to optimize costs and increase efficiency. Build highly scalable applications without managing infrastructure.",
   },
   {
-    title: "AWS Kubernetes (EKS) Enablement",
+    title: "AWS Kubernetes Enablement",
     description:
-      "Adopt container orchestration seamlessly with AWS EKS. MergingHUB ensures your Kubernetes deployments are secure, scalable, and production-ready.",
+      "Adopt container orchestration seamlessly with AWS EKS / ECS. MergingHUB ensures your Kubernetes deployments are secure, scalable, and production-ready.",
   },
   {
     title: "Legacy Modernization",
@@ -91,7 +95,7 @@ export default function page() {
       <HeroCloudMigration showReadMore={false} />
       <Qna faqs={faqs} />
       <H1 className="text-center">Enterprise Solutions </H1>
-      <div className="flex flex-wrap flex-col md:flex-row justify-center items-center my-10 gap-10">
+      <div className="grid md:grid-cols-5 grid-cols-2 justify-items-center my-10 gap-10">
         {enterprise_solutions.map((a, i) => (
           <BorderGradient key={i}>
             <H4>{a}</H4>
@@ -100,8 +104,12 @@ export default function page() {
       </div>
       <Feature features={features} />
       <Waf />
+      <HeroAwsPartner showMasterLogo={false}/>
+      <HeroAwsPartner2/>
+      <CtaUniqueStrength/>  
       <Quote />
-      <CtaOffer offer="Ready to move to AWS? Let us handle your migration with zero disruptions. Contact us now!" />
+      <CTA/>
+      <Contact/>
     </div>
   );
 }
