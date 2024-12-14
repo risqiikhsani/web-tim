@@ -17,7 +17,7 @@ export default function CustomLink({
   const isActive = pathname === href;
 
   return (
-    <Link href={href} className={`${className} ${isActive ? "text-primary font-extrabold" : ""}`.trim()} {...props}>
+    <Link href={href} className={`${className} ${isActive ? "text-primary font-bold" : ""}`.trim()} {...props}>
       {children}
     </Link>
   );

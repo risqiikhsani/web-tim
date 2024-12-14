@@ -1,20 +1,20 @@
 import Image from "next/image";
 
-import logo1 from '@/aws_services_logo/Arch_AWS-Amplify_64.svg'
-import logo2 from '@/aws_services_logo/Arch_AWS-Fargate_64.svg'
-import logo3 from '@/aws_services_logo/Arch_AWS-Lambda_64.svg'
-import logo4 from '@/aws_services_logo/Arch_Amazon-API-Gateway_64.svg'
-import logo5 from '@/aws_services_logo/Arch_Amazon-Aurora_64.svg'
-import logo6 from '@/aws_services_logo/Arch_Amazon-Bedrock_64.svg'
-import logo7 from '@/aws_services_logo/Arch_Amazon-CloudFront_64.svg'
-import logo8 from '@/aws_services_logo/Arch_Amazon-DynamoDB_64.svg'
-import logo9 from '@/aws_services_logo/Arch_Amazon-EC2_64.svg'
-import logo10 from '@/aws_services_logo/Arch_Amazon-ECS-Anywhere_64.svg'
-import logo11 from '@/aws_services_logo/Arch_Amazon-EKS-Cloud_64.svg'
-import logo12 from '@/aws_services_logo/Arch_Amazon-RDS_64.svg'
-import logo13 from '@/aws_services_logo/Arch_Amazon-Route-53_64.svg'
-import logo14 from '@/aws_services_logo/Arch_Amazon-Virtual-Private-Cloud_64.svg'
-import logo15 from '@/aws_services_logo/Arch_Amazon-Simple-Storage-Service_64.svg'
+import logo1 from "@/aws_services_logo/Arch_AWS-Amplify_64.svg";
+import logo2 from "@/aws_services_logo/Arch_AWS-Fargate_64.svg";
+import logo3 from "@/aws_services_logo/Arch_AWS-Lambda_64.svg";
+import logo4 from "@/aws_services_logo/Arch_Amazon-API-Gateway_64.svg";
+import logo5 from "@/aws_services_logo/Arch_Amazon-Aurora_64.svg";
+import logo6 from "@/aws_services_logo/Arch_Amazon-Bedrock_64.svg";
+import logo7 from "@/aws_services_logo/Arch_Amazon-CloudFront_64.svg";
+import logo8 from "@/aws_services_logo/Arch_Amazon-DynamoDB_64.svg";
+import logo9 from "@/aws_services_logo/Arch_Amazon-EC2_64.svg";
+import logo10 from "@/aws_services_logo/Arch_Amazon-ECS-Anywhere_64.svg";
+import logo11 from "@/aws_services_logo/Arch_Amazon-EKS-Cloud_64.svg";
+import logo12 from "@/aws_services_logo/Arch_Amazon-RDS_64.svg";
+import logo13 from "@/aws_services_logo/Arch_Amazon-Route-53_64.svg";
+import logo14 from "@/aws_services_logo/Arch_Amazon-Virtual-Private-Cloud_64.svg";
+import logo15 from "@/aws_services_logo/Arch_Amazon-Simple-Storage-Service_64.svg";
 
 const integrations = [
   [
@@ -26,8 +26,8 @@ const integrations = [
           height={100}
           alt="Integration"
           src={logo1}
-
-className="rounded-md"          />
+          className="rounded-md"
+        />
       ),
     },
     {
@@ -38,8 +38,8 @@ className="rounded-md"          />
           height={100}
           alt="Integration"
           src={logo2}
-
-className="rounded-md"          />
+          className="rounded-md"
+        />
       ),
     },
     {
@@ -50,8 +50,8 @@ className="rounded-md"          />
           height={100}
           alt="Integration"
           src={logo3}
-
-className="rounded-md"          />
+          className="rounded-md"
+        />
       ),
     },
     {
@@ -62,8 +62,8 @@ className="rounded-md"          />
           height={100}
           alt="Integration"
           src={logo4}
-
-className="rounded-md"          />
+          className="rounded-md"
+        />
       ),
     },
     {
@@ -74,8 +74,8 @@ className="rounded-md"          />
           height={100}
           alt="Integration"
           src={logo5}
-
-className="rounded-md"          />
+          className="rounded-md"
+        />
       ),
     },
   ],
@@ -88,8 +88,8 @@ className="rounded-md"          />
           height={100}
           alt="Integration"
           src={logo6}
-
-className="rounded-md"          />
+          className="rounded-md"
+        />
       ),
     },
     {
@@ -100,8 +100,8 @@ className="rounded-md"          />
           height={100}
           alt="Integration"
           src={logo7}
-
-className="rounded-md"          />
+          className="rounded-md"
+        />
       ),
     },
     {
@@ -112,8 +112,8 @@ className="rounded-md"          />
           height={100}
           alt="Integration"
           src={logo8}
-
-className="rounded-md"          />
+          className="rounded-md"
+        />
       ),
     },
     {
@@ -124,8 +124,8 @@ className="rounded-md"          />
           height={100}
           alt="Integration"
           src={logo9}
-
-className="rounded-md"          />
+          className="rounded-md"
+        />
       ),
     },
     {
@@ -205,7 +205,7 @@ className="rounded-md"          />
   ],
 ];
 
-const CoolHero = ({title}:{title:string}) => {
+const CoolHero = ({ title }: { title: string }) => {
   return (
     <div className="relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
@@ -236,10 +236,10 @@ const CoolHero = ({title}:{title:string}) => {
       <div className="relative">
         <div className="absolute left-0 z-10 hidden h-full w-1/2 bg-[linear-gradient(to_right,hsl(var(--background))_85%,transparent_100%)] md:block"></div>
         <div className="md:-space-x-26 container relative flex flex-col items-start md:flex-row md:items-center">
-          <div className="z-20 -mx-[calc(theme(container.padding))] w-[calc(100%+2*theme(container.padding))] shrink-0 bg-background px-[calc(theme(container.padding))] pt-32 md:w-1/2 md:bg-transparent md:pb-32">
+          <div className="z-20 -mx-4 md:-mx-8 w-[calc(100%+2rem)] md:w-1/2 shrink-0 bg-background px-4 md:px-8 pt-32 md:bg-transparent md:pb-32">
             <div className="flex flex-col items-start text-left">
               <div className="max-w-sm">
-                <h1 className="my-6 text-pretty text-4xl font-bold lg:text-6xl pl-2">
+                <h1 className="my-6 text-pretty font-bold text-6xl pl-2 text-center">
                   {title}
                 </h1>
               </div>

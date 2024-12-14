@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   //   default: "TIMCorp",
   //   template: "%s | Your Brand",
   // },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_URL || 'http://localhost:3000'),
   title: "TIMCorp website",
   description: "The cloud consulting company.",
   icons: {
