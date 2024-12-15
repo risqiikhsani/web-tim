@@ -13,6 +13,9 @@ import HeroAwsPartner from "../../_public_components/hero-aws-partner";
 import Qna from "../../_public_components/qna";
 import HeroAwsPartner2 from "../../_public_components/hero-aws-partner-2";
 import CTA from "../../_public_components/cta";
+import Trusted from "../../_public_components/trusted";
+import Partners from "../../_public_components/partners";
+import CustomerFeedback from "../../_public_components/customer-feedback";
 
 const faqs: FaqsType[] = [
   {
@@ -95,6 +98,7 @@ export default function page() {
       <HeroCloudMigration showReadMore={false} />
       <Qna faqs={faqs} />
       <H1 className="text-center">Enterprise Solutions </H1>
+      <H4 className="text-center">We are here to help your business deployed in enterprise architecture that suits your workload</H4>
       <div className="grid md:grid-cols-5 grid-cols-2 justify-items-center my-10 gap-10">
         {enterprise_solutions.map((a, i) => (
           <BorderGradient key={i}>
@@ -108,6 +112,9 @@ export default function page() {
       <HeroAwsPartner2/>
       <CtaUniqueStrength/>  
       <Quote />
+      <Trusted/>
+      <Partners/>
+      <CustomerFeedback/>
       <CTA/>
       <Contact/>
     </div>

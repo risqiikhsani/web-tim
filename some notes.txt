@@ -1,0 +1,3 @@
+dont put check authentication in layout.tsx !
+it will re run the check auth.
+put it in middleware or auth callback

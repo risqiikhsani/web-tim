@@ -3,7 +3,7 @@ import { H1 } from '@/components/typography/Typography'
 const page = () => {
   return (
     <div>
-      <H1>Welcome to admin dashboard</H1>
+      <H1>Welcome to Dashboard</H1>
     </div>
   )
 }

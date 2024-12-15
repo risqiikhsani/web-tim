@@ -13,6 +13,7 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar";
 import CustomLink from "./custom-link";
+import { Folder } from "lucide-react";
 
 // This is sample data.
 const data = {
@@ -100,11 +101,11 @@ export default function AppSidebar({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar {...props} className="py-20 ">
-      <SidebarHeader className="">
+    <Sidebar {...props} className="py-20 dark:bg-slate-900 bg-slate-50">
+      <SidebarHeader className="dark:bg-slate-900 bg-slate-50">
         <p>TIMCorp</p>
       </SidebarHeader>
-      <SidebarContent className="">
+      <SidebarContent className="dark:bg-slate-900 bg-slate-50">
         {/* We create a SidebarGroup for each parent. */}
         {data.navMain.map((item) => (
           <SidebarGroup key={item.title}>
@@ -114,7 +115,7 @@ export default function AppSidebar({
                 {item.items.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild>
-                      <CustomLink href={item.url}>{item.title}</CustomLink>
+                      <CustomLink href={item.url}><Folder/>{item.title}</CustomLink>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}

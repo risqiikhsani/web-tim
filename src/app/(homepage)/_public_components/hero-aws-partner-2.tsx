@@ -15,36 +15,14 @@ const HeroAwsPartner2 = () => {
         </div>
         <div className="mx-auto flex max-w-5xl flex-col items-center">
           <div className="z-10 flex flex-col items-center gap-6 text-center">
-            <div className="flex gap-2">
-            <Image
-              width={100}
-              height={100}
-              src="/logo/timcorp.png"
-              alt="logo"
-              className=""
-            />
-            <Image
-              width={100}
-              height={100}
-              src="/logo/awspartner.png"
-              alt="logo"
-              className=""
-            />
-            <Image
-              width={100}
-              height={100}
-              src="/logo/awspartner3.png"
-              alt="logo"
-              className=""
-            />
-            </div>
             <Badge variant="outline">About</Badge>
             <div>
               <h1 className="mb-6 text-pretty text-2xl font-bold lg:text-5xl">
                 Trusted AWS Partner: TIMCorp Leading Indonesia’s Cloud Evolution
               </h1>
-              <Balancer>
               <Small>
+              <Balancer>
+
                 As an official <span className="font-bold text-primary">Amazon Partner Network (APN)</span> member, <span className="font-bold text-primary">TIM</span> is a
                 trusted provider of AWS solutions across various industries,
                 specializing in the education and government sectors in
@@ -59,8 +37,9 @@ const HeroAwsPartner2 = () => {
                 MergingHUB delivers innovative, future-ready cloud strategies,
                 helping your organization unlock AWS’s full potential with
                 confidence and reliability.
-              </Small>
+
               </Balancer>
+              </Small>
             </div>
             {/* <div className="mt-4 flex justify-center gap-2">
               <Button>Get Started</Button>

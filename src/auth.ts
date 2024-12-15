@@ -3,14 +3,15 @@ import Google from "next-auth/providers/google";
 import { CreateItem, GetItemByKeys } from "./lib/functions";
 
 // https://authjs.dev/reference/core
-// flow = profile (once) -> signin callback (once)-> jwt callback (multiple times) -> session callback (multiple times)
+// flow = profile -> signin callback -> jwt callback -> session callback
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
     Google({
       authorization: {
         params: {
-          scope: "openid profile email https://www.googleapis.com/auth/userinfo.profile"
-        }
+          scope:
+            "openid profile email https://www.googleapis.com/auth/userinfo.profile",
+        },
       },
       // async profile(profile) {
       //   console.info('\x1b[32m%s\x1b[0m',"profile is running")
@@ -31,36 +32,37 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       //     };
       //   }
       // },
-      async profile(profile){
-        console.info('\x1b[32m%s\x1b[0m',"profile is running")
-        console.info("profile",profile)
-        const user = await GetItemByKeys({type:"user",id:profile.email})
-        if(user?.id){
-          console.log("user exists in database, get the role")
+      async profile(profile) {
+        console.info("\x1b[32m%s\x1b[0m", "profile is running");
+        console.info("profile", profile);
+        const user = await GetItemByKeys({ type: "user", id: profile.email });
+        if (user?.id) {
+          console.log("user exists in database, get the role");
           // user exists in database
           // get the role in database
           return {
-            role:user.role || "user",
-            image:profile.picture || profile.avatar_url,
-            new_user:false,
-            ...profile
-          }
-        }else{
-          console.log("user not exist in database, assign new role")
+            role: user.role || "user",
+            image: profile.picture || profile.avatar_url,
+            new_user: false,
+            ...profile,
+          };
+        } else {
+          console.log("user not exist in database, assign new role");
           // user doesn't exist in database
           // assign new role
           return {
-            role:profile.role || "user",
-            image:profile.picture || profile.avatar_url,
-            new_user:true,
-            ...profile
-          }
+            role: profile.role || "user",
+            image: profile.picture || profile.avatar_url,
+            new_user: true,
+            ...profile,
+          };
         }
-      }
-    })],
+      },
+    }),
+  ],
   pages: {
     signIn: "/auth/login",
-  },  
+  },
   // Events are asynchronous functions that do not return a response, they are useful for audit logging.
   // events:{
   //   createUser: (message) => console.info('\x1b[32m%s\x1b[0m',message),
@@ -70,22 +72,50 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   //   signOut: (message) => console.info('\x1b[32m%s\x1b[0m',message),
   //   updateUser: (message) => console.info('\x1b[32m%s\x1b[0m',message)
   // },
-  session:{
+  session: {
     // Relative time from now in seconds when to expire the session
     maxAge: 2592000, // 30 days
     // if using adapter , will default to database
-    strategy:"jwt",
+    strategy: "jwt",
     // how often the session should be updated in second
-    updateAge: 86400 // 1 day 
+    updateAge: 86400, // 1 day
   },
   // https://authjs.dev/reference/core
   // Callbacks are asynchronous functions you can use to control what happens when an action is performed
   callbacks: {
+    // this is for protecting routes , in exchange for middleware.ts
+    // authorized: async ({ auth, request }) => {
+    //   const isLoggedIn = !!auth?.user;
+    //   const pathname = request.nextUrl.pathname;
+
+    //   // handle admin page (admin only)
+    //   const isAdminRoute =
+    //     pathname.startsWith("/dashboard/news") ||
+    //     pathname.startsWith("/dashboard/blogs");
+    //   if (isAdminRoute) {
+    //     return (
+    //       isLoggedIn &&
+    //       (auth.user?.role === "admin" || auth.user?.role === "moderator")
+    //     );
+    //   }
+
+    //   // handle dashboard page (any user)
+    //   const isOnDashboard = pathname.startsWith("/dashboard");
+    //   if (isOnDashboard) {
+    //     return isLoggedIn; // Only authenticated users can access dashboard
+    //   }
+
+    //   return true; // Unauthenticated users can access all other routes
+    // },
     // This jwt callback is called whenever a JSON Web Token is created (i.e. at sign in) or updated (i.e whenever a session is accessed in the client).
     // Anything you return here will be saved in the JWT and forwarded to the session callback
     // The JWT is encrypted by default via your AUTH_SECRET environment variable.
-    async jwt({ token, user,trigger }) {
-      console.info('\x1b[32m%s\x1b[0m',"jwt callback is running, triggered by",trigger)
+    async jwt({ token, user, trigger }) {
+      console.info(
+        "\x1b[32m%s\x1b[0m",
+        "jwt callback is running, triggered by",
+        trigger
+      );
       // params.account Contains information about the provider that was used to sign in.
       // params.profile The OAuth profile returned from your provider.
       // params.session When using AuthConfig.session strategy: "jwt", this is the data sent from the client via the useSession().update method.
@@ -93,7 +123,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       // params.trigger Check why was the jwt callback invoked. signin/signup/update
       // params.user Either the result of the OAuthConfig.profile or the CredentialsConfig.authorize callback. (jwt or database model)
       if (user) {
-         token.role = user.role;
+        token.role = user.role;
       }
       return token;
     },
@@ -101,37 +131,37 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     // the return value will be exposed to the client, so be careful what you return here
     // By default, only a subset (email, name, image) of the token is returned for increased security.
     async session({ session, token }) {
-      console.info('\x1b[32m%s\x1b[0m',"session callback is running")
+      console.info("\x1b[32m%s\x1b[0m", "session callback is running");
       session.user.id = token.sub;
       session.user.role = token.role;
       return session;
     },
     // Controls whether a user is allowed to sign in or not. (true / false)
-    async signIn({user,account }) {
-      console.info('\x1b[32m%s\x1b[0m',"signin callback is running")
+    async signIn({ user, account }) {
+      console.info("\x1b[32m%s\x1b[0m", "signin callback is running");
       // params.credentials? If Credentials provider is used, it contains the user credentials
       // params.account?
       // params.email?
       // params.email.verificationRequest?
       // params.profile?
       // params.user
-      if (account?.provider === 'google') {
-        console.info('\x1b[32m%s\x1b[0m',"Creating or updating user database")
+      if (account?.provider === "google") {
+        console.info("\x1b[32m%s\x1b[0m", "Creating or updating user database");
         try {
           // Null/undefined checks are important
-          const userEmail = user.email
+          const userEmail = user.email;
           if (!userEmail) {
-            console.error('No email found')
-            return false
+            console.error("No email found");
+            return false;
           }
-    
+
           // Check if user exists
           // const keys = {
           //   type: "user",
           //   id: userEmail
           // }
           // const response = await GetItemByKeys(keys)
-    
+
           // If user doesn't exist, create user
           // note : user.new_user was sent by profile() above to check if user exists in db or not, we dont need to fetch db again.
           if (user.new_user) {
@@ -140,14 +170,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
               id: userEmail,
               name: user.name,
               picture: user.image,
-              role:user.role,
-              createdAt: new Date().toISOString()
-            }
-            
-            await CreateItem(data)
-            console.info('\x1b[32m%s\x1b[0m',"User is created.")
-            return true
-          }else{
+              role: user.role,
+              createdAt: new Date().toISOString(),
+            };
+
+            await CreateItem(data);
+            console.info("\x1b[32m%s\x1b[0m", "User is created.");
+            return true;
+          } else {
             // if user exist , update user database based on data from provider
             // const update_data = {
             //   name: user.name || '',
@@ -155,15 +185,15 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             //   role:user.role
             // }
             // await UpdateItem(keys,update_data)
-            console.info('\x1b[32m%s\x1b[0m',"User is already exist in db.")
-            return true
+            console.info("\x1b[32m%s\x1b[0m", "User is already exist in db.");
+            return true;
           }
         } catch (error) {
-          console.error("Error in Google sign-in process", error)
-          return false
+          console.error("Error in Google sign-in process", error);
+          return false;
         }
       }
-      return true
-    }
+      return true;
+    },
   },
 });

@@ -12,6 +12,7 @@ import HeroCloudMigration from "./(homepage)/_public_components/hero-cloud-migra
 import HeroEducation from "./(homepage)/_public_components/hero-education";
 import Trusted from "./(homepage)/_public_components/trusted";
 import HeroAwsPartner2 from "./(homepage)/_public_components/hero-aws-partner-2";
+import Partners from "./(homepage)/_public_components/partners";
 
 export default function page() {
   return (
@@ -45,6 +46,8 @@ export default function page() {
       </Transition>
 
       <Trusted />
+
+      <Partners/>
 
       <CustomerFeedback />
 
