@@ -43,6 +43,6 @@ export default auth((req) => {
 
 export const config = {
   matcher: [
-    "/((?!api|_next/static|_next/image|favicon.ico|images/|logo/|msib_images/|profile/|service_images/|aws_services_logo/|public/).*)",
+    "/((?!api|_next/static|_next/image|favicon.ico|images/|logo/|msib_images/|profile/|service_images/|aws_services_logo/|public/|partners/|consumers/).*)",
   ],
 };

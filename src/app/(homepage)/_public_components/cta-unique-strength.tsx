@@ -21,51 +21,59 @@ const CtaUniqueStrength = () => {
                 <div className="flex text-primary">
                 <Check className="mr-4 size-5" />
                 Extensive Network</div>
+                <Small>
                 <Balancer>
-                  <Small>
+                  
                     Since 2010, we have established strong connections within
                     both the government and private sectors, enabling us to
                     provide tailored solutions that meet specific organizational
                     needs and regulatory requirements.
-                  </Small>
+                  
                 </Balancer>
+                </Small>
               </li>
               <li className="flex flex-col">
                 <div className="flex text-primary">
                 <Check className="mr-4 size-5" />
                 Proven Track Record</div>
+                <Small>
                 <Balancer>
-                  <Small>
+                  
                     As a company, TIMCorp has facilitated numerous successful
                     cloud transitions across public institutions and
                     enterprises, significantly enhancing operational efficiency
                     and reducing costs.
-                  </Small>
+                  
                 </Balancer>
+                </Small>
               </li>
               <li className="flex flex-col">
                 <div className="flex text-primary">
                 <Check className="mr-4 size-5" />
                 End to end Cloud Support</div>
+                <Small>
                 <Balancer>
-                  <Small>
+                  
                     From initial design to deployment and ongoing management, we
                     offer continuous support for every stage of your cloud
                     journey.
-                  </Small>{" "}
+                  {" "}
                 </Balancer>
+                </Small>
               </li>
               <li className="flex flex-col">
                 <div className="flex text-primary">
                 <Check className="mr-4 size-5" />
                 Innovative, Future-Ready Solutions</div>
+                <Small>
                 <Balancer>
-                  <Small>
+                  
                     We incorporate the latest AWS technologies and innovations
                     to keep your cloud environment at the forefront of the
                     industry.
-                  </Small>
+                  
                 </Balancer>
+                </Small>
               </li>
             </ul>
           </div>

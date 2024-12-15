@@ -8,58 +8,91 @@ import {
   CarouselItem,
 } from '@/components/ui/carousel';
 import Image from 'next/image';
+import { H1 } from '@/components/typography/Typography';
 
 const logos = [
   {
-    id: 'logo-1',
-    description: 'Logo 1',
-    image: 'https://www.shadcnblocks.com/images/block/logos/astro.svg',
+    name:"aha",
+    image: '/consumers/aha.png',
   },
   {
-    id: 'logo-2',
-    description: 'Logo 2',
-    image: 'https://www.shadcnblocks.com/images/block/logos/figma.svg',
+    name:"airlangga",
+    image: '/consumers/airlangga.png',
   },
   {
-    id: 'logo-3',
-    description: 'Logo 3',
-    image: 'https://www.shadcnblocks.com/images/block/logos/nextjs.svg',
+    name:"del",
+    image: '/consumers/del.png',
   },
   {
-    id: 'logo-4',
-    description: 'Logo 4',
-    image: 'https://www.shadcnblocks.com/images/block/logos/react.png',
+    name:"gunadarma",
+    image: '/consumers/gunadarma.png',
   },
   {
-    id: 'logo-5',
-    description: 'Logo 5',
-    image: 'https://www.shadcnblocks.com/images/block/logos/shadcn-ui.svg',
+    name:"indosat",
+    image: '/consumers/indosat.png',
   },
   {
-    id: 'logo-6',
-    description: 'Logo 6',
-    image: 'https://www.shadcnblocks.com/images/block/logos/supabase.svg',
+    name:"ksw",
+    image: '/consumers/ksw.png',
   },
   {
-    id: 'logo-7',
-    description: 'Logo 7',
-    image: 'https://www.shadcnblocks.com/images/block/logos/tailwind.svg',
+    name:"ombudsman",
+    image: '/consumers/ombudsman.jpg',
   },
   {
-    id: 'logo-8',
-    description: 'Logo 8',
-    image: 'https://www.shadcnblocks.com/images/block/logos/vercel.svg',
+    name:"pnj",
+    image: '/consumers/pnj.jpg',
+  },
+  {
+    name:"pnl",
+    image: '/consumers/pnl.png',
+  },
+  {
+    name:"sbpm",
+    image: '/consumers/sbpm.png',
+  },
+  {
+    name:"siwijaya",
+    image: '/consumers/siwijaya.png',
+  },
+  {
+    name:"sttnf",
+    image: '/consumers/sttnf.png',
+  },
+  {
+    name:"telkomakses",
+    image: '/consumers/telkomakses.webp',
+  },
+  {
+    name:"telkomsel",
+    image: '/consumers/telkomsel.jpg',
+  },
+  {
+    name:"udayana",
+    image: '/consumers/udayana.png',
+  },
+  {
+    name:"ugm",
+    image: '/consumers/ugm.png',
+  },
+  {
+    name:"umy",
+    image: '/consumers/umy.png',
+  },
+  {
+    name:"unesa",
+    image: '/consumers/unesa.jpg',
   },
 ];
 
 const Trusted = () => {
   return (
-    <section className="py-16 sm:py-24 md:py-32">
+    <section className="py-10">
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-pretty max-w-2xl">
-            Partners
-          </h1>
+          <H1 className="capitalize">
+            Company worked with us
+          </H1>
         </div>
         <div className="mt-8 sm:mt-12 md:mt-16">
           <div className="relative">
@@ -74,18 +107,18 @@ const Trusted = () => {
               })]}
             >
               <CarouselContent className="ml-0 -mx-2 sm:-mx-4 dark:invert">
-                {logos.map((logo) => (
+                {logos.map((logo,index) => (
                   <CarouselItem
-                    key={logo.id}
+                    key={index}
                     className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/6 pl-2 sm:pl-4 pr-2 sm:pr-4"
                   >
                     <div className="flex items-center justify-center">
                       <Image
-                        height={100}
-                        width={100}
+                        height={400}
+                        width={400}
                         src={logo.image}
-                        alt={logo.description}
-                        className="h-6 sm:h-8 w-auto max-w-[120px] opacity-70 hover:opacity-100 transition-opacity"
+                        alt={logo.name}
+                        className="w-auto max-w-[120px]  transition-opacity"
                       />
                     </div>
                   </CarouselItem>
