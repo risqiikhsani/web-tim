@@ -1,13 +1,13 @@
 import { H1, H3, P } from '@/components/typography/Typography'
 import React from 'react'
 import HeroAwsPartner from '../_public_components/hero-aws-partner'
-import MapboxLocationViewer from '../_public_components/map'
 import Contact from '../_public_components/contact'
 
 import Image from 'next/image'
 import office from '@/images/office.png'
 import CTA from '../_public_components/cta'
 import HeroAwsPartner2 from '../_public_components/hero-aws-partner-2'
+import GoogleMap from '../_public_components/google-map'
 
 export default function page() {
   return (
@@ -18,7 +18,7 @@ export default function page() {
       <Image width={500} height={500} alt='office' src={office} className='rounded-xl shadow-md mx-auto'/>
       <HeroAwsPartner showMasterLogo={false}/>
       <HeroAwsPartner2/>
-      <MapboxLocationViewer latitude={-6.259741690596165} longitude={106.78175217951646}/>
+      <GoogleMap/>
       <CTA/>
       <Contact/>
     </div>

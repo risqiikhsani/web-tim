@@ -37,7 +37,7 @@ const logos = [
   },
   {
     name:"ombudsman",
-    image: '/consumers/ombudsman.jpg',
+    image: '/consumers/ombudsman.png',
   },
   {
     name:"pnj",

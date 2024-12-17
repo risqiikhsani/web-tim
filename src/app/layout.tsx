@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import Footer from "./(homepage)/_page/footer";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
+import ChatBotButton from "@/components/chat-bot-button";
 
 export const metadata: Metadata = {
   // title: {
@@ -58,10 +59,10 @@ export default function RootLayout({
           <div className="flex flex-col">
             <TopNavbar />
 
-            <main className="container mx-auto py-28 px-2">{children}</main>
+            <main className="container mx-auto py-28 px-2 md:px-0 max-w-7xl">{children}</main>
             <Analytics />
             <Footer />
-
+            <ChatBotButton/>
             <Toaster />
           </div>
         </ThemeProvider>
