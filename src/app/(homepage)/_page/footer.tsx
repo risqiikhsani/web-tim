@@ -11,7 +11,6 @@ const sections = [
     title: "Services",
     links: [
       { name: "Cloud Consulting", href: "/services/cloud-consulting" },
-      { name: "Cloud Solutions", href: "/services/cloud-solutions" },
       {
         name: "Cloud Migration",
         href: "/services/cloud-migration-transformation",
@@ -33,7 +32,7 @@ const sections = [
 
 const Footer = () => {
   return (
-    <footer className="p-4 w-full">
+    <footer className="p-4 w-full bg-gradient-to-r from-cyan-800 to-[#0a3466] text-white dark:from-slate-800 dark:to-slate-950">
       <div className="container mx-auto flex flex-col items-center justify-between gap-10 text-center lg:flex-row lg:text-left">
         <div className="flex w-full max-w-96 shrink flex-col items-center justify-between gap-6 lg:items-start">
           <div>
@@ -47,11 +46,11 @@ const Footer = () => {
               />
               <P className="font-semibold">PT Techno International Mandira</P>
             </span>
-            <p className="mt-6 text-sm text-muted-foreground">
+            <p className="mt-6 text-sm text-white">
               Cloud consulting and training company.
             </p>
           </div>
-          <ul className="flex items-center space-x-6 text-muted-foreground">
+          <ul className="flex items-center space-x-6 text-primary">
             <li className="font-medium hover:text-primary">
               <Link
                 href="https://www.instagram.com/timcorp.academy/"
@@ -91,7 +90,7 @@ const Footer = () => {
               <h3 className="mb-6 font-bold">{section.title}</h3>
               <ul className="space-y-4 text-sm text-muted-foreground">
                 {section.links.map((link, linkIdx) => (
-                  <li key={linkIdx} className="font-medium hover:text-primary">
+                  <li key={linkIdx} className="font-medium hover:text-primary text-white">
                     <Link href={link.href}>{link.name}</Link>
                   </li>
                 ))}
@@ -100,7 +99,7 @@ const Footer = () => {
           ))}
         </div>
       </div>
-      <div className="mt-20 flex flex-col justify-between gap-4 border-t pt-8 text-center text-sm font-medium text-muted-foreground lg:flex-row lg:items-center lg:text-left">
+      <div className="mt-20 flex flex-col justify-between gap-4 border-t pt-8 text-center text-sm font-medium text-white lg:flex-row lg:items-center lg:text-left">
         <p>© TIMCorp 2024, All rights reserved.</p>
         <ul className="flex justify-center gap-4 lg:justify-start">
           <li className="hover:text-primary">
